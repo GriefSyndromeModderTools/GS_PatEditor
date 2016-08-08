@@ -179,5 +179,22 @@ namespace GS_PatEditor.Editor.Panels
                 return _Control == null ? 100 : _Control.Parent.ClientSize.Height;
             }
         }
+
+        public event Action<int, int> AccurateMove;
+        public void InvokeAccurateMove(int dx, int dy)
+        {
+            if (AccurateMove != null)
+            {
+                AccurateMove(dx, dy);
+            }
+        }
+        public event Action<ShortcutEventType> ShortcutEvent;
+        public void InvokeShortcutEvent(ShortcutEventType type)
+        {
+            if (ShortcutEvent != null)
+            {
+                ShortcutEvent(type);
+            }
+        }
     }
 }

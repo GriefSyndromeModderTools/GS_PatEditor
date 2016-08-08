@@ -53,6 +53,14 @@ namespace GS_PatEditor.Editor.Panels.Tools.Physical
             _Control.MouseMove += _Control_MouseMove;
             _Control.MouseDown += _Control_MouseDown;
             _Control.MouseUp += _Control_MouseUp;
+
+            editor.PreviewWindowUI.ShortcutEvent += delegate(ShortcutEventType type)
+            {
+                if (CheckFilter())
+                {
+                    this.ShortcutEvent(type);
+                }
+            };
         }
 
         private void _Control_MouseUp(object sender, MouseEventArgs e)
@@ -271,10 +279,10 @@ namespace GS_PatEditor.Editor.Panels.Tools.Physical
             {
                 frame.PhysicalBox = new Pat.PhysicalBox
                 {
-                    X = -10,
-                    Y = -10,
-                    H = 20,
-                    W = 20,
+                    X = -20,
+                    Y = -90,
+                    W = 40,
+                    H = 90,
                 };
             }
         }

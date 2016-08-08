@@ -42,6 +42,10 @@ namespace GS_PatEditor.Editor.Panels.Tools
             _LastY = y;
         }
 
+        public bool IsMoving { get { return _IsButtonDown; } }
+
+        public bool Enabled { get { return CheckFilter(); } }
+
         private void Update()
         {
             if (OnMoved != null)

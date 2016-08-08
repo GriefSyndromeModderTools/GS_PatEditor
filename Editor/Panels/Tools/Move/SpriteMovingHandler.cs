@@ -33,6 +33,19 @@ namespace GS_PatEditor.Editor.Panels.Tools.Move
                 SpriteMovingX = 0;
                 SpriteMovingY = 0;
             };
+            window.AccurateMove += delegate(int dx, int dy)
+            {
+                if (move.IsMoving || !move.Enabled)
+                {
+                    return;
+                }
+                var frame = editor.CurrentFrame;
+                if (frame != null)
+                {
+                    frame.OriginX -= dx;
+                    frame.OriginY -= dy;
+                }
+            };
         }
 
         public int OffsetX

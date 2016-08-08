@@ -629,7 +629,7 @@
             // newPhysicalToolStripMenuItem
             // 
             this.newPhysicalToolStripMenuItem.Name = "newPhysicalToolStripMenuItem";
-            this.newPhysicalToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.newPhysicalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newPhysicalToolStripMenuItem.Text = "New";
             // 
             // cutPhysicalToolStripMenuItem
@@ -1022,6 +1022,7 @@
             this.Name = "EditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnimationEditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditorForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditorForm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

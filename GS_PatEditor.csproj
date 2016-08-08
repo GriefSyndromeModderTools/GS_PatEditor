@@ -179,6 +179,7 @@
     <Compile Include="Pat\Behaviors\PlayerSkillAirBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerSkillGroundBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerSkillLoopBreakBehavior.cs" />
+    <Compile Include="Pat\Behaviors\PlayerSystemAnimationBehavior.cs" />
     <Compile Include="Pat\Behaviors\Time.cs" />
     <Compile Include="Pat\Effects\ActorMemberValue.cs" />
     <Compile Include="Pat\Effects\ActorVariableHelper.cs" />

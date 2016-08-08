@@ -843,6 +843,7 @@ namespace GS_PatEditor.Editor
         {
             if (_Editor.CurrentUI == EditorUI.Animation)
             {
+                //QE switch frame
                 if (e.KeyCode == Keys.Q && e.Modifiers == Keys.None)
                 {
                     _Editor.AnimationFramesUI.SelectLastKeyGrid();
@@ -850,6 +851,40 @@ namespace GS_PatEditor.Editor
                 else if (e.KeyCode == Keys.E && e.Modifiers == Keys.None)
                 {
                     _Editor.AnimationFramesUI.SelectNextKeyGrid();
+                }
+                //arrow accurate move
+                else if (e.KeyCode == Keys.Up && e.Modifiers == Keys.None)
+                {
+                    _Editor.PreviewWindowUI.InvokeAccurateMove(0, -1);
+                }
+                else if (e.KeyCode == Keys.Down && e.Modifiers == Keys.None)
+                {
+                    _Editor.PreviewWindowUI.InvokeAccurateMove(0, 1);
+                }
+                else if (e.KeyCode == Keys.Left && e.Modifiers == Keys.None)
+                {
+                    _Editor.PreviewWindowUI.InvokeAccurateMove(-1, 0);
+                }
+                else if (e.KeyCode == Keys.Right && e.Modifiers == Keys.None)
+                {
+                    _Editor.PreviewWindowUI.InvokeAccurateMove(1, 0);
+                }
+                //clipboard shortcut
+                else if (e.KeyCode == Keys.X && e.Modifiers == Keys.Control)
+                {
+                    _Editor.PreviewWindowUI.InvokeShortcutEvent(ShortcutEventType.Cut);
+                }
+                else if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+                {
+                    _Editor.PreviewWindowUI.InvokeShortcutEvent(ShortcutEventType.Copy);
+                }
+                else if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+                {
+                    _Editor.PreviewWindowUI.InvokeShortcutEvent(ShortcutEventType.Paste);
+                }
+                else if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
+                {
+                    _Editor.PreviewWindowUI.InvokeShortcutEvent(ShortcutEventType.Delete);
                 }
             }
         }
@@ -888,6 +923,26 @@ namespace GS_PatEditor.Editor
         private void toolStripComboBoxCancelLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             _Editor.AnimationFramesUI.CancelLevel = toolStripComboBoxCancelLevel.SelectedIndex;
+        }
+
+        private void EditorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_Editor.Project.IsEmptyProject)
+            {
+                return;
+            }
+            switch (MessageBox.Show("Save the project before exit?", "Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.None))
+            {
+                case DialogResult.Yes:
+                    toolStripButtonSave_Click(null, EventArgs.Empty);
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Cancel:
+                default:
+                    e.Cancel = true;
+                    break;
+            }
         }
     }
 }

@@ -180,36 +180,27 @@ namespace GS_PatEditor.Editor
 
         private void New_Click(object sender, EventArgs e)
         {
-            _Handler.New();
+            _Handler.DoNew();
         }
 
         private void Cut_Click(object sender, EventArgs e)
         {
-            var data = _Handler.Copy();
-            if (data != null)
-            {
-                Clipboard.SetData(_Handler.DataID, data);
-                _Handler.Delete();
-            }
+            _Handler.DoCut();
         }
 
         private void Copy_Click(object sender, EventArgs e)
         {
-            var data = _Handler.Copy();
-            if (data != null)
-            {
-                Clipboard.SetData(_Handler.DataID, data);
-            }
+            _Handler.DoCopy();
         }
 
         private void Paste_Click(object sender, EventArgs e)
         {
-            _Handler.Paste(Clipboard.GetData(_Handler.DataID));
+            _Handler.DoPaste();
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            _Handler.Delete();
+            _Handler.DoDelete();
         }
     }
 }

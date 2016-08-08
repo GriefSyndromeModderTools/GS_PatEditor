@@ -53,6 +53,14 @@ namespace GS_PatEditor.Editor.Panels.Tools.HitAttack
             _Control.MouseMove += _Control_MouseMove;
             _Control.MouseDown += _Control_MouseDown;
             _Control.MouseUp += _Control_MouseUp;
+
+            editor.PreviewWindowUI.ShortcutEvent += delegate(ShortcutEventType type)
+            {
+                if (CheckFilter())
+                {
+                    this.ShortcutEvent(type);
+                }
+            };
         }
 
         //called when tool is closed
