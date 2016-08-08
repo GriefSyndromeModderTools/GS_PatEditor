@@ -161,6 +161,7 @@ namespace GS_PatEditor.Editor
             _CurrentFrameIndex = 0;
             _FrameCounter = 0;
             _Images.Switch();
+            _Image = null;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
