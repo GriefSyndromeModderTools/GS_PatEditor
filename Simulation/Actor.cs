@@ -184,13 +184,19 @@ namespace GS_PatEditor.Simulation
 
                     //next segment or loop
 
+                    /////
+                    //fixed on 0.5.1+. loop segment does not trigger end key callback
+                    /////
                     //anyway, first trigget key callback
-                    if (EndKeyFrameLabel != null && CurrentSegmentIndex < EndKeyFrameLabel.Length)
+                    if (!seg.IsLoop)
                     {
-                        //restore CurrentFrameIndex
-                        --CurrentFrameIndex;
-                        EndKeyFrameLabel[CurrentSegmentIndex](this);
-                        ++CurrentFrameIndex;
+                        if (EndKeyFrameLabel != null && CurrentSegmentIndex < EndKeyFrameLabel.Length)
+                        {
+                            //restore CurrentFrameIndex
+                            --CurrentFrameIndex;
+                            EndKeyFrameLabel[CurrentSegmentIndex](this);
+                            ++CurrentFrameIndex;
+                        }
                     }
 
                     if (CurrentFrameCounter == -1)

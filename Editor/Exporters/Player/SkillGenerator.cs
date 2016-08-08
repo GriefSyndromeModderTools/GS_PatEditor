@@ -65,20 +65,17 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
         public static ILineObject[] GenerateInputAttackFunction(PlayerExporter exporter)
         {
-            //ILineObject[] ret = new ILineObject[exporter.Skills.Count];
-            //for (int i = 0; i < exporter.Skills.Count; ++i)
-            //{
-            //    ret[i] = GenerateSkill(i == 0, exporter.Skills[i], "skill_" + i.ToString());
-            //}
-            //return ret;
-            return Enumerable.Range(0, exporter.Skills.Count)
+            var sortedIndex = Enumerable.Range(0, exporter.Skills.Count)
                 .Select(i => new
                 {
-                    Code = GenerateSkill(exporter, i == 0, exporter.Skills[i], "skill_" + i.ToString()),
+                    Index = i,
                     Priority = exporter.Skills[i].Priority,
                 })
                 .OrderByDescending(s => s.Priority)
-                .Select(s => s.Code)
+                .Select(s => s.Index)
+                .ToArray();
+            return Enumerable.Range(0, sortedIndex.Length)
+                .Select(i => GenerateSkill(exporter, i == 0, exporter.Skills[sortedIndex[i]], "skill_" + sortedIndex[i].ToString()))
                 .ToArray();
         }
 

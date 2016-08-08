@@ -170,6 +170,7 @@ namespace GS_PatEditor.Editor
                                 frm.ChangeActivePanel(1);
                                 editor.EditMode = FrameEditMode.None;
                                 frm.ResetPreviewPosition(1.0f);
+                                frm.OnEditModeChanged();
                                 break;
                         }
                         frm.OnPreviewModeChanged();
@@ -612,12 +613,9 @@ namespace GS_PatEditor.Editor
                 {
                     return;
                 }
-                var palList = System.IO.Directory.EnumerateFiles(dialog.ImagePath,
-                    "*.pal", System.IO.SearchOption.TopDirectoryOnly)
-                    .Select(file => System.IO.Path.GetFileName(file)).ToList();
-                palList.Sort();
 
-                _Editor.Project = ProjectGenerater.GenerateEmpty(dialog.ImagePath, palList);
+                _Editor.Project = ProjectGenerater.GenerateEmpty(dialog.ImagePath);
+                _Editor.Project.ImageList.ReloadPaletteList();
 
                 SetupToolbarEnabled();
             }
@@ -625,7 +623,7 @@ namespace GS_PatEditor.Editor
 
         private void toolStripButtonOpen_Click(object sender, EventArgs e)
         {
-            if (_Editor.Project.IsEmptyProject || MessageBox.Show("Open a act project?", "AnimationEditor",
+            if (_Editor.Project.IsEmptyProject || MessageBox.Show("Open an act project?", "AnimationEditor",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -794,6 +792,7 @@ namespace GS_PatEditor.Editor
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     _Editor.Project.ImageList.ReloadAllResources();
+                    _Editor.Project.ImageList.ReloadPaletteList();
                     _Editor.AnimationListUI.Activate();
                 }
                 else

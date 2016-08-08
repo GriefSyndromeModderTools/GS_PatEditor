@@ -12,7 +12,7 @@ namespace GS_PatEditor
 {
     class ProjectGenerater
     {
-        public static Project GenerateEmpty(string path, List<string> palList)
+        public static Project GenerateEmpty(string path)
         {
             var proj = new Pat.Project()
             {
@@ -30,7 +30,7 @@ namespace GS_PatEditor
                                 Path = path,
                             }
                         },
-                    Palettes = palList,
+                    Palettes = new List<string>(),
                 },
             };
             proj.ImageList.SelectedPalette = 0;

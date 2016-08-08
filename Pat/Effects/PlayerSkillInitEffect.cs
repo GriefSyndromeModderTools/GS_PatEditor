@@ -20,10 +20,12 @@ namespace GS_PatEditor.Pat.Effects
             if (IsInAir)
             {
                 actor.Y = -150.0f;
+                actor.IsInAir = true;
             }
             else
             {
                 actor.Y = 0.0f;
+                actor.IsInAir = false;
             }
         }
 

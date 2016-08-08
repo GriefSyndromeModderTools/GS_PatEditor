@@ -49,6 +49,9 @@
   <PropertyGroup>
     <StartupObject>GS_PatEditor.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PatEditor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpDX, Version=3.0.2.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -185,6 +188,7 @@
     <Compile Include="Pat\Effects\CommonFilter.cs" />
     <Compile Include="Pat\Effects\CommonValue.cs" />
     <Compile Include="Pat\Effects\Converter\ActionIDConverter.cs" />
+    <Compile Include="Pat\Effects\CustomCodeEffect.cs" />
     <Compile Include="Pat\Effects\IEditableEnvironment.cs" />
     <Compile Include="Pat\Effects\IHideFromEditor.cs" />
     <Compile Include="Pat\Effects\PlayerCommonEffect.cs" />
@@ -401,6 +405,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PatEditor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -406,7 +406,7 @@
             this.toolStripButtonToolCursor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonToolCursor.Name = "toolStripButtonToolCursor";
             this.toolStripButtonToolCursor.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonToolCursor.Text = "Cursor";
+            this.toolStripButtonToolCursor.Text = "Arrow";
             this.toolStripButtonToolCursor.Click += new System.EventHandler(this.toolStripButtonToolCursor_Click);
             // 
             // toolStripButtonToolMove
@@ -1016,6 +1016,7 @@
             this.Controls.Add(this.panelAnimationEdit);
             this.Controls.Add(this.panelAnimations);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "EditorForm";

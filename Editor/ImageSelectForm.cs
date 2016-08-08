@@ -479,7 +479,10 @@ namespace GS_PatEditor.Editor
             }
             else
             {
-                var list = listView1.Items.OfType<ListViewItem>().Select(i => (string)i.Tag).ToArray();
+                var list = listView1.Items
+                    .OfType<ListViewItem>()
+                    .Where(i => i.Checked)
+                    .Select(i => (string)i.Tag).ToArray();
                 foreach (var f in list)
                 {
                     MakeNewImageFromFile(f);

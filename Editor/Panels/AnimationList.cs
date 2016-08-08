@@ -263,7 +263,7 @@ namespace GS_PatEditor.Editor.Panels
             int id = 1;
             {
                 var list = _Parent.Project.Actions;
-                while (list.Any(a => a.ActionID == "New Action " + id.ToString()))
+                while (list.Any(a => a.ActionID == "New Animation " + id.ToString()))
                 {
                     ++id;
                 }
@@ -271,7 +271,7 @@ namespace GS_PatEditor.Editor.Panels
 
             var action = new Pat.Action()
             {
-                ActionID = "New Action " + id.ToString(),
+                ActionID = "New Animation " + id.ToString(),
             };
 
             _Parent.Project.Actions.Add(action);

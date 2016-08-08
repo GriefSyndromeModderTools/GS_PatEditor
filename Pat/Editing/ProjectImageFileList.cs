@@ -132,6 +132,10 @@ namespace GS_PatEditor.Pat.Editing
         public Bitmap GetImageUnclippedByRes(string id, bool alphaBlend)
         {
             var res = _Project.FindResource(ProjectDirectoryUsage.Image, id);
+            if (res == null)
+            {
+                return null;
+            }
 
             Bitmap ret;
             AbstractImage imageData = LoadResource(res);
@@ -283,6 +287,24 @@ namespace GS_PatEditor.Pat.Editing
             ClearFrameImages(false);
             ClearResources();
             SelectedPalette = 0;
+        }
+
+        public void ReloadPaletteList()
+        {
+            var result = new List<string>();
+            foreach (var dir in _Project.Settings.Directories
+                .Where(d => d.Usage == ProjectDirectoryUsage.Image))
+            {
+                if (Directory.Exists(dir.Path))
+                {
+                    var palList = System.IO.Directory.EnumerateFiles(dir.Path,
+                        "*.pal", System.IO.SearchOption.TopDirectoryOnly)
+                        .Select(file => System.IO.Path.GetFileName(file));
+                    result.AddRange(palList);
+                }
+            }
+            result.Sort();
+            _Project.Settings.Palettes = result;
         }
     }
 }

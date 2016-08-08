@@ -244,10 +244,20 @@ namespace GS_PatEditor.Pat.Behaviors
 
         public override void MakeEffects(ActionEffects effects)
         {
+            Value v = new ConstValue { Value = -Speed };
+            if (!ResetOriginSpeed)
+            {
+                v = new BinaryExpressionValue
+                {
+                    Left = v,
+                    Right = new ActorMemberValue { Type = ActorMemberType.vy },
+                    Operator = BinaryOperator.Add,
+                };
+            }
             var effect = new SetActorMemberEffect
             {
                 Type = ActorMemberType.vy,
-                Value = new ConstValue { Value = -Speed },
+                Value = v,
             };
             Time.MakeEffects(effects, effect);
         }

@@ -101,6 +101,7 @@ namespace GS_PatEditor
                 {
                     return null;
                 }
+                proj.ImageList.ReloadPaletteList();
             }
             proj.ImageList.SelectedPalette = 0;
             return proj;

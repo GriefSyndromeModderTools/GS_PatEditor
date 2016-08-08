@@ -80,11 +80,11 @@ namespace GS_PatEditor.Editor.Panels
                 {
                     _Sprite.SetupFrame(txt, frame, window.SpriteMoving);
                     _Sprite.Render();
-                }
-                if (_Parent.BorderVisible)
-                {
-                    _SpriteListBorder.SetupBorder(frame, txt, window.SpriteMoving);
-                    _SpriteListBorder.Render();
+                    if (_Parent.BorderVisible)
+                    {
+                        _SpriteListBorder.SetupBorder(frame, txt, window.SpriteMoving);
+                        _SpriteListBorder.Render();
+                    }
                 }
             }
 

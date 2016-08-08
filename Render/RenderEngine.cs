@@ -16,6 +16,8 @@ namespace GS_PatEditor.Render
     {
         private Direct3D _Direct3d;
         private Device _Device;
+        private PresentParameters _Parameters;
+        private bool _IsDeviceLost;
 
         private SharpDX.Direct3D9.Sprite _Sprite;
         private Font _Font;
@@ -41,6 +43,7 @@ namespace GS_PatEditor.Render
             var present = new PresentParameters(ctrl.ClientSize.Width, ctrl.ClientSize.Height);
             present.PresentationInterval = PresentInterval.One;
             present.BackBufferFormat = Format.A8R8G8B8;
+            _Parameters = present;
 
             _Direct3d = new Direct3D();
             _Device = new Device(_Direct3d, 0,
@@ -97,8 +100,24 @@ namespace GS_PatEditor.Render
             Utilities.Dispose(ref _Direct3d);
         }
 
+        private void HandleDeviceLost()
+        {
+            var result = _Device.TestCooperativeLevel();
+            if (result == ResultCode.DeviceNotReset)
+            {
+                _Device.Reset(_Parameters);
+                _IsDeviceLost = false;
+            }
+        }
+
         public void RenderAll()
         {
+            if (_IsDeviceLost)
+            {
+                HandleDeviceLost();
+                return;
+            }
+
             _Device.BeginScene();
             _Device.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.White, 1.0f, 0);
 
@@ -122,7 +141,25 @@ namespace GS_PatEditor.Render
             _Sprite.End();
 
             _Device.EndScene();
-            _Device.Present();
+
+            //handle lost device
+            try
+            {
+                _Device.Present();
+            }
+            catch (Exception e)
+            {
+                //var state = _Device.TestCooperativeLevel();
+                var result = Result.GetResultFromException(e);
+                if (result == ResultCode.DeviceLost)
+                {
+                    _IsDeviceLost = true;
+                }
+                else
+                {
+                    //error
+                }
+            }
         }
 
         #region Texture
