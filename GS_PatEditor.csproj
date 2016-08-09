@@ -104,6 +104,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Editor\Editable\GenericEditorSelectorTypeConverter.cs" />
+    <Compile Include="Editor\Editable\IDataNodeDisplayNameProvider.cs" />
     <Compile Include="Editor\Editable\SelectObject.cs" />
     <Compile Include="Editor\Editable\TreeViewExt.cs" />
     <Compile Include="Editor\EffectListEditForm.cs">

@@ -95,7 +95,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
     }
 
     [Serializable]
-    public class NormalSkill : Skill, IEditableEnvironment
+    public class NormalSkill : Skill, IEditableEnvironment, IDataNodeDisplayNameProvider
     {
         [XmlAttribute]
         public SkillKey Key { get; set; }
@@ -138,6 +138,16 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public override int Priority
         {
             get { return IsRushSkill ? 100 : 0; }
+        }
+
+        public bool OverrideFullName
+        {
+            get { return true; }
+        }
+
+        public string DisplayName
+        {
+            get { return ActionID == null || ActionID.Length == 0 ? "NormalSkill" : ActionID; }
         }
     }
 }

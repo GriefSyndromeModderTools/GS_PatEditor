@@ -68,6 +68,18 @@ namespace GS_PatEditor.Editor.Editable
                 {
                     Text = MakeText("select");
                 }
+                else if (Data is IDataNodeDisplayNameProvider)
+                {
+                    var cdata = (IDataNodeDisplayNameProvider)Data;
+                    if (cdata.OverrideFullName)
+                    {
+                        Text = cdata.DisplayName;
+                    }
+                    else
+                    {
+                        Text = MakeText(cdata.DisplayName);
+                    }
+                }
                 else
                 {
                     var type = Data.GetType();
