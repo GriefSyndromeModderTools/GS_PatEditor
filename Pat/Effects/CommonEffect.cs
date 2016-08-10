@@ -169,6 +169,23 @@ namespace GS_PatEditor.Pat.Effects
     }
 
     [Serializable]
+    public class SetSegmentEffect : Effect
+    {
+        [XmlAttribute]
+        public int Segment { get; set; }
+
+        public override void Run(Simulation.Actor actor)
+        {
+            actor.SetMotion(actor.CurrentAction, Segment);
+        }
+
+        public override ILineObject Generate(GenerationEnvironment env)
+        {
+            return new SimpleLineObject("this.SetMotion(this.motion, " + Segment + ");");
+        }
+    }
+
+    [Serializable]
     public class SetMotionRandomSegmentEffect : Effect, IEditableEnvironment
     {
         [XmlAttribute]
@@ -310,6 +327,9 @@ namespace GS_PatEditor.Pat.Effects
                 case ActorMemberType.alpha:
                     actor.Alpha = val;
                     break;
+                case ActorMemberType.count:
+                    actor.ActionCount = (int)val;
+                    break;
             }
         }
 
@@ -341,6 +361,9 @@ namespace GS_PatEditor.Pat.Effects
                     break;
                 case ActorMemberType.alpha:
                     index = "alpha";
+                    break;
+                case ActorMemberType.count:
+                    index = "count";
                     break;
             }
             if (index == null)

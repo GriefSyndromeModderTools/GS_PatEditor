@@ -152,7 +152,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             var u = ThisExpr.Instance.MakeIndex("u");
             var condition = ExpressionExt.AndAll(
                 KeyCondition(skill.Key),
-                CancelLevelCondition(skill.CancelLevel),
+                CancelLevelCondition(skill.CancelLevel, skill.IsRushSkill),
                 AirCondition(skill.AirState),
                 XCondition(skill.X),
                 YCondition(skill.Y),
@@ -205,11 +205,14 @@ namespace GS_PatEditor.Editor.Exporters.Player
             return ThisExpr.Instance.MakeIndex("u").MakeIndex(index).GreaterZero();
         }
 
-        private static Expression CancelLevelCondition(Pat.CancelLevel value)
+        private static Expression CancelLevelCondition(Pat.CancelLevel value, bool isRush)
         {
-            return ThisExpr.Instance
-                .MakeIndex("C_Check")
-                .Call(new ConstNumberExpr(ExportHelper.ExportCancelLevel(value)));
+            short val = ExportHelper.ExportCancelLevel(value);
+            if (isRush)
+            {
+                val += 1;
+            }
+            return ThisExpr.Instance.MakeIndex("C_Check").Call(new ConstNumberExpr(val));
         }
 
         private static Expression MagicCondition(int value)

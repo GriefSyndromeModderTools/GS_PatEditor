@@ -141,5 +141,22 @@ namespace GS_PatEditor.Pat
                 });
             }
         }
+
+        public static void MakeEffectsAsStart(ActionEffects dest, SegmentSelector ss, Effect effect)
+        {
+            IEnumerable<int> segments;
+            if (ss.IsReversed)
+            {
+                segments = Enumerable.Range(0, dest.SegmentCount).Except(ss.IndexList);
+            }
+            else
+            {
+                segments = ss.IndexList;
+            }
+            foreach (var s in segments)
+            {
+                dest.SegmentStartEffects.AddEffectToList(s, effect);
+            }
+        }
     }
 }

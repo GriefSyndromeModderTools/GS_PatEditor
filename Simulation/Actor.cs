@@ -17,6 +17,7 @@ namespace GS_PatEditor.Simulation
 
     public enum ActorVariableType
     {
+        Unknown,
         Float,
         ActorLabel,
         Actor,

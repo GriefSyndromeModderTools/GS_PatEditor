@@ -19,6 +19,7 @@ namespace GS_PatEditor.Pat.Effects
         sx,
         sy,
         alpha,
+        count,
     }
 
     [Serializable]
@@ -47,6 +48,8 @@ namespace GS_PatEditor.Pat.Effects
                     return actor.ScaleY;
                 case ActorMemberType.alpha:
                     return actor.Alpha;
+                case ActorMemberType.count:
+                    return actor.ActionCount;
             }
             return 0;
         }
@@ -79,6 +82,9 @@ namespace GS_PatEditor.Pat.Effects
                     break;
                 case ActorMemberType.alpha:
                     index = "alpha";
+                    break;
+                case ActorMemberType.count:
+                    index = "count";
                     break;
             }
             if (index == null)

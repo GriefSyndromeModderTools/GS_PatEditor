@@ -52,6 +52,35 @@ namespace GS_PatEditor.Pat
     [SerializationBaseClass]
     public abstract class Behavior
     {
+        public Behavior()
+        {
+            _NextID = GetNextID();
+        }
+
+        private static int _NextID = 1;
+        private static object _Lock = new object();
+
+        private static int GetNextID()
+        {
+            lock (_Lock)
+            {
+                return _NextID++;
+            }
+        }
+
+        protected int UniqueID
+        {
+            get
+            {
+                return _NextID;
+            }
+        }
+
+        protected string GetVariableName(string name)
+        {
+            return "__bhv" + UniqueID.ToString() + "_" + name;
+        }
+
         public abstract void MakeEffects(ActionEffects effects);
     }
 }

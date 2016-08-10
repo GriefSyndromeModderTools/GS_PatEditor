@@ -175,6 +175,8 @@
     <Compile Include="Pat\Behaviors\CreateBulletBehavior.cs" />
     <Compile Include="Pat\Behaviors\EffectActorBehavior.cs" />
     <Compile Include="Pat\Behaviors\EffectBehavior.cs" />
+    <Compile Include="Pat\Behaviors\HoldSkillBehavior.cs" />
+    <Compile Include="Pat\Behaviors\LoopSegmentsBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerAirSpeedCtrlBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerGroundSpeedCtrlBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerSkillAirBehavior.cs" />

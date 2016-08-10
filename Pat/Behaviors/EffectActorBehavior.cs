@@ -146,7 +146,6 @@ namespace GS_PatEditor.Pat.Behaviors
         public override void MakeEffects(ActionEffects effects)
         {
             effects.InitEffects.Add(new BulletInitEffect());
-            effects.InitEffects.Add(new SetMotionEffect());
             effects.InitEffects.Add(new InitCountEffect());
             effects.UpdateEffects.Add(new IncreaseCountEffect());
             effects.SegmentFinishEffects.AddEffectToList(effects.SegmentCount, new ReleaseActorEffect());

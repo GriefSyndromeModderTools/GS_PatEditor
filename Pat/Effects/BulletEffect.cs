@@ -26,10 +26,11 @@ namespace GS_PatEditor.Pat.Effects
                 new SimpleLineObject("this.ShotInit(t);"),
                 new ControlBlock(ControlBlockType.If, "t.owner in this.actor", new ILineObject[] {
                     new SimpleLineObject("this.u.uu <- this.actor[t.owner].u.uu;"),
-                    new SimpleLineObject("this.u.CA = this.actor[t.owner].u.CA;"),
+                    new SimpleLineObject("this.u.CA <- this.actor[t.owner].u.CA;"),
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
                     new SimpleLineObject("this.u.uu <- { uuu = null };"),
+                    new SimpleLineObject("this.u.CA <- 0;"),
                 }).Statement(),
                 _SetMotion.Generate(env),
             }).Statement();
@@ -140,11 +141,25 @@ namespace GS_PatEditor.Pat.Effects
         [XmlAttribute]
         public float Value { get; set; }
 
+        [XmlAttribute]
+        public bool Release { get; set; }
+
+        [XmlAttribute]
+        public int Segment { get; set; }
+
+        [XmlElement]
+        public int? SegmentAfterFinish { get; set; }
+
         public override void Run(Simulation.Actor actor)
         {
+            if (actor.CurrentSegmentIndex != Segment)
+            {
+                return;
+            }
+
             if (actor.Alpha < Value)
             {
-                actor.Release();
+                BulletEffectHelper.SimulateEnd(actor, Release, SegmentAfterFinish);
             }
             else
             {
@@ -156,12 +171,13 @@ namespace GS_PatEditor.Pat.Effects
         {
             var val = new ConstNumberExpr(Value);
             var alpha = ThisExpr.Instance.MakeIndex("alpha");
-            return new SimpleBlock(new ILineObject[] {
+
+            return new ControlBlock(ControlBlockType.If, "this.keyTake == " + Segment, new ILineObject[] {
                 new ControlBlock(ControlBlockType.If, new BiOpExpr(alpha, val, BiOpExpr.Op.Greater), new ILineObject[] {
                     alpha.Assign(new BiOpExpr(alpha, val, BiOpExpr.Op.Minus)).Statement(),
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
-                    ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                    BulletEffectHelper.GenerateEnd(Release, SegmentAfterFinish),
                 }).Statement(),
             }).Statement();
         }
@@ -175,11 +191,39 @@ namespace GS_PatEditor.Pat.Effects
 
         public override void Run(Simulation.Actor actor)
         {
-            actor.Variables.Add(CheckInstance, new Simulation.ActorVariable
+            if (CheckInstance != null && CheckInstance.Length != 0)
             {
-                Type = Simulation.ActorVariableType.Actor,
-                Value = actor,
-            });
+                actor.Owner.Variables[CheckInstance] = new Simulation.ActorVariable
+                {
+                    Type = Simulation.ActorVariableType.Actor,
+                    Value = actor,
+                };
+            }
+            actor.Variables["SYS_follow_relx"] = new Simulation.ActorVariable
+            {
+                Type = Simulation.ActorVariableType.Float,
+                Value = actor.X - actor.Owner.X,
+            };
+            actor.Variables["SYS_follow_rely"] = new Simulation.ActorVariable
+            {
+                Type = Simulation.ActorVariableType.Float,
+                Value = actor.X - actor.Owner.Y,
+            };
+            actor.Variables["SYS_follow_dir_p"] = new Simulation.ActorVariable
+            {
+                Type = Simulation.ActorVariableType.Float,
+                Value = actor.Owner.InversedDirection ? -1.0f : 1.0f,
+            };
+            actor.Variables["SYS_follow_dir_s"] = new Simulation.ActorVariable
+            {
+                Type = Simulation.ActorVariableType.Float,
+                Value = actor.InversedDirection ? -1.0f : 1.0f,
+            };
+            actor.Variables["SYS_follow_motion"] = new Simulation.ActorVariable
+            {
+                Type = Simulation.ActorVariableType.Unknown,
+                Value = actor.Owner.CurrentAction.ActionID,
+            };
         }
 
         public override ILineObject Generate(GenerationEnvironment env)
@@ -188,11 +232,28 @@ namespace GS_PatEditor.Pat.Effects
             if (CheckInstance != null && CheckInstance.Length != 0)
             {
                 //TODO fix this: set variable in owner, not this
-                ret.Add(ActorVariableHelper.GenerateSet(CheckInstance, ThisExpr.Instance.MakeIndex("name")));
+                ret.Add(ActorVariableHelper.GenerateSet(new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr"),
+                    CheckInstance, ThisExpr.Instance.MakeIndex("name")));
             }
 
             //get parent actor from table t
             ret.Add(ActorVariableHelper.GenerateSet("SYS_parent", new IdentifierExpr("t").MakeIndex("flag1")));
+
+            //save relative position
+            ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_relx",
+                new BiOpExpr(ThisExpr.Instance.MakeIndex("x"),
+                    new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("x"),
+                    BiOpExpr.Op.Minus)));
+            ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_rely",
+                new BiOpExpr(ThisExpr.Instance.MakeIndex("y"),
+                    new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("y"),
+                    BiOpExpr.Op.Minus)));
+            ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_dir_p",
+                new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("direction")));
+            ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_dir_s",
+                ThisExpr.Instance.MakeIndex("direction")));
+            ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_motion",
+                new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("motion")));
             return new SimpleBlock(ret).Statement();
         }
     }
@@ -203,12 +264,17 @@ namespace GS_PatEditor.Pat.Effects
         [XmlAttribute]
         public string CheckInstance { get; set; }
 
-        [XmlElement]
-        [EditorChildNode("Position")]
-        public PointProvider Position;
-
         [XmlAttribute]
         public bool IgnoreRotation { get; set; }
+
+        [XmlElement]
+        public bool ReleaseIfCheckFailed { get; set; }
+
+        [XmlElement]
+        public int? SegmentCheckFailed { get; set; }
+
+        [XmlAttribute]
+        public bool FailIfParentMotionChanged { get; set; }
 
         public override void Run(Simulation.Actor actor)
         {
@@ -220,13 +286,28 @@ namespace GS_PatEditor.Pat.Effects
                     if (!owner.Variables.ContainsKey(CheckInstance) ||
                         owner.Variables[CheckInstance].Value as Simulation.Actor != actor)
                     {
-                        actor.Release();
+                        BulletEffectHelper.SimulateEnd(actor, ReleaseIfCheckFailed, SegmentCheckFailed);
                         return;
                     }
                 }
+                if (FailIfParentMotionChanged &&
+                    owner.CurrentAction.ActionID != (string)actor.Variables["SYS_follow_motion"].Value)
+                {
+                    BulletEffectHelper.SimulateEnd(actor, ReleaseIfCheckFailed, SegmentCheckFailed);
+                    return;
+                }
 
-                actor.X = owner.X + owner.VX;
-                actor.Y = owner.Y + owner.VY;
+                actor.X = owner.X +
+                    (actor.Owner.InversedDirection ? -1.0f : 1.0f) * (float)actor.Variables["SYS_follow_dir_p"].Value * 
+                    (float)actor.Variables["SYS_follow_relx"].Value;
+                actor.Y = owner.Y + (float)actor.Variables["SYS_follow_relx"].Value;
+
+                actor.InversedDirection = actor.Owner.InversedDirection;
+                if ((float)actor.Variables["SYS_follow_dir_p"].Value != 
+                    (float)actor.Variables["SYS_follow_dir_s"].Value)
+                {
+                    actor.InversedDirection = !actor.InversedDirection;
+                }
 
                 if (!IgnoreRotation)
                 {
@@ -241,34 +322,94 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
+            var ownerActor = new IdentifierExpr("ownerActor");
+            
             List<ILineObject> ret = new List<ILineObject>();
+            ret.Add(new LocalVarStatement("ownerActor", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr")));
+
+            BiOpExpr cond = null;
             if (CheckInstance != null && CheckInstance.Length != 0)
             {
-                ret.Add(new ControlBlock(ControlBlockType.If,
-                    new BiOpExpr(ActorVariableHelper.GenerateGet(CheckInstance), ThisExpr.Instance.MakeIndex("name"), BiOpExpr.Op.NotEqual),
+                cond = new BiOpExpr(ActorVariableHelper.GenerateGet(ownerActor, CheckInstance),
+                            ThisExpr.Instance.MakeIndex("name"), BiOpExpr.Op.NotEqual);
+            }
+            if (FailIfParentMotionChanged)
+            {
+                var cond2 = new BiOpExpr(ownerActor.MakeIndex("motion"),
+                        ActorVariableHelper.GenerateGet("SYS_follow_motion"), BiOpExpr.Op.NotEqual);
+                if (cond != null)
+                {
+                    cond = new BiOpExpr(cond, cond2, BiOpExpr.Op.Or);
+                }
+                else
+                {
+                    cond = cond2;
+                }
+            }
+            if (cond != null)
+            {
+                ret.Add(new ControlBlock(ControlBlockType.If, cond,
                     new ILineObject[] {
-                        ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                        BulletEffectHelper.GenerateEnd(ReleaseIfCheckFailed, SegmentCheckFailed),
                     }).Statement());
             }
 
-            var ownerActor = new IdentifierExpr("ownerActor");
-            var x = Position.GenerateX(ownerActor, env);
-            var y = Position.GenerateY(ownerActor, env);
+            var dirChanged = new BiOpExpr(ownerActor.MakeIndex("direction"),
+                ActorVariableHelper.GenerateGet("SYS_follow_dir_p"), BiOpExpr.Op.Multiply);
+            var x = new BiOpExpr(ownerActor.MakeIndex("x"),
+                new BiOpExpr(ActorVariableHelper.GenerateGet("SYS_follow_relx"),
+                    dirChanged, BiOpExpr.Op.Multiply),
+                BiOpExpr.Op.Add);
+            var y = new BiOpExpr(ownerActor.MakeIndex("y"),
+                ActorVariableHelper.GenerateGet("SYS_follow_rely"), BiOpExpr.Op.Add);
+            var dir = new BiOpExpr(dirChanged,
+                ActorVariableHelper.GenerateGet("SYS_follow_dir_s"), BiOpExpr.Op.Multiply);
 
             var setRotation = ThisExpr.Instance.MakeIndex("rz").Assign(ownerActor.MakeIndex("rz")).Statement();
             ret.AddRange(new ILineObject[] {
-                new LocalVarStatement("ownerActor", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr")),
                 new ControlBlock(ControlBlockType.If, "ownerActor != null", new ILineObject[] {
                     ThisExpr.Instance.MakeIndex("x").Assign(x).Statement(),
                     ThisExpr.Instance.MakeIndex("y").Assign(y).Statement(),
+                    ThisExpr.Instance.MakeIndex("direction").Assign(dir).Statement(),
                     IgnoreRotation ? new SimpleLineObject("") : setRotation,
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
-                    ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                        ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
                 }).Statement(),
             });
 
             return new SimpleBlock(ret).Statement();
+        }
+    }
+
+    class BulletEffectHelper
+    {
+        public static void SimulateEnd(Simulation.Actor a, bool r, int? s)
+        {
+            if (r)
+            {
+                a.Release();
+            }
+            else if (s.HasValue)
+            {
+                a.SetMotion(a.CurrentAction, s.Value);
+            }
+        }
+
+        public static ILineObject GenerateEnd(bool r, int? s)
+        {
+            if (r)
+            {
+                return ThisExpr.Instance.MakeIndex("Release").Call().Statement();
+            }
+            else if (s.HasValue)
+            {
+                return new SimpleLineObject("this.SetMotion(this.motion, " + s.Value + ");");
+            }
+            else
+            {
+                return new SimpleLineObject("");
+            }
         }
     }
 }

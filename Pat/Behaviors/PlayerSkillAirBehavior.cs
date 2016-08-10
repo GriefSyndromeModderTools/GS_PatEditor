@@ -20,13 +20,12 @@ namespace GS_PatEditor.Pat.Behaviors
         public int? SitCancelSegment { get; set; }
 
         [XmlElement]
-        [DefaultValue(true)]
-        public bool ResetHit { get; set; }
+        public SegmentSelector ResetHitSegments { get; set; }
 
         public PlayerSkillAirBehavior()
         {
             AutoCancel = true;
-            ResetHit = true;
+            ResetHitSegments = new SegmentSelector { Index = "*" };
         }
 
         public override void MakeEffects(ActionEffects effects)
@@ -48,10 +47,8 @@ namespace GS_PatEditor.Pat.Behaviors
                         Effect = PlayerBeginSitEffect.Instance,
                     });
             }
-            if (ResetHit)
-            {
-                effects.InitEffects.Add(ResetHitEffect.Instance);
-            }
+            SegmentSelectorHelper.MakeEffectsAsStart(effects, ResetHitSegments,
+                Effects.ResetHitEffect.Instance);
         }
     }
 }

@@ -23,5 +23,21 @@ namespace GS_PatEditor.Pat.Effects
         {
             return ThisExpr.Instance.MakeIndex("u").MakeIndex("variables").MakeIndex(name);
         }
+
+        public static ILineObject GenerateSet(Expression actor, string name, Expression expr)
+        {
+            var nname = name.Replace("\\", "\\\\").Replace("\"", "\\\\");
+            return new SimpleBlock(new ILineObject[] {
+                new LocalVarStatement("actor_variable_actor_object", actor),
+                new SimpleLineObject("if (!(\"variables\" in actor_variable_actor_object.u)) actor_variable_actor_object.u.variables <- {};"),
+                new SimpleLineObject("if (!(\"" + nname + "\" in actor_variable_actor_object.u.variables)) actor_variable_actor_object.u.variables[\"" + nname + "\"] <- 0;"),
+                new IdentifierExpr("actor_variable_actor_object").MakeIndex("u").MakeIndex("variables").MakeIndex(name).Assign(expr).Statement(),
+            }).Statement();
+        }
+
+        public static Expression GenerateGet(Expression actor, string name)
+        {
+            return actor.MakeIndex("u").MakeIndex("variables").MakeIndex(name);
+        }
     }
 }
