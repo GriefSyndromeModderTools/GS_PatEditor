@@ -135,16 +135,22 @@ namespace GS_PatEditor.Editor.Exporters.Player
         [Browsable(false)]
         public EditableEnvironment Environment { get; set; }
 
+        [XmlIgnore]
+        [Browsable(false)]
         public override int Priority
         {
             get { return IsRushSkill ? 100 : 0; }
         }
 
+        [XmlIgnore]
+        [Browsable(false)]
         public bool OverrideFullName
         {
             get { return true; }
         }
 
+        [XmlIgnore]
+        [Browsable(false)]
         public string DisplayName
         {
             get { return ActionID == null || ActionID.Length == 0 ? "NormalSkill" : ActionID; }
