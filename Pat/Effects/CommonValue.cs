@@ -16,6 +16,8 @@ namespace GS_PatEditor.Pat.Effects
         Minus,
         Multiply,
         Divide,
+        Equal,
+        Or,
     }
 
     [Serializable]
@@ -44,6 +46,10 @@ namespace GS_PatEditor.Pat.Effects
                     return Left.Get(actor) * Right.Get(actor);
                 case BinaryOperator.Divide:
                     return Left.Get(actor) / Right.Get(actor);
+                case BinaryOperator.Equal:
+                    return Left.Get(actor) == Right.Get(actor) ? 1 : 0;
+                case BinaryOperator.Or:
+                    return Left.Get(actor) != 0 || Right.Get(actor) != 0 ? 1 : 0;
             }
             return 0.0f;
         }
@@ -64,6 +70,12 @@ namespace GS_PatEditor.Pat.Effects
                     break;
                 case BinaryOperator.Divide:
                     opr = BiOpExpr.Op.Divide;
+                    break;
+                case BinaryOperator.Equal:
+                    opr = BiOpExpr.Op.Equal;
+                    break;
+                case BinaryOperator.Or:
+                    opr = BiOpExpr.Op.Or;
                     break;
             }
             return new BiOpExpr(Left.Generate(env), Right.Generate(env), opr);

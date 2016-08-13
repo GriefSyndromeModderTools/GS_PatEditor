@@ -25,8 +25,11 @@ namespace GS_PatEditor.Editor.Exporters.CodeFormat
 
         public void Write(TextWriter output, int indent)
         {
-            output.WriteIndent(indent);
-            output.WriteLine(_Value);
+            if (_Value != null && _Value.Length > 0)
+            {
+                output.WriteIndent(indent);
+                output.WriteLine(_Value);
+            }
         }
     }
 

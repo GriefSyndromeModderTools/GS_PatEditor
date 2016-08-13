@@ -19,10 +19,20 @@ namespace GS_PatEditor.Pat.Behaviors
         [XmlAttribute]
         public bool KeyReleased { get; set; }
 
+        [XmlElement]
+        public int? SegmentTo { get; set; }
+
         public override void MakeEffects(ActionEffects effects)
         {
             var breakEffect = new SimpleListEffect();
-            breakEffect.EffectList.Add(new Effects.AnimationContinueEffect());
+            if (SegmentTo.HasValue)
+            {
+                breakEffect.EffectList.Add(new Effects.SetSegmentEffect { Segment = SegmentTo.Value });
+            }
+            else
+            {
+                breakEffect.EffectList.Add(new Effects.AnimationContinueEffect());
+            }
             var filter = new SimpleListFilter();
             filter.FilterList.Add(new Effects.AnimationSegmentFilter { Segment = Segment });
             filter.FilterList.Add(new Effects.AnimationCountAfterFilter { Count = new ConstValue { Value = Tick } });

@@ -32,6 +32,8 @@ namespace GS_PatEditor.Pat.Effects
                     new SimpleLineObject("this.u.uu <- { uuu = null };"),
                     new SimpleLineObject("this.u.CA <- 0;"),
                 }).Statement(),
+                //get parent actor from table t (before setmotion, where SYS_parent may be used)
+                ActorVariableHelper.GenerateSet("SYS_parent", new IdentifierExpr("t").MakeIndex("flag1")),
                 _SetMotion.Generate(env),
             }).Statement();
         }
@@ -87,6 +89,22 @@ namespace GS_PatEditor.Pat.Effects
                 ThisExpr.Instance.MakeIndex("rz").Assign(r).Statement(),
                 ThisExpr.Instance.MakeIndex("vx").Assign(vx).Statement(),
                 ThisExpr.Instance.MakeIndex("vy").Assign(vy).Statement(),
+                new SimpleLineObject("this.SetCollisionRotation(0.0, 0.0, this.rz);"),
+            }).Statement();
+        }
+    }
+
+    [Serializable]
+    public class BulletUpdateCollisionEffect : Effect
+    {
+        public override void Run(Simulation.Actor actor)
+        {
+        }
+
+        public override ILineObject Generate(GenerationEnvironment env)
+        {
+            return new SimpleBlock(new ILineObject[] {
+                new SimpleLineObject("this.SetCollisionScaling(this.sx, this.sy, 1.0);"),
                 new SimpleLineObject("this.SetCollisionRotation(0.0, 0.0, this.rz);"),
             }).Statement();
         }
@@ -228,32 +246,30 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
+            var owner = ActorVariableHelper.GenerateGet("SYS_parent");
+
             List<ILineObject> ret = new List<ILineObject>();
             if (CheckInstance != null && CheckInstance.Length != 0)
             {
-                //TODO fix this: set variable in owner, not this
-                ret.Add(ActorVariableHelper.GenerateSet(new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr"),
+                ret.Add(ActorVariableHelper.GenerateSet(owner.MakeIndex("wr"),
                     CheckInstance, ThisExpr.Instance.MakeIndex("name")));
             }
-
-            //get parent actor from table t
-            ret.Add(ActorVariableHelper.GenerateSet("SYS_parent", new IdentifierExpr("t").MakeIndex("flag1")));
 
             //save relative position
             ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_relx",
                 new BiOpExpr(ThisExpr.Instance.MakeIndex("x"),
-                    new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("x"),
+                    owner.MakeIndex("wr").MakeIndex("x"),
                     BiOpExpr.Op.Minus)));
             ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_rely",
                 new BiOpExpr(ThisExpr.Instance.MakeIndex("y"),
-                    new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("y"),
+                    owner.MakeIndex("wr").MakeIndex("y"),
                     BiOpExpr.Op.Minus)));
             ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_dir_p",
-                new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("direction")));
+                owner.MakeIndex("wr").MakeIndex("direction")));
             ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_dir_s",
                 ThisExpr.Instance.MakeIndex("direction")));
             ret.Add(ActorVariableHelper.GenerateSet("SYS_follow_motion",
-                new IdentifierExpr("t").MakeIndex("flag1").MakeIndex("wr").MakeIndex("motion")));
+                owner.MakeIndex("wr").MakeIndex("motion")));
             return new SimpleBlock(ret).Statement();
         }
     }

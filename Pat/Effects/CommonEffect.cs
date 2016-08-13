@@ -181,7 +181,8 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
-            return new SimpleLineObject("this.SetMotion(this.motion, " + Segment + ");");
+            var ret = new SimpleLineObject("this.SetMotion(this.motion, " + Segment + ");");
+            return SetMotionEffectHelper.Generate(env, ret);
         }
     }
 

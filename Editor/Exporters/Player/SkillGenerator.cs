@@ -27,6 +27,15 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 return Exporter.GetActionID(name);
             }
 
+            private static string EscapeFunctionName(string name)
+            {
+                return new string(name
+                    .Replace("_", "__")
+                    .Replace(" ", "_s")
+                    .Where(c => char.IsLetter(c) || char.IsNumber(c) || c == '_')
+                    .ToArray()) + "_" + ((uint)name.GetHashCode()).ToString();
+            }
+
             public string GenerateActionAsActorInit(string name)
             {
                 string ret;
@@ -43,7 +52,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 funcContent.AddRange(GenerateNormalSkillFunction(Exporter, this, name, true));
                 CurrentActionName = lastActionName;
 
-                ret = "InitAction_" + name;
+                ret = "InitAction_" + EscapeFunctionName(name);
                 var func = new FunctionBlock(ret, new string[] { "t" }, funcContent);
 
                 Output.WriteStatement(func.Statement());
@@ -285,6 +294,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             {
                 b.MakeEffects(ae);
             }
+            ae.ProcessPostEffects();
 
             exporter.SSERecorder.AddAction(ae, env.GetActionID(id), env);
 

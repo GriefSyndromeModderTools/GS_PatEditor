@@ -35,7 +35,7 @@ namespace GS_PatEditor.Editor.Exporters
             {
                 var motion = entry.Key;
                 ret.Add(new ControlBlock(ControlBlockType.If,
-                    "this.motion == " + motion.ToString(), new ILineObject[] { entry.Value }).Statement());
+                    "this.motion - this.u.CA == " + motion.ToString(), new ILineObject[] { entry.Value }).Statement());
             }
             return new SimpleBlock(ret).Statement();
         }

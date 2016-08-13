@@ -18,6 +18,10 @@ namespace GS_PatEditor.Pat.Effects
 
         public override float Get(Simulation.Actor actor)
         {
+            if (!actor.Variables.ContainsKey(Name))
+            {
+
+            }
             var val = actor.Variables[Name];
             if (val.Type == Simulation.ActorVariableType.Float)
             {

@@ -9,8 +9,12 @@ namespace GS_PatEditor.Pat
     public class ActionEffects
     {
         public int SegmentCount { get; private set; }
+
         public EffectList InitEffects;
+        public EffectList PostInitEffects;
         public EffectList UpdateEffects;
+        public EffectList PostUpdateEffects;
+
         public List<EffectList> SegmentStartEffects;
         public List<EffectList> SegmentFinishEffects;
 
@@ -19,11 +23,21 @@ namespace GS_PatEditor.Pat
             SegmentCount = action.Segments.Count;
 
             InitEffects = new EffectList { Effects = new List<Effect>(action.InitEffects) };
+            PostInitEffects = new EffectList { Effects = new List<Effect>() };
             UpdateEffects = new EffectList { Effects = new List<Effect>(action.UpdateEffects) };
+            PostUpdateEffects = new EffectList { Effects = new List<Effect>() };
             SegmentStartEffects = action.SegmentStartEffects.Select(x =>
                 new EffectList { Effects = new List<Effect>(x) }).ToList();
             SegmentFinishEffects = action.SegmentFinishEffects.Select(x =>
                 new EffectList { Effects = new List<Effect>(x) }).ToList();
+        }
+
+        public void ProcessPostEffects()
+        {
+            UpdateEffects.Effects.AddRange(PostUpdateEffects.Effects);
+            PostUpdateEffects.Effects.Clear();
+            InitEffects.Effects.AddRange(PostInitEffects.Effects);
+            PostInitEffects.Effects.Clear();
         }
     }
 

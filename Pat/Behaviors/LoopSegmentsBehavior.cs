@@ -24,4 +24,32 @@ namespace GS_PatEditor.Pat.Behaviors
                 new SetSegmentEffect { Segment = Start });
         }
     }
+
+    [Serializable]
+    public class JumpSegmentBehavior : Behavior
+    {
+        [XmlElement]
+        public int JumpFrom { get; set; }
+
+        [XmlElement]
+        public int? JumpTo { get; set; }
+
+        public JumpSegmentBehavior()
+        {
+            JumpFrom = 0;
+            JumpTo = 1;
+        }
+
+        public override void MakeEffects(ActionEffects effects)
+        {
+            if (JumpTo.HasValue)
+            {
+                effects.SegmentFinishEffects.AddEffectToList(JumpFrom, new SetSegmentEffect { Segment = JumpTo.Value });
+            }
+            else
+            {
+                effects.SegmentFinishEffects.AddEffectToList(JumpFrom, new PlayerEndToFreeMoveEffect());
+            }
+        }
+    }
 }

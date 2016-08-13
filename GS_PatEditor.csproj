@@ -172,9 +172,12 @@
     <Compile Include="GSPat\ImageManager.cs" />
     <Compile Include="Pat\Behavior.cs" />
     <Compile Include="Pat\Behaviors\BasicBehaviors.cs" />
+    <Compile Include="Pat\Behaviors\BulletInitBehavior.cs" />
     <Compile Include="Pat\Behaviors\CreateBulletBehavior.cs" />
-    <Compile Include="Pat\Behaviors\EffectActorBehavior.cs" />
+    <Compile Include="Pat\Behaviors\EffectInitBehavior.cs" />
     <Compile Include="Pat\Behaviors\EffectBehavior.cs" />
+    <Compile Include="Pat\Behaviors\EffectFollowParentBehavior.cs" />
+    <Compile Include="Pat\Behaviors\EffectSegmentBehavior.cs" />
     <Compile Include="Pat\Behaviors\HoldSkillBehavior.cs" />
     <Compile Include="Pat\Behaviors\LoopSegmentsBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerAirSpeedCtrlBehavior.cs" />

@@ -24,6 +24,8 @@ namespace GS_PatEditor.Simulation
             {
                 b.MakeEffects(ae);
             }
+            ae.ProcessPostEffects();
+
             if (runInit)
             {
                 ae.InitEffects.RunEffects(actor);
