@@ -117,58 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FrameReferenceEditForm_ListFormat" xml:space="preserve">
-    <value>第 {0} 分段, 第 {1} 帧</value>
+  <data name="NameAndTextFormat" xml:space="preserve">
+    <value>{0}({1})</value>
   </data>
-  <data name="FrameReferenceEditForm_ListUnknown" xml:space="preserve">
-    <value>未知</value>
+  <data name="Null" xml:space="preserve">
+    <value>&lt;null&gt;</value>
   </data>
-  <data name="ImageSelectForm_BatchImport" xml:space="preserve">
-    <value>批量导入</value>
-  </data>
-  <data name="ImageSelectForm_ConfirmCreate" xml:space="preserve">
-    <value>是否创建新图片？</value>
-  </data>
-  <data name="ImageSelectForm_ConfirmRemove" xml:space="preserve">
-    <value>确认删除所选的图片？如果需要你仍然可以再次添加。</value>
-  </data>
-  <data name="ImageSelectForm_CreateItem" xml:space="preserve">
-    <value>&lt;新建&gt;</value>
-  </data>
-  <data name="ImageSelectForm_Import" xml:space="preserve">
-    <value>导入</value>
-  </data>
-  <data name="ImageSelectForm_MsgBoxTitle" xml:space="preserve">
-    <value>选择图片</value>
-  </data>
-  <data name="ImageSelectForm_NotCreated" xml:space="preserve">
-    <value>请选择已经创建的图片。</value>
-  </data>
-  <data name="ImageSelectForm_RemoveInUse" xml:space="preserve">
-    <value>该图片在使用中。</value>
-  </data>
-  <data name="ImportPatAnimationForm_ListFormat" xml:space="preserve">
-    <value>动画 {0}</value>
-  </data>
-  <data name="ImportPatAnimationForm_ListFormatFollower" xml:space="preserve">
-    <value>动画 {0}, 分段 {1}</value>
-  </data>
-  <data name="ImportPatAnimationForm_MsgBoxTitle" xml:space="preserve">
-    <value>导入动画</value>
-  </data>
-  <data name="ImportPatAnimationForm_PaletteNotFound" xml:space="preserve">
-    <value>未能找到默认的调色板，请选择确定来选择一个调色板文件或选择取消不使用调色板。</value>
-  </data>
-  <data name="ImportPatAnimationForm_ProjPath" xml:space="preserve">
-    <value>imported_</value>
-  </data>
-  <data name="ImportPatAnimationForm_ProjPathPal" xml:space="preserve">
-    <value>imported_palette_</value>
-  </data>
-  <data name="ProjectDirectoryEditForm_FreeNamePrefix" xml:space="preserve">
-    <value>NewDirectory</value>
-  </data>
-  <data name="RecentFileList_Save" xml:space="preserve">
-    <value>记录最近打开的工程列表</value>
+  <data name="Select" xml:space="preserve">
+    <value>select</value>
   </data>
 </root>

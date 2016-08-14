@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Pat.Effects;
+﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Pat.Effects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace GS_PatEditor.Editor.Editable
         {
             return new TreeNode()
             {
-                Text = filter == null ? "<null>" : filter.GetType().Name,
+                Text = filter == null ? EditableTreeViewRes.Null : filter.GetType().Name,
                 Tag = filter
             };
         }

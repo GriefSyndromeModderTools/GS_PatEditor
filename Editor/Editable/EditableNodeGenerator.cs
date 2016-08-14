@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Pat.Effects;
+﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Pat.Effects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,14 +60,14 @@ namespace GS_PatEditor.Editor.Editable
                 {
                     return str;
                 }
-                return Title + "(" + str + ")";
+                return String.Format(EditableTreeViewRes.NameAndTextFormat, Title, str);
             }
 
             protected override void SetupCommon()
             {
                 if (Data == null)
                 {
-                    Text = MakeText("select");
+                    Text = MakeText(EditableTreeViewRes.Select);
                 }
                 else if (Data is IDataNodeDisplayNameProvider)
                 {

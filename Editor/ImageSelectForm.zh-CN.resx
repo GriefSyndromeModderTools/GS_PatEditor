@@ -117,58 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FrameReferenceEditForm_ListFormat" xml:space="preserve">
-    <value>第 {0} 分段, 第 {1} 帧</value>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>图片ID</value>
   </data>
-  <data name="FrameReferenceEditForm_ListUnknown" xml:space="preserve">
-    <value>未知</value>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>文件</value>
   </data>
-  <data name="ImageSelectForm_BatchImport" xml:space="preserve">
+  <data name="label1.Text" xml:space="preserve">
+    <value>图片ID:</value>
+  </data>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="buttonOK.Text" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
     <value>批量导入</value>
   </data>
-  <data name="ImageSelectForm_ConfirmCreate" xml:space="preserve">
-    <value>是否创建新图片？</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 16</value>
   </data>
-  <data name="ImageSelectForm_ConfirmRemove" xml:space="preserve">
-    <value>确认删除所选的图片？如果需要你仍然可以再次添加。</value>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>显示文件</value>
   </data>
-  <data name="ImageSelectForm_CreateItem" xml:space="preserve">
-    <value>&lt;新建&gt;</value>
+  <data name="checkBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 16</value>
   </data>
-  <data name="ImageSelectForm_Import" xml:space="preserve">
-    <value>导入</value>
+  <data name="checkBox2.Text" xml:space="preserve">
+    <value>手动透明</value>
   </data>
-  <data name="ImageSelectForm_MsgBoxTitle" xml:space="preserve">
+  <data name="button1.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
     <value>选择图片</value>
-  </data>
-  <data name="ImageSelectForm_NotCreated" xml:space="preserve">
-    <value>请选择已经创建的图片。</value>
-  </data>
-  <data name="ImageSelectForm_RemoveInUse" xml:space="preserve">
-    <value>该图片在使用中。</value>
-  </data>
-  <data name="ImportPatAnimationForm_ListFormat" xml:space="preserve">
-    <value>动画 {0}</value>
-  </data>
-  <data name="ImportPatAnimationForm_ListFormatFollower" xml:space="preserve">
-    <value>动画 {0}, 分段 {1}</value>
-  </data>
-  <data name="ImportPatAnimationForm_MsgBoxTitle" xml:space="preserve">
-    <value>导入动画</value>
-  </data>
-  <data name="ImportPatAnimationForm_PaletteNotFound" xml:space="preserve">
-    <value>未能找到默认的调色板，请选择确定来选择一个调色板文件或选择取消不使用调色板。</value>
-  </data>
-  <data name="ImportPatAnimationForm_ProjPath" xml:space="preserve">
-    <value>imported_</value>
-  </data>
-  <data name="ImportPatAnimationForm_ProjPathPal" xml:space="preserve">
-    <value>imported_palette_</value>
-  </data>
-  <data name="ProjectDirectoryEditForm_FreeNamePrefix" xml:space="preserve">
-    <value>NewDirectory</value>
-  </data>
-  <data name="RecentFileList_Save" xml:space="preserve">
-    <value>记录最近打开的工程列表</value>
   </data>
 </root>
