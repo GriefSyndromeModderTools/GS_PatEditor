@@ -43,7 +43,7 @@ namespace GS_PatEditor.Pat.Effects
         public string Name { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Value")]
+        [EditorChildNode("ActorSetFloatVariableEffect_Value")]
         public Value Value;
 
         public override void Run(Simulation.Actor actor)

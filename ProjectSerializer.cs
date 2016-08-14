@@ -1,6 +1,7 @@
 ﻿using GS_PatEditor.Editor;
 using GS_PatEditor.Editor.Editable;
 using GS_PatEditor.Editor.Exporters;
+using GS_PatEditor.Localization;
 using GS_PatEditor.Pat;
 using System;
 using System.Collections.Generic;
@@ -94,9 +95,9 @@ namespace GS_PatEditor
             }
             else
             {
-                MessageBox.Show("Local information not found. " +
-                    "Please reset them now.",
-                    "Load Project", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ProgramRes.LocalNotFound,
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (!ShowDirectoryDialog(proj))
                 {
                     return null;
@@ -127,14 +128,15 @@ namespace GS_PatEditor
             var notFound2c = notFound2.Count();
             if (notFound1 > 0)
             {
-                MessageBox.Show("" + notFound1 + " directories not used in local settings. Ignored.",
-                    "Load Project", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(String.Format(ProgramRes.DirNotUsedFormat, notFound1),
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (notFound2c > 0)
             {
-                MessageBox.Show("" + notFound1 + " directories not found in local settings. " +
-                    "Please reset them now.",
-                    "Load Project", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(String.Format(ProgramRes.DirNotFoundFormat, notFound2c),
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (!ShowDirectoryDialog(proj))
                 {
                     return false;

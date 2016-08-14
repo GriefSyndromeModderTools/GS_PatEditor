@@ -9,21 +9,27 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(EffectFollowParentBehavior))]
     public class EffectFollowParentBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectFollowParentBehavior_Segment")]
         public int Segment { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectFollowParentBehavior_SingleInstanceID")]
         public string SingleInstanceID { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectFollowParentBehavior_FailIfParentMotionChanged")]
         public bool FailIfParentMotionChanged { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectFollowParentBehavior_ReleaseIfCheckFailed")]
         public bool ReleaseIfCheckFailed { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectFollowParentBehavior_SegmentCheckFailed")]
         public int? SegmentCheckFailed { get; set; }
 
         public override void MakeEffects(ActionEffects effects)
@@ -47,13 +53,15 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(ClearFollowingEffectBehavior))]
     public class ClearFollowingEffectBehavior : Behavior
     {
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("ClearFollowingEffectBehavior_Time")]
         public Time Time;
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("ClearFollowingEffectBehavior_SingleInstanceID")]
         public string SingleInstanceID { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

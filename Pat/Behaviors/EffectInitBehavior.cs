@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(EffectInitBehavior))]
     public class EffectInitBehavior : Behavior
     {
         public override void MakeEffects(ActionEffects effects)

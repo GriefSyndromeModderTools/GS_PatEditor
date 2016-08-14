@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Editable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,15 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerSystemAnimationBehavior))]
     public class PlayerSystemAnimationBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerSystemAnimationBehavior_PlayerSystemAnimationBehaviorType")]
         public PlayerSystemAnimationBehaviorType Type { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerSystemAnimationBehavior_IsStatic")]
         public bool IsStatic { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BulletInitBehavior_IgnoreCollisionTransform" xml:space="preserve">
+    <value>如果为False，则在每次缩放和旋转后会自动重新计算子弹的判定区（默认）。</value>
+  </data>
+  <data name="ClearFollowingEffectBehavior_SingleInstanceID" xml:space="preserve">
+    <value>跟随对象在本体上检查是否有同名子弹或效果出现所用的名字。如果本体使用相同名字清除跟随对象，那么同名的跟随对象（如果存在）就会触发失败条件。</value>
+  </data>
+  <data name="CreateBulletBehavior_Bullet" xml:space="preserve">
+    <value>创建子弹所用的动画名。</value>
+  </data>
+  <data name="CreateBulletBehavior_Direction" xml:space="preserve">
+    <value>创建的子弹的方向是否与本体相同。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryFinisheAfter_Tick" xml:space="preserve">
+    <value>持续时间。时间到以后会触发结束。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryFlash_Max" xml:space="preserve">
+    <value>不透明度的上限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryFlash_Min" xml:space="preserve">
+    <value>不透明度的下限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryFlash_Step" xml:space="preserve">
+    <value>每帧增加或减少的不透明度值。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryIncreaseAlpha_Increase" xml:space="preserve">
+    <value>效果持续期间每帧增加的不透明度值。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryIncreaseAlpha_IncreaseFrom" xml:space="preserve">
+    <value>效果开始时设置的不透明度值。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomRotation_Max" xml:space="preserve">
+    <value>初始设置旋转角度的随机上限（弧度）。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomRotation_Min" xml:space="preserve">
+    <value>初始设置旋转角度的随机下限（弧度）。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomScale_MaxX" xml:space="preserve">
+    <value>初始设置X方向缩放的随机上限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomScale_MaxY" xml:space="preserve">
+    <value>初始设置Y方向缩放的随机上限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomScale_MinX" xml:space="preserve">
+    <value>初始设置X方向缩放的随机下限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryInitRandomScale_MinY" xml:space="preserve">
+    <value>初始设置Y方向缩放的随机下限。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryReduceAlpha_Minus" xml:space="preserve">
+    <value>每帧将不透明度减小的系数。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryReduceAlpha_Multiply" xml:space="preserve">
+    <value>每帧将不透明度乘上的系数。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryReduceScaleRatio_RatioX" xml:space="preserve">
+    <value>每帧将X方向缩放比例乘上的系数。</value>
+  </data>
+  <data name="EffectActorBehaviorEntryReduceScaleRatio_RatioY" xml:space="preserve">
+    <value>每帧将Y方向缩放比例乘上的系数。</value>
+  </data>
+  <data name="EffectFollowParentBehavior_FailIfParentMotionChanged" xml:space="preserve">
+    <value>如果为True，则会检查本体的动作是否已经改变（例如玩家恢复站姿或进入受伤状态），如果改变那么触发失败条件，依据其他属性，可以选择跳转到某一分段或直接消除该对象。</value>
+  </data>
+  <data name="EffectFollowParentBehavior_ReleaseIfCheckFailed" xml:space="preserve">
+    <value>是否在失败条件满足时消除该对象。</value>
+  </data>
+  <data name="EffectFollowParentBehavior_Segment" xml:space="preserve">
+    <value>跟随效果持续的分段编号（0起始）（如果需要多个分段上跟随请创建多个行为对象）。</value>
+  </data>
+  <data name="EffectFollowParentBehavior_SegmentCheckFailed" xml:space="preserve">
+    <value>在失败条件满足时跳转到某一分段（0起始）（为空则不跳转）。</value>
+  </data>
+  <data name="EffectFollowParentBehavior_SingleInstanceID" xml:space="preserve">
+    <value>在本体上检查是否有同名子弹或效果出现所用的名字。如果具有相同名字的子弹或效果（同一个或同名的不同动画）出现则依据其他属性，触发失败条件，可以选择跳转到某一分段或直接消除该对象。</value>
+  </data>
+  <data name="EffectSegmentBehavior_FinishSegment" xml:space="preserve">
+    <value>效果结束时（不同的子节点会触发各自的结束条件）跳转到的分段编号（0起始）（如果为空则不跳转）。</value>
+  </data>
+  <data name="EffectSegmentBehavior_ReleaseWhenFinish" xml:space="preserve">
+    <value>如果为True，则效果结束时（不同的子节点会触发各自的结束条件）消除该对象。</value>
+  </data>
+  <data name="EffectSegmentBehavior_Segment" xml:space="preserve">
+    <value>效果生效的分段编号（0起始）。</value>
+  </data>
+  <data name="HoldSkillBehavior_CancelSegment" xml:space="preserve">
+    <value>蓄力失败时（未达到指定时间就松开按键）跳转到的分段编号（0起始）。</value>
+  </data>
+  <data name="HoldSkillBehavior_HoldLength" xml:space="preserve">
+    <value>蓄力时间长度。</value>
+  </data>
+  <data name="HoldSkillBehavior_HoldSegment" xml:space="preserve">
+    <value>蓄力效果所在的分段编号（0起始），需要为循环分段。</value>
+  </data>
+  <data name="HoldSkillBehavior_SuccessSegment" xml:space="preserve">
+    <value>蓄力成功时（达到指定时间）跳转到的分段编号（0起始）。</value>
+  </data>
+  <data name="JumpSegmentBehavior_JumpFrom" xml:space="preserve">
+    <value>跳转起点分段编号（0起始）。这一分段自然结束时会发生跳转。</value>
+  </data>
+  <data name="JumpSegmentBehavior_JumpTo" xml:space="preserve">
+    <value>跳转的目标分段编号（0起始）。如果为空，则直接结束技能（玩家）或消除该对象（子弹或效果）。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryAirJump_ResetOriginSpeed" xml:space="preserve">
+    <value>如果为True，则效果将速度设置为指定的速度。如果为False，则设置速度为原速度加指定速度。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryAirJump_Speed" xml:space="preserve">
+    <value>纵向速度（累加或直接设置）。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryGravity_Segments" xml:space="preserve">
+    <value>指定重力生效的分段。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryGravity_Value" xml:space="preserve">
+    <value>重力值。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryRecoil_CheckAfter" xml:space="preserve">
+    <value>加速后检查的X方向速度值上限。如果超过此值（根据加速值的正负号进行判断），则会将速度设置成这个上限。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryRecoil_CheckBefore" xml:space="preserve">
+    <value>加速前检查的X方向速度值。如果已经超过此值（根据加速值的正负号进行判断），则不会发生加速。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryRecoil_StrictCheckBefore" xml:space="preserve">
+    <value>如果为True，则加速前检查时判断为等于算作失败，不会发生加速。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryRecoil_Value" xml:space="preserve">
+    <value>加速值。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryReduceSpeed_RatioX" xml:space="preserve">
+    <value>X方向减速比例。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehaviorEntryReduceSpeed_RatioY" xml:space="preserve">
+    <value>Y方向减速比例。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehavior_InitialGravity" xml:space="preserve">
+    <value>初始重力（仅一帧内有效）。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehavior_ReduceInitialSpeedX" xml:space="preserve">
+    <value>初始时X方向速度减速比例。</value>
+  </data>
+  <data name="PlayerAirSpeedCtrlBehavior_ReduceInitialSpeedY" xml:space="preserve">
+    <value>初始时Y方向速度减速比例。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryFriction_Value" xml:space="preserve">
+    <value>摩擦力数值。每帧会将速度的绝对值减小这个值。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_CheckAfter" xml:space="preserve">
+    <value>加速后检查的X方向速度值上限。如果超过此值（根据加速值的正负号进行判断），则会将速度设置成这个上限。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_CheckBefore" xml:space="preserve">
+    <value>加速前检查的X方向速度值。如果已经超过此值（根据加速值的正负号进行判断），则不会发生加速。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_ReduceInitialSpeed" xml:space="preserve">
+    <value>初始时减速比例。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_StrictCheckBefore" xml:space="preserve">
+    <value>如果为True，则加速前检查时判断为等于算作失败，不会发生加速。</value>
+  </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_Value" xml:space="preserve">
+    <value>加速值。</value>
+  </data>
+  <data name="PlayerSkillAirBehavior_AutoCancel" xml:space="preserve">
+    <value>如果为True，则会发生落地取消，无视允许落地取消的分段编号属性。</value>
+  </data>
+  <data name="PlayerSkillAirBehavior_ResetHitSegments" xml:space="preserve">
+    <value>指定需要重置击中对象的分段编号列表（0起始）。在两次重置之间，攻击对于一个目标只能生效一次，因而多段攻击需要重置。关于分段列表的格式请参考说明文档。除非特殊需求，应当保留默认值。</value>
+  </data>
+  <data name="PlayerSkillAirBehavior_SitCancelSegment" xml:space="preserve">
+    <value>指定开始允许落地取消的分段编号（0起始）。</value>
+  </data>
+  <data name="PlayerSkillGroundBehavior_AutoCancel" xml:space="preserve">
+    <value>如果为True，则在技能持续过程中如果发生下落（通常是由于水平位移而离开地面），则会发生取消，进入下落状态。</value>
+  </data>
+  <data name="PlayerSkillGroundBehavior_ResetHitSegments" xml:space="preserve">
+    <value>指定需要重置击中对象的分段编号列表（0起始）。在两次重置之间，攻击对于一个目标只能生效一次，因而多段攻击需要重置。关于分段列表的格式请参考说明文档。除非特殊需求，应当保留默认值。</value>
+  </data>
+  <data name="PlayerSkillLoopBreakBehavior_KeyReleased" xml:space="preserve">
+    <value>如果为True，则只能在按键松开后跳出循环。</value>
+  </data>
+  <data name="PlayerSkillLoopBreakBehavior_Segment" xml:space="preserve">
+    <value>循环分段的编号（0起始）。</value>
+  </data>
+  <data name="PlayerSkillLoopBreakBehavior_SegmentTo" xml:space="preserve">
+    <value>循环结束后跳转到的分段编号（0起始）。</value>
+  </data>
+  <data name="PlayerSkillLoopBreakBehavior_Tick" xml:space="preserve">
+    <value>跳出循环前需要等待的最少时间。</value>
+  </data>
+  <data name="PlayerSystemAnimationBehavior_IsStatic" xml:space="preserve">
+    <value>如果为True，则行走和下落动画不会移动。</value>
+  </data>
+  <data name="PlayerSystemAnimationBehavior_PlayerSystemAnimationBehaviorType" xml:space="preserve">
+    <value>系统动画的类型。</value>
+  </data>
+  <data name="TimeEndSegment_Segment" xml:space="preserve">
+    <value>指定分段编号（0起始）。在这个分段结束时触发。</value>
+  </data>
+  <data name="TimeRepeat_Interval" xml:space="preserve">
+    <value>重复触发的时间间隔。</value>
+  </data>
+  <data name="TimeRepeat_Segment" xml:space="preserve">
+    <value>指定分段编号（0起始）。在这个分段期间，每隔一段时间触发一次。</value>
+  </data>
+  <data name="TimeStartSegment_Segment" xml:space="preserve">
+    <value>指定分段编号（0起始）。在这个分段开始时触发。</value>
+  </data>
+</root>

@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Pat.Effects;
+﻿using GS_PatEditor.Editor.Editable;
+using GS_PatEditor.Pat.Effects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,15 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(JumpSegmentBehavior))]
     public class JumpSegmentBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("JumpSegmentBehavior_JumpFrom")]
         public int JumpFrom { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("JumpSegmentBehavior_JumpTo")]
         public int? JumpTo { get; set; }
 
         public JumpSegmentBehavior()

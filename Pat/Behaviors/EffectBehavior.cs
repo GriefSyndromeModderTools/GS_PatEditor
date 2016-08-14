@@ -10,15 +10,15 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
-    [DisplayName("ManualBehavior")]
+    [LocalizedClassDisplayName(typeof(EffectBehavior))]
     public class EffectBehavior : Behavior
     {
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("EffectBehavior_Time")]
         public Time Time;
 
         [XmlElement]
-        [EditorChildNode("Effect")]
+        [EditorChildNode("EffectBehavior_Effect")]
         public Effect Effect;
 
         public override void MakeEffects(ActionEffects effects)

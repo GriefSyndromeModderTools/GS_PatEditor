@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Localization.Elements;
 using GS_PatEditor.Pat.Effects;
 using System;
 using System.Collections.Generic;
@@ -239,13 +240,31 @@ namespace GS_PatEditor.Editor.Editable
 
     public class EditorChildNodeAttribute : Attribute
     {
+        public string LocalizationID { get; private set; }
         public string Name { get; private set; }
         public bool Merged { get; private set; }
 
-        public EditorChildNodeAttribute(string name, bool merged = true)
+        public EditorChildNodeAttribute(string localizationID, bool merged = true)
         {
-            Name = name;
+            LocalizationID = localizationID;
             Merged = merged;
+            Name = Get();
+        }
+
+        private string Get()
+        {
+            if (LocalizationID == null)
+            {
+                return null;
+            }
+            try
+            {
+                return ChildNodeNameRes.ResourceManager.GetString(LocalizationID);
+            }
+            catch
+            {
+                return LocalizationID.Substring(LocalizationID.IndexOf('_') + 1);
+            }
         }
     }
 }

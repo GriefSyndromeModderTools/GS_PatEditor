@@ -18,14 +18,16 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Gravity")]
+    [LocalizedClassDisplayName(typeof(PlayerAirSpeedCtrlBehaviorEntryGravity))]
     public class PlayerAirSpeedCtrlBehaviorEntryGravity : PlayerAirSpeedCtrlBehaviorEntry
     {
         [XmlElement]
         [DefaultValue(1.0f)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryGravity_Value")]
         public float Value { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryGravity_Segments")]
         public SegmentSelector Segments { get; set; }
 
         public PlayerAirSpeedCtrlBehaviorEntryGravity()
@@ -42,17 +44,19 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("ReduceSpeed")]
+    [LocalizedClassDisplayName(typeof(PlayerAirSpeedCtrlBehaviorEntryReduceSpeed))]
     public class PlayerAirSpeedCtrlBehaviorEntryReduceSpeed : PlayerAirSpeedCtrlBehaviorEntry
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryReduceSpeed_RatioX")]
         public float? RatioX { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryReduceSpeed_RatioY")]
         public float? RatioY { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("PlayerAirSpeedCtrlBehaviorEntryReduceSpeed_Time")]
         public Time Time;
 
         private Effect GetEffect()
@@ -94,26 +98,30 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("RecoilX")]
+    [LocalizedClassDisplayName(typeof(PlayerAirSpeedCtrlBehaviorEntryRecoil))]
     public class PlayerAirSpeedCtrlBehaviorEntryRecoil : PlayerAirSpeedCtrlBehaviorEntry
     {
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("PlayerAirSpeedCtrlBehaviorEntryRecoil_Time")]
         public Time Time;
 
         [XmlElement]
         [DefaultValue(null)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryRecoil_CheckBefore")]
         public float? CheckBefore { get; set; }
 
         [XmlElement]
         [DefaultValue(false)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryRecoil_StrictCheckBefore")]
         public bool StrictCheckBefore { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryRecoil_Value")]
         public float Value { get; set; }
 
         [XmlElement]
         [DefaultValue(null)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryRecoil_CheckAfter")]
         public float? CheckAfter { get; set; }
 
         public override void MakeEffects(ActionEffects effects)
@@ -223,18 +231,20 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("AirJump")]
+    [LocalizedClassDisplayName(typeof(PlayerAirSpeedCtrlBehaviorEntryAirJump))]
     public class PlayerAirSpeedCtrlBehaviorEntryAirJump : PlayerAirSpeedCtrlBehaviorEntry
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryAirJump_Speed")]
         public float Speed { get; set; }
 
         [XmlAttribute]
         [DefaultValue(true)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryAirJump_ResetOriginSpeed")]
         public bool ResetOriginSpeed { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("PlayerAirSpeedCtrlBehaviorEntryAirJump_Time")]
         public Time Time;
 
         public PlayerAirSpeedCtrlBehaviorEntryAirJump()
@@ -264,15 +274,19 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerAirSpeedCtrlBehavior))]
     public class PlayerAirSpeedCtrlBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehavior_ReduceInitialSpeedX")]
         public float? ReduceInitialSpeedX { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehavior_ReduceInitialSpeedY")]
         public float? ReduceInitialSpeedY { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehavior_InitialGravity")]
         public float? InitialGravity { get; set; }
 
         [XmlArray]

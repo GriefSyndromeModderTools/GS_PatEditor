@@ -19,11 +19,12 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Friction")]
+    [LocalizedClassDisplayName(typeof(PlayerGroundSpeedCtrlBehaviorEntryFriction))]
     public class PlayerGroundSpeedCtrlBehaviorEntryFriction : PlayerGroundSpeedCtrlBehaviorEntry
     {
         [XmlAttribute]
         [DefaultValue(0.2f)]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryFriction_Value")]
         public float Value { get; set; }
 
         [XmlElement]
@@ -51,26 +52,30 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Recoil")]
+    [LocalizedClassDisplayName(typeof(PlayerGroundSpeedCtrlBehaviorEntryRecoil))]
     public class PlayerGroundSpeedCtrlBehaviorEntryRecoil : PlayerGroundSpeedCtrlBehaviorEntry
     {
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time")]
         public Time Time;
 
         [XmlElement]
         [DefaultValue(null)]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryRecoil_CheckBefore")]
         public float? CheckBefore { get; set; }
 
         [XmlElement]
         [DefaultValue(false)]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryRecoil_StrictCheckBefore")]
         public bool StrictCheckBefore { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryRecoil_Value")]
         public float Value { get; set; }
 
         [XmlElement]
         [DefaultValue(null)]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryRecoil_CheckAfter")]
         public float? CheckAfter { get; set; }
 
         public override void MakeEffects(ActionEffects effects)
@@ -180,9 +185,11 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerGroundSpeedCtrlBehavior))]
     public class PlayerGroundSpeedCtrlBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryRecoil_ReduceInitialSpeed")]
         public float? ReduceInitialSpeed { get; set; }
         public bool ShouldSerializeReduceInitialSpeed()
         {

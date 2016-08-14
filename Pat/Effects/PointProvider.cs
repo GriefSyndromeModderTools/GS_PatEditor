@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Editor.Exporters;
+﻿using GS_PatEditor.Editor.Editable;
+using GS_PatEditor.Editor.Exporters;
 using GS_PatEditor.Editor.Exporters.CodeFormat;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Effects
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(FrameSinglePointProvider))]
     public class FrameSinglePointProvider : PointProvider
     {
         [XmlAttribute]

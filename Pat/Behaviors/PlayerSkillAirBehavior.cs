@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Pat.Effects;
+﻿using GS_PatEditor.Editor.Editable;
+using GS_PatEditor.Pat.Effects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,16 +11,20 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerSkillAirBehavior))]
     public class PlayerSkillAirBehavior : Behavior
     {
         [XmlAttribute]
         [DefaultValue(true)]
+        [LocalizedDescriptionAttribute("PlayerSkillAirBehavior_AutoCancel")]
         public bool AutoCancel { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerSkillAirBehavior_SitCancelSegment")]
         public int? SitCancelSegment { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerSkillAirBehavior_ResetHitSegments")]
         public SegmentSelector ResetHitSegments { get; set; }
 
         public PlayerSkillAirBehavior()

@@ -74,7 +74,8 @@ namespace GS_PatEditor.Render
             _Sprite = new SharpDX.Direct3D9.Sprite(_Device);
             _Font = new Font(_Device, 24, 8, FontWeight.Normal, 1, false,
                 FontCharacterSet.Default, FontPrecision.Default, FontQuality.Default,
-                FontPitchAndFamily.Default, "Times New Roman");
+                FontPitchAndFamily.Default,
+                System.Drawing.SystemFonts.DefaultFont.FontFamily.Name);
         }
 
         public void Dispose()

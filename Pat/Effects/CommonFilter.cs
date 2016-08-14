@@ -31,7 +31,7 @@ namespace GS_PatEditor.Pat.Effects
     public class AnimationCountAfterFilter : Filter
     {
         [XmlElement]
-        [EditorChildNode("Count")]
+        [EditorChildNode("AnimationCountAfterFilter_Count")]
         public Value Count;
 
         public override bool Test(Simulation.Actor actor)
@@ -64,10 +64,10 @@ namespace GS_PatEditor.Pat.Effects
     public class AnimationCountModFilter : Filter
     {
         [XmlElement]
-        [EditorChildNode("Divisor")]
+        [EditorChildNode("AnimationCountModFilter_Divisor")]
         public Value Divisor;
         [XmlElement]
-        [EditorChildNode("Mod")]
+        [EditorChildNode("AnimationCountModFilter_Mod")]
         public Value Mod;
 
         public override bool Test(Simulation.Actor actor)
@@ -96,11 +96,11 @@ namespace GS_PatEditor.Pat.Effects
     public class ValueCompareFilter : Filter
     {
         [XmlElement]
-        [EditorChildNode("Left")]
+        [EditorChildNode("ValueCompareFilter_Left")]
         public Value Left;
 
         [XmlElement]
-        [EditorChildNode("Right")]
+        [EditorChildNode("ValueCompareFilter_Right")]
         public Value Right;
 
         [XmlElement]

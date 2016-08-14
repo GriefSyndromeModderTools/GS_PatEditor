@@ -12,21 +12,24 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(CreateBulletBehavior))]
     public class CreateBulletBehavior : Behavior, IEditableEnvironment
     {
         [XmlElement]
-        [EditorChildNode("Time")]
+        [EditorChildNode("CreateBulletBehavior_Time")]
         public Time Time;
 
         [XmlElement]
         [TypeConverter(typeof(ActionIDConverter))]
+        [LocalizedDescriptionAttribute("CreateBulletBehavior_Bullet")]
         public string Bullet { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("CreateBulletBehavior_Direction")]
         public CreateBulletDirection Direction { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Position")]
+        [EditorChildNode("CreateBulletBehavior_Position")]
         public PointProvider Position;
 
         public override void MakeEffects(ActionEffects effects)

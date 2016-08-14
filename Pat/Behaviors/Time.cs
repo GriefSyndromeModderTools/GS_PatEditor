@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Editable;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Start")]
+    [LocalizedClassDisplayName(typeof(TimeStart))]
     public class TimeStart : Time
     {
         public override void MakeEffects(ActionEffects dest, Effect effect)
@@ -26,10 +27,11 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("StartOfSegment")]
+    [LocalizedClassDisplayName(typeof(TimeStartSegment))]
     public class TimeStartSegment : Time
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("TimeStartSegment_Segment")]
         public int Segment { get; set; }
 
         public override void MakeEffects(ActionEffects dest, Effect effect)
@@ -39,10 +41,11 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("EndOfSegment")]
+    [LocalizedClassDisplayName(typeof(TimeEndSegment))]
     public class TimeEndSegment : Time
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("TimeEndSegment_Segment")]
         public int Segment { get; set; }
 
         public override void MakeEffects(ActionEffects dest, Effect effect)
@@ -52,10 +55,14 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Repeat")]
+    [LocalizedClassDisplayName(typeof(TimeRepeat))]
     public class TimeRepeat : Time
     {
+        [XmlAttribute]
+        [LocalizedDescriptionAttribute("TimeRepeat_Segment")]
         public int Segment { get; set; }
+        [XmlAttribute]
+        [LocalizedDescriptionAttribute("TimeRepeat_Interval")]
         public int Interval { get; set; }
 
         public override void MakeEffects(ActionEffects dest, Effect effect)
@@ -71,5 +78,4 @@ namespace GS_PatEditor.Pat.Behaviors
             });
         }
     }
-
 }

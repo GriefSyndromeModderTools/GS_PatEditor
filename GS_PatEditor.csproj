@@ -103,8 +103,10 @@
     <Compile Include="Editor\Editable\EditableTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Editor\Editable\EnumDisplayNameEnumConverter.cs" />
     <Compile Include="Editor\Editable\GenericEditorSelectorTypeConverter.cs" />
     <Compile Include="Editor\Editable\IDataNodeDisplayNameProvider.cs" />
+    <Compile Include="Editor\Editable\LocalizedAttributes.cs" />
     <Compile Include="Editor\Editable\SelectObject.cs" />
     <Compile Include="Editor\Editable\TreeViewExt.cs" />
     <Compile Include="Editor\EffectListEditForm.cs">
@@ -190,6 +192,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditorFormCodeRes.zh-CN.resx</DependentUpon>
     </Compile>
+    <Compile Include="Localization\Elements\ChildNodeNameRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildNodeNameRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Elements\ClassNameRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassNameRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Elements\DescriptionRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DescriptionRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\Elements\EnumNameRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnumNameRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Localization\FormCodeRes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,8 +222,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlayerExporterRes.resx</DependentUpon>
     </Compile>
+    <Compile Include="Localization\ProgramRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProgramRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Pat\Behavior.cs" />
-    <Compile Include="Pat\Behaviors\BasicBehaviors.cs" />
     <Compile Include="Pat\Behaviors\BulletInitBehavior.cs" />
     <Compile Include="Pat\Behaviors\CreateBulletBehavior.cs" />
     <Compile Include="Pat\Behaviors\EffectInitBehavior.cs" />
@@ -443,14 +469,36 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EditableTreeViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EditableTreeViewRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\EditorComponentRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EditorComponentRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EditorComponentRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\EditorFormCodeRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EditorFormCodeRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Elements\ChildNodeNameRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChildNodeNameRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Elements\ChildNodeNameRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\Elements\ClassNameRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClassNameRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Elements\ClassNameRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\Elements\DescriptionRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\Elements\DescriptionRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DescriptionRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Elements\EnumNameRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnumNameRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Elements\EnumNameRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\FormCodeRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FormCodeRes.Designer.cs</LastGenOutput>
@@ -461,6 +509,11 @@
       <LastGenOutput>PlayerExporterRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\PlayerExporterRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\ProgramRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProgramRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\ProgramRes.zh-CN.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

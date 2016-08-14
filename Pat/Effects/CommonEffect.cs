@@ -46,9 +46,12 @@ namespace GS_PatEditor.Pat.Effects
         }
     }
 
+    [TypeConverter(typeof(EnumDisplayNameEnumConverterEnumConverter))]
     public enum CreateBulletDirection
     {
+        [LocalizedEnumDisplayName(typeof(CreateBulletDirection), "Same")]
         Same,
+        [LocalizedEnumDisplayName(typeof(CreateBulletDirection), "Opposite")]
         Opposite,
     }
 
@@ -60,7 +63,7 @@ namespace GS_PatEditor.Pat.Effects
         public string ActionName { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Position")]
+        [EditorChildNode("CreateBulletEffect_Position")]
         public PointProvider Position;
 
         [XmlElement]
@@ -253,7 +256,7 @@ namespace GS_PatEditor.Pat.Effects
         public Simulation.ActorLabelType Label { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Effect")]
+        [EditorChildNode("SetLabelEffect_Effect")]
         public Effect Effect;
 
         public override void Run(Simulation.Actor actor)
@@ -296,7 +299,7 @@ namespace GS_PatEditor.Pat.Effects
         public ActorMemberType Type { get; set; }
 
         [XmlElement]
-        [EditorChildNode("Value")]
+        [EditorChildNode("SetActorMemberEffect_Value")]
         public Value Value;
 
         public override void Run(Simulation.Actor actor)

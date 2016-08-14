@@ -58,11 +58,11 @@ namespace GS_PatEditor.Pat.Effects
     public class BulletSetSpeedEffect : Effect
     {
         [XmlElement]
-        [EditorChildNode("Speed")]
+        [EditorChildNode("BulletSetSpeedEffect_Speed")]
         public Value Speed;
 
         [XmlElement]
-        [EditorChildNode("Rotation")]
+        [EditorChildNode("BulletSetSpeedEffect_Rotation")]
         public Value Rotation;
 
         public override void Run(Simulation.Actor actor)

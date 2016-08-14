@@ -24,11 +24,11 @@ namespace GS_PatEditor.Pat.Effects
     public class BinaryExpressionValue : Value
     {
         [XmlElement]
-        [EditorChildNode("Left")]
+        [EditorChildNode("BinaryExpressionValue_Left")]
         public Value Left;
 
         [XmlElement]
-        [EditorChildNode("Right")]
+        [EditorChildNode("BinaryExpressionValue_Right")]
         public Value Right;
 
         [XmlAttribute]

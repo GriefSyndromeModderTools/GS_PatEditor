@@ -26,13 +26,15 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("ScaleRatio")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryReduceScaleRatio))]
     public class EffectActorBehaviorEntryReduceScaleRatio : EffectSegmentBehaviorEntry
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryReduceScaleRatio_RatioX")]
         public float RatioX { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryReduceScaleRatio_RatioY")]
         public float RatioY { get; set; }
 
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
@@ -69,10 +71,11 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("FinishAfter")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryFinisheAfter))]
     public class EffectActorBehaviorEntryFinisheAfter : EffectSegmentBehaviorEntry
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryFinisheAfter_Tick")]
         public int Tick { get; set; }
 
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
@@ -106,15 +109,17 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("ReduceAlpha")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryReduceAlpha))]
     public class EffectActorBehaviorEntryReduceAlpha : EffectSegmentBehaviorEntry
     {
         [XmlElement]
         [DefaultValue(1.0f)]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryReduceAlpha_Multiply")]
         public float Multiply { get; set; }
 
         [XmlElement]
         [DefaultValue(0.0f)]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryReduceAlpha_Minus")]
         public float Minus { get; set; }
 
         public EffectActorBehaviorEntryReduceAlpha()
@@ -175,14 +180,16 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("IncreaseAlpha")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryIncreaseAlpha))]
     public class EffectActorBehaviorEntryIncreaseAlpha : EffectSegmentBehaviorEntry
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryIncreaseAlpha_IncreaseFrom")]
         public float IncreaseFrom { get; set; }
 
         [XmlElement]
         [DefaultValue(0.0f)]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryIncreaseAlpha_Increase")]
         public float Increase { get; set; }
 
         public EffectActorBehaviorEntryIncreaseAlpha()
@@ -238,16 +245,19 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("Flash")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryFlash))]
     public class EffectActorBehaviorEntryFlash : EffectSegmentBehaviorEntry
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryFlash_Max")]
         public float Max { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryFlash_Min")]
         public float Min { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryFlash_Step")]
         public float Step { get; set; }
 
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
@@ -370,19 +380,23 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("InitRandomScale")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryInitRandomScale))]
     public class EffectActorBehaviorEntryInitRandomScale : EffectSegmentBehaviorEntry
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomScale_MaxX")]
         public float MaxX { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomScale_MinX")]
         public float MinX { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomScale_MaxY")]
         public float MaxY { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomScale_MinY")]
         public float MinY { get; set; }
 
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
@@ -417,13 +431,15 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("InitRandomRotation")]
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryInitRandomRotation))]
     public class EffectActorBehaviorEntryInitRandomRotation : EffectSegmentBehaviorEntry
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomRotation_Max")]
         public float Max { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectActorBehaviorEntryInitRandomRotation_Min")]
         public float Min { get; set; }
 
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
@@ -445,8 +461,8 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
-    [DisplayName("RandomReverseY")]
-    public class EffectActorBehaviorEntryRandomReverse : EffectSegmentBehaviorEntry
+    [LocalizedClassDisplayName(typeof(EffectActorBehaviorEntryRandomReverseY))]
+    public class EffectActorBehaviorEntryRandomReverseY : EffectSegmentBehaviorEntry
     {
         public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
         {
@@ -473,6 +489,7 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(EffectSegmentBehavior))]
     public class EffectSegmentBehavior : Behavior
     {
         [XmlArray]
@@ -480,12 +497,15 @@ namespace GS_PatEditor.Pat.Behaviors
         public List<EffectSegmentBehaviorEntry> Entries = new List<EffectSegmentBehaviorEntry>();
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("EffectSegmentBehavior_Segment")]
         public int Segment { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectSegmentBehavior_FinishSegment")]
         public int? FinishSegment { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("EffectSegmentBehavior_ReleaseWhenFinish")]
         public bool ReleaseWhenFinish { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Editable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,20 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(HoldSkillBehavior))]
     public class HoldSkillBehavior : Behavior
     {
         [XmlElement]
+        [LocalizedDescriptionAttribute("HoldSkillBehavior_HoldSegment")]
         public int HoldSegment { get; set; }
         [XmlElement]
+        [LocalizedDescriptionAttribute("HoldSkillBehavior_SuccessSegment")]
         public int SuccessSegment { get; set; }
         [XmlElement]
+        [LocalizedDescriptionAttribute("HoldSkillBehavior_CancelSegment")]
         public int CancelSegment { get; set; }
         [XmlElement]
+        [LocalizedDescriptionAttribute("HoldSkillBehavior_HoldLength")]
         public int HoldLength { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

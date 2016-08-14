@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.GSPat;
+using GS_PatEditor.Localization;
 using GS_PatEditor.Pat;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,12 @@ namespace GS_PatEditor
                 Images = new List<Pat.FrameImage>(),
                 Settings = new Pat.ProjectSettings
                 {
-                    ProjectName = "Untitled",
+                    ProjectName = ProgramRes.ProjectNameUntitled,
                     Directories = new List<Pat.ProjectDirectoryDesc>()
                         {
                             new Pat.ProjectDirectoryDesc()
                             {
-                                Name = "image",
+                                Name = ProgramRes.DefaultImagePath,
                                 Usage = Pat.ProjectDirectoryUsage.Image,
                                 Path = path,
                             }
@@ -65,7 +66,7 @@ namespace GS_PatEditor
                 {
                     new ProjectDirectoryDesc
                     {
-                        Name = "images",
+                        Name = ProgramRes.DefaultImagePath,
                         Usage = ProjectDirectoryUsage.Image,
                         Path = Path.GetDirectoryName(patfile),
                     }

@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.Editor;
+using GS_PatEditor.Localization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,7 @@ namespace GS_PatEditor
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                var proj = ProjectGenerater.GenerateEmpty("");
+                var proj = ProjectGenerater.GenerateEmpty(String.Empty);
                 proj.IsEmptyProject = true;
 
                 if (proj != null)
@@ -38,7 +39,7 @@ namespace GS_PatEditor
                     var file = CreateBackup();
                     if (file != null)
                     {
-                        MessageBox.Show("Project file save to " + file + " for recovery.");
+                        MessageBox.Show(String.Format(ProgramRes.SaveRecoveryFormat, file));
                     }
                 }
                 catch

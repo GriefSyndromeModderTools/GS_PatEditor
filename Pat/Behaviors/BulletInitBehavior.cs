@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Editor.Exporters;
+﻿using GS_PatEditor.Editor.Editable;
+using GS_PatEditor.Editor.Exporters;
 using GS_PatEditor.Editor.Exporters.CodeFormat;
 using GS_PatEditor.Pat.Effects;
 using GS_PatEditor.Simulation;
@@ -13,10 +14,12 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(BulletInitBehavior))]
     public class BulletInitBehavior : Behavior
     {
         [XmlAttribute]
         [DefaultValue(false)]
+        [LocalizedDescriptionAttribute("BulletInitBehavior_IgnoreCollisionTransform")]
         public bool IgnoreCollisionTransform { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

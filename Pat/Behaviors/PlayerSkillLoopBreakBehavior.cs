@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Editable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,23 @@ using System.Xml.Serialization;
 namespace GS_PatEditor.Pat.Behaviors
 {
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerSkillLoopBreakBehavior))]
     public class PlayerSkillLoopBreakBehavior : Behavior
     {
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("PlayerSkillLoopBreakBehavior_Segment")]
         public int Segment { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("PlayerSkillLoopBreakBehavior_Tick")]
         public int Tick { get; set; }
 
         [XmlAttribute]
+        [LocalizedDescriptionAttribute("PlayerSkillLoopBreakBehavior_KeyReleased")]
         public bool KeyReleased { get; set; }
 
         [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerSkillLoopBreakBehavior_SegmentTo")]
         public int? SegmentTo { get; set; }
 
         public override void MakeEffects(ActionEffects effects)

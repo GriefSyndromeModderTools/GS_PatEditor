@@ -52,10 +52,10 @@ namespace GS_PatEditor.Pat
     public class FilteredEffect : Effect
     {
         [XmlElement]
-        [EditorChildNode("Filter")]
+        [EditorChildNode("FilteredEffect_Filter")]
         public Filter Filter;
         [XmlElement]
-        [EditorChildNode("Effect")]
+        [EditorChildNode("FilteredEffect_Effect")]
         public Effect Effect;
 
         public override void Run(Simulation.Actor actor)
