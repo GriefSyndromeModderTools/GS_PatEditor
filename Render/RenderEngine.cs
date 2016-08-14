@@ -106,8 +106,14 @@ namespace GS_PatEditor.Render
             var result = _Device.TestCooperativeLevel();
             if (result == ResultCode.DeviceNotReset)
             {
-                _Device.Reset(_Parameters);
-                _IsDeviceLost = false;
+                try
+                {
+                    _Device.Reset(_Parameters);
+                    _IsDeviceLost = false;
+                }
+                catch
+                {
+                }
             }
         }
 
