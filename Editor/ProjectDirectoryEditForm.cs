@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Localization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,7 +65,7 @@ namespace GS_PatEditor.Editor
                 }
                 else
                 {
-                    folderBrowserDialog1.SelectedPath = "";
+                    folderBrowserDialog1.SelectedPath = String.Empty;
                 }
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -90,8 +91,8 @@ namespace GS_PatEditor.Editor
 
             if (_SelectedDir == null)
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
+                textBox1.Text = String.Empty;
+                textBox2.Text = String.Empty;
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 button1.Enabled = false;
@@ -173,12 +174,13 @@ namespace GS_PatEditor.Editor
         
         private string FindFreeName()
         {
+            var prefix = FormCodeRes.ProjectDirectoryEditForm_FreeNamePrefix;
             int index = 1;
-            while (_ProjectSetting.Directories.Any(d => d.Name == "NewDirectory" + index))
+            while (_ProjectSetting.Directories.Any(d => d.Name == prefix + index))
             {
                 ++index;
             }
-            return "NewDirectory" + index;
+            return prefix + index;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -190,7 +192,7 @@ namespace GS_PatEditor.Editor
                 {
                     Name = name,
                     Usage = Pat.ProjectDirectoryUsage.Image,
-                    Path = "",
+                    Path = String.Empty,
                 });
             }
             else
@@ -199,7 +201,7 @@ namespace GS_PatEditor.Editor
                 {
                     Name = name,
                     Usage = Pat.ProjectDirectoryUsage.SoundEffect,
-                    Path = "",
+                    Path = String.Empty,
                 });
             }
 

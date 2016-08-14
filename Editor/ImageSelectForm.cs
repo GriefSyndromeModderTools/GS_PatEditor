@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Pat;
+﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Pat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,7 +64,7 @@ namespace GS_PatEditor.Editor
         private ListViewItem CreateFile(string file)
         {
             var filename = Path.GetFileName(file);
-            var ret = new ListViewItem(new string[] { "<create>", filename }, -1);
+            var ret = new ListViewItem(new string[] { FormCodeRes.ImageSelectForm_CreateItem, filename }, -1);
             ret.StateImageIndex = 0;
             ret.ForeColor = Color.Gray;
             ret.Tag = file;
@@ -126,7 +127,7 @@ namespace GS_PatEditor.Editor
 
             if (listView1.SelectedItems.Count == 0)
             {
-                textBox1.Text = "";
+                textBox1.Text = String.Empty;
                 textBox1.Enabled = false;
                 buttonOK.Enabled = false;
             }
@@ -224,7 +225,7 @@ namespace GS_PatEditor.Editor
             if (listView1.SelectedItems[0].Tag is string)
             {
                 var str = (string)listView1.SelectedItems[0].Tag;
-                if (MessageBox.Show("Create a new image?", "Image",
+                if (MessageBox.Show(FormCodeRes.ImageSelectForm_ConfirmCreate, FormCodeRes.ImageSelectForm_MsgBoxTitle,
                     MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
                     var img = MakeNewImageFromFile(str);
@@ -465,7 +466,7 @@ namespace GS_PatEditor.Editor
             {
                 _IsBatch = true;
                 //begin
-                button2.Text = "Import";
+                button2.Text = FormCodeRes.ImageSelectForm_Import;
 
                 textBox1.Enabled = false;
                 checkBox1.Enabled = false;
@@ -491,7 +492,7 @@ namespace GS_PatEditor.Editor
                 _IsBatch = false;
 
                 //finish
-                button2.Text = "Batch Import";
+                button2.Text = FormCodeRes.ImageSelectForm_BatchImport;
 
                 textBox1.Enabled = true;
                 checkBox1.Enabled = true;
@@ -517,13 +518,14 @@ namespace GS_PatEditor.Editor
                 var img = (Pat.FrameImage)listView1.SelectedItems[0].Tag;
                 if (CheckImageUsage(img.ImageID))
                 {
-                    MessageBox.Show("This image is in use.", "Error",
+                    MessageBox.Show(FormCodeRes.ImageSelectForm_RemoveInUse,
+                        FormCodeRes.ImageSelectForm_MsgBoxTitle,
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    if (MessageBox.Show("Do you want to remove this image from project? " + 
-                        "You can add it later if you still need it.", "Warning",
+                    if (MessageBox.Show(FormCodeRes.ImageSelectForm_ConfirmRemove,
+                        FormCodeRes.ImageSelectForm_MsgBoxTitle,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == System.Windows.Forms.DialogResult.Yes)
                     {
                         _Project.Images.Remove(img);
@@ -536,7 +538,8 @@ namespace GS_PatEditor.Editor
             }
             else
             {
-                MessageBox.Show("Please choose an existing image.", "Error",
+                MessageBox.Show(FormCodeRes.ImageSelectForm_NotCreated,
+                    FormCodeRes.ImageSelectForm_MsgBoxTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }

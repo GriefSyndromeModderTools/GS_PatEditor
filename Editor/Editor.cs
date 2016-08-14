@@ -246,23 +246,25 @@ namespace GS_PatEditor.Editor
         {
             if (CurrentAction != null)
             {
-                if (CurrentAction.ContainsLowLevelEffects)
-                {
-                    //advanced mode
-                    if (CurrentAction.Behaviors.Count > 0)
-                    {
-                        MessageBox.Show("Advanced mode. Behaviors is neglated. " +
-                            "Remove all the effects to edit behaviors.");
-                    }
-                    var dialog = new ActionEditForm(Project, CurrentAction);
-                    dialog.ShowDialog();
-                }
-                else
-                {
-                    //normal mode
-                    var dialog = new ActionBehaviorEditForm(Project, CurrentAction);
-                    dialog.ShowDialog();
-                }
+                //if (CurrentAction.ContainsLowLevelEffects)
+                //{
+                //    //advanced mode
+                //    if (CurrentAction.Behaviors.Count > 0)
+                //    {
+                //        MessageBox.Show("Advanced mode. Behaviors is neglated. " +
+                //            "Remove all the effects to edit behaviors.");
+                //    }
+                //    var dialog = new ActionEditForm(Project, CurrentAction);
+                //    dialog.ShowDialog();
+                //}
+                //else
+                //{
+                //    //normal mode
+                //    var dialog = new ActionBehaviorEditForm(Project, CurrentAction);
+                //    dialog.ShowDialog();
+                //}
+                var dialog = new ActionBehaviorEditForm(Project, CurrentAction);
+                dialog.ShowDialog();
             }
         }
 

@@ -15,11 +15,11 @@ namespace GS_PatEditor.Editor
         private readonly Pat.Project _Project;
         private readonly Pat.Action _Action;
 
-        private static readonly string
-            NameInit = "Initialization",
-            NameUpdate = "Update",
-            NameStart = "SegmentStart",
-            NameFinish = "SegmentFinish";
+        //private static readonly string
+        //    NameInit = "Initialization",
+        //    NameUpdate = "Update",
+        //    NameStart = "SegmentStart",
+        //    NameFinish = "SegmentFinish";
 
         public ActionEditForm(Pat.Project proj, Pat.Action action)
         {
@@ -34,15 +34,15 @@ namespace GS_PatEditor.Editor
 
         private void AdjustListSize()
         {
-            //make sure two list have same number of items
-            while (_Action.SegmentStartEffects.Count > _Action.SegmentFinishEffects.Count)
-            {
-                _Action.SegmentFinishEffects.Add(new Pat.EffectList());
-            }
-            while (_Action.SegmentFinishEffects.Count > _Action.SegmentStartEffects.Count)
-            {
-                _Action.SegmentStartEffects.Add(new Pat.EffectList());
-            }
+            ////make sure two list have same number of items
+            //while (_Action.SegmentStartEffects.Count > _Action.SegmentFinishEffects.Count)
+            //{
+            //    _Action.SegmentFinishEffects.Add(new Pat.EffectList());
+            //}
+            //while (_Action.SegmentFinishEffects.Count > _Action.SegmentStartEffects.Count)
+            //{
+            //    _Action.SegmentStartEffects.Add(new Pat.EffectList());
+            //}
         }
 
         private void AddListItem(string type, Pat.EffectList list, Pat.EffectList selected)
@@ -56,20 +56,20 @@ namespace GS_PatEditor.Editor
 
         private void RefreshList(Pat.EffectList selected = null)
         {
-            listBox1.Items.Clear();
-            AddListItem(NameInit, _Action.InitEffects, selected);
-            AddListItem(NameUpdate, _Action.UpdateEffects, selected);
-
-            listBox1.Items.Add("-----");
-
-            AdjustListSize();
-            for (int i = 0; i < _Action.SegmentStartEffects.Count; ++i)
-            {
-                AddListItem(NameStart, _Action.SegmentStartEffects[i], selected);
-                AddListItem(NameFinish, _Action.SegmentFinishEffects[i], selected);
-            }
-
-            RefreshButtonEnabled();
+            //listBox1.Items.Clear();
+            //AddListItem(NameInit, _Action.InitEffects, selected);
+            //AddListItem(NameUpdate, _Action.UpdateEffects, selected);
+            //
+            //listBox1.Items.Add("-----");
+            //
+            //AdjustListSize();
+            //for (int i = 0; i < _Action.SegmentStartEffects.Count; ++i)
+            //{
+            //    AddListItem(NameStart, _Action.SegmentStartEffects[i], selected);
+            //    AddListItem(NameFinish, _Action.SegmentFinishEffects[i], selected);
+            //}
+            //
+            //RefreshButtonEnabled();
         }
 
         private int ListSelectedIndex
@@ -118,26 +118,27 @@ namespace GS_PatEditor.Editor
 
         private Pat.EffectList GetSelectedEffectList()
         {
-            var s = ListSelectedIndex;
-            var ai = ListSelectedActionIndex;
-            switch (s)
-            {
-                case 0:
-                    return _Action.InitEffects;
-                case 1:
-                    return _Action.UpdateEffects;
-                case 2:
-                    return null;
-                default:
-                    if (ListSelectedActionIsStart)
-                    {
-                        return _Action.SegmentStartEffects[ai];
-                    }
-                    else
-                    {
-                        return _Action.SegmentFinishEffects[ai];
-                    }
-            }
+            //var s = ListSelectedIndex;
+            //var ai = ListSelectedActionIndex;
+            //switch (s)
+            //{
+            //    case 0:
+            //        return _Action.InitEffects;
+            //    case 1:
+            //        return _Action.UpdateEffects;
+            //    case 2:
+            //        return null;
+            //    default:
+            //        if (ListSelectedActionIsStart)
+            //        {
+            //            return _Action.SegmentStartEffects[ai];
+            //        }
+            //        else
+            //        {
+            //            return _Action.SegmentFinishEffects[ai];
+            //        }
+            //}
+            return null;
         }
 
         private void RefreshButtonEnabled()
@@ -170,10 +171,10 @@ namespace GS_PatEditor.Editor
                 {
                     button4.Enabled = true;
                 }
-                if (ListSelectedActionIndex != _Action.SegmentStartEffects.Count - 1)
-                {
-                    button5.Enabled = true;
-                }
+                //if (ListSelectedActionIndex != _Action.SegmentStartEffects.Count - 1)
+                //{
+                //    button5.Enabled = true;
+                //}
             }
         }
 
@@ -184,8 +185,8 @@ namespace GS_PatEditor.Editor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _Action.SegmentStartEffects.Add(new Pat.EffectList());
-            _Action.SegmentFinishEffects.Add(new Pat.EffectList());
+            //_Action.SegmentStartEffects.Add(new Pat.EffectList());
+            //_Action.SegmentFinishEffects.Add(new Pat.EffectList());
 
             RefreshList(GetSelectedEffectList());
         }
@@ -195,8 +196,8 @@ namespace GS_PatEditor.Editor
             var ai = ListSelectedActionIndex;
             if (ai != -1)
             {
-                _Action.SegmentStartEffects.RemoveAt(ai);
-                _Action.SegmentFinishEffects.RemoveAt(ai);
+                //_Action.SegmentStartEffects.RemoveAt(ai);
+                //_Action.SegmentFinishEffects.RemoveAt(ai);
 
                 RefreshList();
             }
@@ -204,22 +205,22 @@ namespace GS_PatEditor.Editor
 
         private void SwapSegment(int first)
         {
-            AdjustListSize();
-
-            if (first >= 0 && first + 1 < _Action.SegmentStartEffects.Count)
-            {
-                var s = GetSelectedEffectList();
-
-                var key = _Action.SegmentStartEffects[first + 1];
-                _Action.SegmentStartEffects.RemoveAt(first + 1);
-                _Action.SegmentStartEffects.Insert(first, key);
-
-                key = _Action.SegmentFinishEffects[first + 1];
-                _Action.SegmentFinishEffects.RemoveAt(first + 1);
-                _Action.SegmentFinishEffects.Insert(first, key);
-
-                RefreshList(s);
-            }
+            //AdjustListSize();
+            //
+            //if (first >= 0 && first + 1 < _Action.SegmentStartEffects.Count)
+            //{
+            //    var s = GetSelectedEffectList();
+            //
+            //    var key = _Action.SegmentStartEffects[first + 1];
+            //    _Action.SegmentStartEffects.RemoveAt(first + 1);
+            //    _Action.SegmentStartEffects.Insert(first, key);
+            //
+            //    key = _Action.SegmentFinishEffects[first + 1];
+            //    _Action.SegmentFinishEffects.RemoveAt(first + 1);
+            //    _Action.SegmentFinishEffects.Insert(first, key);
+            //
+            //    RefreshList(s);
+            //}
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.Editor.Exporters.Player;
+using GS_PatEditor.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -289,11 +290,11 @@ namespace GS_PatEditor.Editor
             toolStripButtonPlay.Enabled = true;
             if (_Editor.PreviewMode == FramePreviewMode.Pause)
             {
-                toolStripButtonPlay.Text = "Play";
+                toolStripButtonPlay.Text = EditorFormCodeRes.Play;
             }
             else if (_Editor.PreviewMode == FramePreviewMode.Play)
             {
-                toolStripButtonPlay.Text = "Stop";
+                toolStripButtonPlay.Text = EditorFormCodeRes.Stop;
             }
             else
             {
@@ -507,7 +508,7 @@ namespace GS_PatEditor.Editor
 
         private void toolStripButtonRemoveAnimation_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Remove the action?", "PatEditor",
+            if (MessageBox.Show(EditorFormCodeRes.RemoveActionConfirm, EditorFormCodeRes.MsgBoxTitle,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 _Editor.AnimationListUI.RemoveCurrent();
@@ -528,9 +529,8 @@ namespace GS_PatEditor.Editor
         {
             if (keyFrameToolStripMenuItem.Checked)
             {
-                if (MessageBox.Show(
-                        "Remove this key frame? The damage and cancellable data will be lost.",
-                        "AnimationEditor",
+                if (MessageBox.Show(EditorFormCodeRes.RemoveKeyFrameConfirm,
+                        EditorFormCodeRes.MsgBoxTitle,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
@@ -539,7 +539,7 @@ namespace GS_PatEditor.Editor
             }
             else
             {
-                if (MessageBox.Show("Create a new key frame?", "AnimationEditor",
+                if (MessageBox.Show(EditorFormCodeRes.CreateKeyFrameConfirm, EditorFormCodeRes.MsgBoxTitle,
                         MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     _Editor.AnimationFramesUI.SetCurrentToKeyFrame();
@@ -605,7 +605,7 @@ namespace GS_PatEditor.Editor
 
         private void toolStripButtonNew_Click(object sender, EventArgs e)
         {
-            if (_Editor.Project.IsEmptyProject || MessageBox.Show("Create a new act project?", "AnimationEditor",
+            if (_Editor.Project.IsEmptyProject || MessageBox.Show(EditorFormCodeRes.NewProjectConfirm, EditorFormCodeRes.MsgBoxTitle,
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 var dialog = new CreateProjectForm();
@@ -623,7 +623,7 @@ namespace GS_PatEditor.Editor
 
         private void toolStripButtonOpen_Click(object sender, EventArgs e)
         {
-            if (_Editor.Project.IsEmptyProject || MessageBox.Show("Open an act project?", "AnimationEditor",
+            if (_Editor.Project.IsEmptyProject || MessageBox.Show(EditorFormCodeRes.OpenProjectConfirm, EditorFormCodeRes.MsgBoxTitle,
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -648,7 +648,7 @@ namespace GS_PatEditor.Editor
             }
             else
             {
-                MessageBox.Show("Unknown file extension.");
+                MessageBox.Show(EditorFormCodeRes.ErrorUnknownProjectFormat);
             }
 
             if (proj != null)
@@ -658,7 +658,7 @@ namespace GS_PatEditor.Editor
 
             SetupToolbarEnabled();
 
-            openFileDialog1.FileName = "";
+            openFileDialog1.FileName = String.Empty;
         }
 
         private void toolStripButtonSave_Click(object sender, EventArgs e)
@@ -672,7 +672,7 @@ namespace GS_PatEditor.Editor
                 ProjectSerializer.SaveProject(_Editor.Project, saveFileDialogSave.FileName);
                 _Editor.Project.FilePath = saveFileDialogSave.FileName;
 
-                saveFileDialogSave.FileName = "";
+                saveFileDialogSave.FileName = String.Empty;
             }
         }
 
@@ -695,7 +695,7 @@ namespace GS_PatEditor.Editor
                     proj.Exporter.Export(proj);
                     proj.Exporter.FinishExporter();
 
-                    saveFileDialogExport.FileName = "";
+                    saveFileDialogExport.FileName = String.Empty;
                 }
             }
         }
@@ -712,20 +712,20 @@ namespace GS_PatEditor.Editor
                 ProjectSerializer.SaveProject(_Editor.Project, saveFileDialogSave.FileName);
                 _Editor.Project.FilePath = saveFileDialogSave.FileName;
 
-                saveFileDialogSave.FileName = "";
+                saveFileDialogSave.FileName = String.Empty;
             }
         }
 
         private void toolStripButtonPlay_Click(object sender, EventArgs e)
         {
-            if (toolStripButtonPlay.Text == "Play")
+            if (toolStripButtonPlay.Text == EditorFormCodeRes.Play)
             {
-                toolStripButtonPlay.Text = "Stop";
+                toolStripButtonPlay.Text = EditorFormCodeRes.Stop;
                 _Editor.PreviewMode = FramePreviewMode.Play;
             }
-            else if (toolStripButtonPlay.Text == "Stop")
+            else if (toolStripButtonPlay.Text == EditorFormCodeRes.Stop)
             {
-                toolStripButtonPlay.Text = "Play";
+                toolStripButtonPlay.Text = EditorFormCodeRes.Play;
                 _Editor.PreviewMode = FramePreviewMode.Pause;
             }
         }
@@ -767,7 +767,7 @@ namespace GS_PatEditor.Editor
         {
             if (!_Editor.Project.IsEmptyProject)
             {
-                if (MessageBox.Show("Remove exporter?", "PatEditor",
+                if (MessageBox.Show(EditorFormCodeRes.RemoveExporterConfirm, EditorFormCodeRes.MsgBoxTitle,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     _Editor.Project.Exporter = null;
@@ -813,14 +813,14 @@ namespace GS_PatEditor.Editor
                     int id = 1;
                     {
                         var list = _Editor.Project.Actions;
-                        while (list.Any(a => a.ActionID == "Imported " + id))
+                        while (list.Any(a => a.ActionID == EditorFormCodeRes.ImportedAnimationPrefix + id))
                         {
                             ++id;
                         }
                     }
                     var action = new Pat.Action()
                     {
-                        ActionID = "Imported " + id,
+                        ActionID = EditorFormCodeRes.ImportedAnimationPrefix + id,
                         ImageID = null,
                         Segments = segments,
                     };
@@ -931,7 +931,8 @@ namespace GS_PatEditor.Editor
             {
                 return;
             }
-            switch (MessageBox.Show("Save the project before exit?", "Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.None))
+            switch (MessageBox.Show(EditorFormCodeRes.ExitConfirm, EditorFormCodeRes.MsgBoxTitle,
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.None))
             {
                 case DialogResult.Yes:
                     toolStripButtonSave_Click(null, EventArgs.Empty);

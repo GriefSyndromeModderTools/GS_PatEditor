@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.Editor.Panels;
+using GS_PatEditor.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,11 +69,11 @@ namespace GS_PatEditor.Editor
                 {
                     if (s.Frames[j] == f)
                     {
-                        return "Segment " + i.ToString() + " Frame " + j.ToString();
+                        return String.Format(FormCodeRes.FrameReferenceEditForm_ListFormat, i, j);
                     }
                 }
             }
-            return "Unknown";
+            return FormCodeRes.FrameReferenceEditForm_ListUnknown;
         }
 
         private void button1_Click(object sender, EventArgs e)

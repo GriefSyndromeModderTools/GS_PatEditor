@@ -22,14 +22,20 @@ namespace GS_PatEditor.Pat
         {
             SegmentCount = action.Segments.Count;
 
-            InitEffects = new EffectList { Effects = new List<Effect>(action.InitEffects) };
+            //InitEffects = new EffectList { Effects = new List<Effect>(action.InitEffects) };
+            //PostInitEffects = new EffectList { Effects = new List<Effect>() };
+            //UpdateEffects = new EffectList { Effects = new List<Effect>(action.UpdateEffects) };
+            //PostUpdateEffects = new EffectList { Effects = new List<Effect>() };
+            //SegmentStartEffects = action.SegmentStartEffects.Select(x =>
+            //    new EffectList { Effects = new List<Effect>(x) }).ToList();
+            //SegmentFinishEffects = action.SegmentFinishEffects.Select(x =>
+            //    new EffectList { Effects = new List<Effect>(x) }).ToList();
+            InitEffects = new EffectList { Effects = new List<Effect>() };
             PostInitEffects = new EffectList { Effects = new List<Effect>() };
-            UpdateEffects = new EffectList { Effects = new List<Effect>(action.UpdateEffects) };
+            UpdateEffects = new EffectList { Effects = new List<Effect>() };
             PostUpdateEffects = new EffectList { Effects = new List<Effect>() };
-            SegmentStartEffects = action.SegmentStartEffects.Select(x =>
-                new EffectList { Effects = new List<Effect>(x) }).ToList();
-            SegmentFinishEffects = action.SegmentFinishEffects.Select(x =>
-                new EffectList { Effects = new List<Effect>(x) }).ToList();
+            SegmentStartEffects = new List<EffectList>();
+            SegmentFinishEffects = new List<EffectList>();
         }
 
         public void ProcessPostEffects()

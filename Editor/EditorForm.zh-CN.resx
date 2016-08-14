@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAvSURBVDhPY6A2+I8HEwVwKSTaEHwGINM4AT4DkDFOgFcS
+        CkYNGBkGEIMHDWBgAABq0ivVNvWGBAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonNew.Text" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="toolStripButtonOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVDhPYxh04D8aJglg00CSIcg2E8JYAU4JNDCEDADx
+        icFwgMxBkcABMNTABMjSDAIgQbI1gwDMAEJ4eAEGBgC1TDTMDQG2xwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonOpen.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="toolStripButtonSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABNSURBVDhPzYzRCgAgCAP9/58ufFAkbklQ0MFgDD37ktFk
+        SxzUw3WTEnpy6BEl1wWUoPYER0Er8E4Jak9wFLQC75Sg9gRHwTvBSb7AbAJSK0K+ffaJegAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="toolStripButtonSaveAs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABNSURBVDhPzYzRCgAgCAP9/58ufFAkbklQ0MFgDD37ktFk
+        SxzUw3WTEnpy6BEl1wWUoPYER0Er8E4Jak9wFLQC75Sg9gRHwTvBSb7AbAJSK0K+ffaJegAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 22</value>
+  </data>
+  <data name="toolStripButtonSaveAs.Text" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="toolStripButtonDirectories.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVDhPY8AC/mPBRANciokyhJAivPLEOhOnulEDIICQ
+        IURZgksRSJwoA0AAphgXJhvANA8jQygyAAoYGADvzifZNl1+JgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonDirectories.Text" xml:space="preserve">
+    <value>资源目录</value>
+  </data>
+  <data name="toolStripButtonImport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABVSURBVDhP1Y3bCQAgDAO7/xhO5xZKsUosPlL/PAj9yaXy
+        JcXyRJefBsIyChgKLPtLgRKGZiWGB+abcguJFn0axMi1cBq5y8pmgPvsY3CflYUcZ8giFbuiS1fNcWtE
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonImport.Text" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="toolStripButtonExporter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABRSURBVDhPYxiS4D8UkwVgmskygGTNyBqQMVEAWTE6TRRA
+        1oSMiQbYNJJsADpNsgFwbO9xBqwZRCNjkBg2gFOCGIBVM7EuoL7NMECsC8gADAwAD5VKp19zTx0AAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonExporter.Text" xml:space="preserve">
+    <value>导出选项</value>
+  </data>
+  <data name="toolStripButtonExport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVDhPYxiS4D8UkwVgmskygGTNyBqQMVEAWTE6TRRA
+        1oSMiQbYNJJsADpNsgHomGhAkmJ0MEQ1UwAYGADn5CjYT8xqSQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonExport.Text" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="toolStripButtonNewAnimation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABFSURBVDhPYxguYNGL/3gxAoDYyHwoQFWECqhkAC4MBVQ1
+        AMRG5yMAmkYYgCnCppHKBuAA6BqxGYQX4FM0hAzAh2kHGBgAgAyDefimDa8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonNewAnimation.Text" xml:space="preserve">
+    <value>新建动画</value>
+  </data>
+  <data name="toolStripButtonRemoveAnimation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVDhPYxguYNGL/3gxQYBPEbUMeCuj8h8dg+XBgKoG
+        gNjofIIApgibRvoaAAIgNjaD8AJ8ioaQAfgw7QADAwDkvIVFl6CJpgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonRemoveAnimation.Text" xml:space="preserve">
+    <value>删除动画</value>
+  </data>
+  <data name="toolStripButtonEditAnimation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABRSURBVDhPYxguYNGL/3gxQYBPEY0MAIkhiZNmAIyPwwAQ
+        G52PAFg0gwBMETaNCDF0GgkQNgAZYwHoGjENwqMZBJA1oAN8cnAwOAzAh2kHGBgAVeV8gGzAqksAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonEditAnimation.Text" xml:space="preserve">
+    <value>编辑动画</value>
+  </data>
+  <data name="toolStripButtonAnimationProperty.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABESURBVDhP7czBCgAgCANQ//+niwJj2SZ4DR+MyQ7aX0Yx
+        DzoK6QPsGIf3QUchfYDNsnhf6CikD7A9Edv4KMgHlbTNbAIGljbKW+YcwgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonAnimationProperty.Text" xml:space="preserve">
+    <value>动画属性</value>
+  </data>
+  <data name="toolStripExpandAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA7SURBVDhPYxguYNGL71gxIbn593+DabgAMoCJ4ZMbbgZg
+        w4Tk4AbQCVDFNqINASnEh8kGA6cZB2BgAADldX7DzJkSxwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripExpandAll.Text" xml:space="preserve">
+    <value>展开</value>
+  </data>
+  <data name="toolStripCollapseAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA6SURBVDhPYxguYNGL71gxCMy//xsrjQJgipHBSDQAGwYB
+        ogygA6DIVoo148NEAaIV4gNUMQQLYGAAAFiealtt8UadAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripCollapseAll.Text" xml:space="preserve">
+    <value>合并</value>
+  </data>
+  <data name="toolStripButtonToolCursor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVDhPnZFBCgAhDAP7/w972IsIK5Sh1cSA6CEZQxvQ
+        959nDdy2cvAJwpANqQIWpDPLkJNR2s6pgbTiCiDXX8rm/JsM2UbWtQDZ3L1bcUgMSRDKbkExdF1lpT1U
+        wCImDbUnwNRbkGEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonToolCursor.Text" xml:space="preserve">
+    <value>指针</value>
+  </data>
+  <data name="toolStripButtonToolMove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPYxiy4DeUhoJFL75jYNwApBmGgQCXYsKGQMH8
+        +2jOgQJMA5DVkWwASA0OjG4AjA8zACGPrA6JjWwTsmG4xCEAjQ9SDMMgxZgakAFIDobRAC6NBF1ANUC8
+        C/AAmGJ0epACBgYAjdlhtynaTEcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonToolMove.Text" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="toolStripButtonToolPhysics.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVDhPY/hPIRiEBjAseoEXowOsBuACowYMKQPwYXTA
+        AAQggnwMNQgMQALIgBg+XIQczWAaTJIN/v8HAOmfiPxVz0rAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonToolPhysics.Text" xml:space="preserve">
+    <value>物理判定</value>
+  </data>
+  <data name="toolStripButtonToolHit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVDhPYxgm4K2Myn9sGCpNGGBTjMMAkBgMIwCRBuDm
+        DxkDQAAkBsMIQIIBIIApTqQBID46hgCQYmwYKo0OcIkTDSgyAKaZLEPQNVHsFSBgYAAAGUFQYaVHHeAA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonToolHit.Text" xml:space="preserve">
+    <value>受击判定</value>
+  </data>
+  <data name="toolStripButtonToolAttack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABISURBVDhPYxgm4Ja84n9sGCpNGGBTPOgNAMkh5Ek0ACZO
+        lgGYmkGAgAG4aAQgwgW4NYMASDE2DJUGARAbu2YiALpBwwswMAAA5V9FfNQq0rEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonToolAttack.Text" xml:space="preserve">
+    <value>攻击判定</value>
+  </data>
+  <data name="toolStripButtonToolPoint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA2SURBVDhPYxgFgw28lVH5D2WCATqfKADThKYZxEbHuAEW
+        m9E1wzAmoMgF6DZjcckooD5gYAAAWgQjfVYUnQgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonToolPoint.Text" xml:space="preserve">
+    <value>点</value>
+  </data>
+  <data name="resetScaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="scale200ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="scale300ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 6</value>
+  </data>
+  <data name="axisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="axisToolStripMenuItem.Text" xml:space="preserve">
+    <value>坐标轴</value>
+  </data>
+  <data name="physicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="physicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>物理判定</value>
+  </data>
+  <data name="hitToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="hitToolStripMenuItem1.Text" xml:space="preserve">
+    <value>受击判定</value>
+  </data>
+  <data name="attackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="attackToolStripMenuItem.Text" xml:space="preserve">
+    <value>攻击判定</value>
+  </data>
+  <data name="pointVisibleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="pointVisibleToolStripMenuItem.Text" xml:space="preserve">
+    <value>点</value>
+  </data>
+  <data name="borderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="borderToolStripMenuItem.Text" xml:space="preserve">
+    <value>图片边界</value>
+  </data>
+  <data name="toolStripSeparator15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 6</value>
+  </data>
+  <data name="addReferenceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="addReferenceToolStripMenuItem.Text" xml:space="preserve">
+    <value>添加参照</value>
+  </data>
+  <data name="editReferencesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="editReferencesToolStripMenuItem.Text" xml:space="preserve">
+    <value>编辑参照...</value>
+  </data>
+  <data name="toolStripSplitBoxVisible.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripSplitBoxVisible.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="toolStripSplitBoxVisible.Text" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="physicalToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="physicalToolStripMenuItem1.Text" xml:space="preserve">
+    <value>物理判定</value>
+  </data>
+  <data name="newPhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="newPhysicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="cutPhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="cutPhysicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="copyPhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="copyPhysicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="pastePhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="pastePhysicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="deletePhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="deletePhysicalToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 6</value>
+  </data>
+  <data name="hitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="hitToolStripMenuItem.Text" xml:space="preserve">
+    <value>受击判定</value>
+  </data>
+  <data name="newHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="newHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="cutHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="cutHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="copyHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="copyHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="pasteHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="pasteHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="deleteHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="deleteHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 6</value>
+  </data>
+  <data name="attackToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="attackToolStripMenuItem2.Text" xml:space="preserve">
+    <value>攻击判定</value>
+  </data>
+  <data name="newAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="newAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="cutAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="cutAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="copyAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="copyAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="pasteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="pasteAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="deleteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="deleteAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripSplitEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripSplitEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="toolStripSplitEdit.Text" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="toolStripMenuItemSelectImage.Text" xml:space="preserve">
+    <value>选择图片...</value>
+  </data>
+  <data name="toolStripMenuItemEditFrame.Text" xml:space="preserve">
+    <value>编辑帧...</value>
+  </data>
+  <data name="toolStripMenuItemCutFrame.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="toolStripMenuItemCopyFrame.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="toolStripMenuItemPasteFrame.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="toolStripMenuItemDeleteFrame.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="keyFrameToolStripMenuItem.Text" xml:space="preserve">
+    <value>设为关键帧</value>
+  </data>
+  <data name="editDamageToolStripMenuItem.Text" xml:space="preserve">
+    <value>编辑伤害...</value>
+  </data>
+  <data name="jumpCancellableStripMenuItem.Text" xml:space="preserve">
+    <value>设为跳跃取消点</value>
+  </data>
+  <data name="skillCancellableToolStripMenuItem.Text" xml:space="preserve">
+    <value>设为技能取消点</value>
+  </data>
+  <data name="loopToolStripMenuItem.Text" xml:space="preserve">
+    <value>循环分段</value>
+  </data>
+  <data name="toolStripSplitButtonKeyFrame.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripSplitButtonKeyFrame.Text" xml:space="preserve">
+    <value>帧属性</value>
+  </data>
+  <data name="toolStripButtonPlay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonPlay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 22</value>
+  </data>
+  <data name="toolStripButtonPlay.Text" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="toolStripButtonEditAction.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonEditAction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 22</value>
+  </data>
+  <data name="toolStripButtonEditAction.Text" xml:space="preserve">
+    <value>行为</value>
+  </data>
+  <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABGSURBVDhPYxje4D+UJguANJNtAEwjWQYga4K5AhfGAFgF
+        cQAMtaRoBgHquwAGkCVAbHwYJ4BJ4lVECBC0hRhAsQH0AAwMAE9IId9da76qAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 22</value>
+  </data>
+  <data name="toolStripButtonBack.Text" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>编辑器工程文件或PAT文件|*.pat;*.patproj</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>PAT 文件(*.pat)|*.pat</value>
+  </data>
+  <data name="saveFileDialogSave.Filter" xml:space="preserve">
+    <value>编辑器工程文件(*.patproj)|*.patproj</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAEBAAAAAAIABoBAAAJgAAACAgAAAAACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAAEAE
+        AAAAAAAAAAAAAAAAAAAAAAAA////AQkICiEICAvRBwcJ7QoKDPcODBL/KSY8/4d6zv+MgNj/LCpA/ywu
+        Pf9gWZL/gnjE/4p9zP+OgNL/lofe/////wEKCQuZCgkL/QsKDP8KCgv/EBAU/1Rcaf+Zo8b/i3/R/1xS
+        i/8ZGx//SUlu/25lpv+ThNn/lIXZ/4l/0P8JCwkjCwoM7QsKDP8LCgz/HB8k/4SQo/+3yeL/obDN/6e2
+        1f+Ff8D/GRoj/zo6VP9aVIn/koPZ/5WG3P+Og9l/CQgKhQoJC/8LCgz/Ghsg/3mDlf+1yOD/scfd/6Cv
+        zP+nt9P/uMvi/zk9SP8iJi//VVKB/5iJ4P+YiN//kIbbfwoKC8cKCQv/ExQY/01RXv+wwtj/tMje/7XK
+        4P+3zOL/uc7k/7vQ5f9eZnT/Ghwi/x8jKP8xL0b/OzZV/ygxNT0KCgvJCgkL/xwcIf90fI7/rsDY/7TJ
+        4P+2y+H/uM3j/7jN4v+8zub/eYSV/xgXHP8cHCL/GRgZ/xYVF/8oLDR/DQwNywsLDP8WFhr/hpKl/0pI
+        XP+putD/t8zi/7nO5P+80eb/pLTL/4yarP8YFhv/FxYY/xkYGv8ZGh/9NT1Hbw0NDskLCwz/FBQa/6e4
+        zf+yxdv/tcrg/7nO5P+70Of/orPI/09SZ/+Ej6L/FRUa/xcVGv8ZFx3/JCYt5ywyOzENDA2DCwsM+xER
+        Fv9TWWX/g4+h/5Sit/+VpLf/k6K2/6y91v/A1ez/iJep/xUXHP8VFxz/FxYb/ycsMrMvNj4HDA0LXQwL
+        DfsRERT/Ky0z/1RaZv9ganf/UFhk/5Ghsv98iZn/dH2N/x4fI/8fICj/ExYb/xcZHvspLzdf////ARES
+        EVsMCw37FBMW/xcXGf8fHyb/Jykv/yMjKv9eZHP/ODtF/xcXHv8WFhj/IyYu/xUVG/8jJzDhNT1MF///
+        /wH///8BDw0P7xYUGP8WFRn/GBcc/xcWG/8lJy//GRoe/xkYHv8WFRj/Gx0k/yMmL/8dHyX3LzY+N///
+        /wH///8B////ARAREXcWFRj/Ghse/x0hJ/8fISX/ICMq/x4iKf8ZGSD/HR4k/yUpMv8kJy//LDE9rf//
+        /wH///8B////Af///wH///8BHCAnuRcYGv8mKzb/KS86/yMnMP8kKDH/Gx0i/yUqMf8nLDX/MDhFs///
+        /wH///8B////Af///wH///8B////Af///wEpLje1KzI+/S84Rf8vN0f/KzI+/zE6SP8wOEX/OEFM3///
+        /wH///8B////Af///wH///8B////Af///wH///8B////ATA4QjkvOEW7MTlI/zA5R/0xOkfvMjpId///
+        /wH///8B////Af///wH///8B////AQAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//wAA//8AAP//AAD//wAA//8oAAAAIAAAAEAAAAABACAAAAAAAIAQAAAAAAAAAAAAAAAA
+        AAAAAAAA////Af///wH///8BCgkLHQoKC5MICQzVAAAA4wgLDtMKCxDlCAkM+QsKDv8bFCL/KyE2/0ZE
+        Z/+LfdT/i33U/42B2P+Ngdj/MTBL/xUWF/8lKi//RkRn/2Jak/9dWY//fXK//3Nusv99cr//hXnG/4V5
+        xv+LfdT/l4ni/5eJ4v////8B////AQoLCREJCAtXCQgL4wkIC/kKCQv/DAsN/wsLDP8LCwz/CwoO/woJ
+        DP8LCg7/KylI/31yv/+LfdT/i33U/42D3v9YUoj/FBMW/xodHv8sMED/amGe/1hSiP+Fecb/lofc/5OF
+        1/+Thdf/lIbY/5SG2P+Uhtj/lofc/////wH///8BEBAQLwoJC8ULCgz7CQgL/wsKDP8LCgz/CwoM/wsK
+        DP8LCgz/CAcM/wsKDv8tMjr/gIqj/4mDxv+LfdT/jYHY/31yv/8iGzH/GBcZ/yQmLv9GRGf/amGe/11Z
+        j/+XieL/koTY/5OF1/+Thdf/lIbY/5aH3P+Ngdj/////Af///wEKCQx5CwoM9QsKDP8KCQv/CwoM/wsK
+        DP8LCwz/CgkL/wsLDP8jJy7/bXWF/63B2P+4zeT/prXL/4mDxv+LfdT/lYXd/z85X/8RFRP/Gh0i/ys1
+        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
+        OP8dHiL/GRga/xcZG/8ZGyH/Gxkf/xYUF/8VFRr/HB0n/yMlLP8mKzT/Hx8o/xodHv8pLTbl////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8BDw4Q9xYVGf8XFhn/FxYZ/x4fI/8YGCD/ISUq/xca
+        Hf8fIib/Ky89/xgXGf8UGB3/ISUq/x8iKf8XFhv/FxMX/x8fKP8hISr/KS02/x8iJv8mKDH/Jis0/TI2
+        QdX///8B////Af///wH///8B////Af///wH///8B////Af///wESFRThFhQX/xgVF/8VFhf/HyIm/x8f
+        KP8eKC3/Hh8j/ygpL/8nMTr/FxYZ/x0fJv8pLjr/GRgi/xcWG/8aHR7/Jis0/yMlLP8qMj3/HyIm/yww
+        QP8uNkXh////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wEfIin1ExUe/xQW
+        Ff8aHR7/Jy04/yEkL/8mKDH/KjI9/ykuOv8YGB3/Ky89/yImLf8WGBz/Fxcd/yYtNf8hJSr/LTI6/yMn
+        Lv8qMj3/NDxJ5////wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wEjKjHxGBcd/xcWG/8mLTX/Ky89/ykuOv8uNkL/Ky89/yEnLf8rM0D/GBob/xodHv8mKzT/Ji01/ykq
+        Mf8nLTj/Ji01/zU9TOX///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wEnLTjxJigx/yQmMP8rNUL/KzVC/zE5Rf8uNkL/LjZF/ycxOv8hJSr/KzVC/zQ8
+        Sf8tMz7/LjZF/yoyPf9BSlXb////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wEvNj7lMDhC+zE5Rf8vO0b/MThJ/zE5S/8xOUv/MThJ/zM8
+        Tf8zPE3/NDxJ/zU9TP80PEn9OkRO8UFKVbH///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BMDhC5S86Sv8xOEn/MTlL/zE5
+        S/8zPE3/MzxN/zM8Tf80PEv9NDxL+zE5Rd////8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////AS82
+        Pu0xOUX/MTlF/y42Qv0uNkL3MDhC7TA4Qtf///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>动画编辑器</value>
+  </data>
+</root>

@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Properties;
+﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -62,7 +63,7 @@ namespace GS_PatEditor.Editor
             {
                 _Button.DropDownItems.Add(new ToolStripSeparator());
             }
-            var s = new ToolStripMenuItem("Save Recent List");
+            var s = new ToolStripMenuItem(FormCodeRes.RecentFileList_Save);
             s.Checked = ShouldSaveSettings;
             s.Click += delegate(object ss, EventArgs ee)
             {

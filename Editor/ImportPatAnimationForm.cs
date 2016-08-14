@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Localization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,7 +51,8 @@ namespace GS_PatEditor.Editor
 
             if (!File.Exists(palFile))
             {
-                if (MessageBox.Show("Palette file not found. Please choose one.", "Animation Import",
+                if (MessageBox.Show(FormCodeRes.ImportPatAnimationForm_PaletteNotFound,
+                    FormCodeRes.ImportPatAnimationForm_MsgBoxTitle,
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == System.Windows.Forms.DialogResult.OK)
                 {
                     if (openFileDialog2.ShowDialog() != System.Windows.Forms.DialogResult.OK)
@@ -108,14 +110,16 @@ namespace GS_PatEditor.Editor
 
         private void AddFollowerAnimation(GSPat.Animation a, int id, int s)
         {
-            var item = new ListViewItem("Animation " + id + ", Segment " + s);
+            var text = String.Format(FormCodeRes.ImportPatAnimationForm_ListFormat, id, s);
+            var item = new ListViewItem(text);
             item.Tag = a;
             listView1.Items.Add(item);
         }
 
         private void AddAnimation(GSPat.Animation a)
         {
-            var item = new ListViewItem("Animation " + a.AnimationID);
+            var text = String.Format(FormCodeRes.ImportPatAnimationForm_ListFormat, a.AnimationID);
+            var item = new ListViewItem(text);
             item.Tag = a;
             listView1.Items.Add(item);
         }
@@ -238,14 +242,14 @@ namespace GS_PatEditor.Editor
         {
             if (_Project != null && _GSPatFile != null)
             {
-                AddPathToProject(_Path, "imported_");
+                AddPathToProject(_Path, FormCodeRes.ImportPatAnimationForm_ProjPath);
                 if (_Project.Settings.Palettes == null || _Project.Settings.Palettes.Count == 0)
                 {
                     _Project.Settings.Palettes = new List<string>()
                     {
                         Path.GetFileName(_Palette),
                     };
-                    AddPathToProject(Path.GetDirectoryName(_Palette), "imported_palette_");
+                    AddPathToProject(Path.GetDirectoryName(_Palette), FormCodeRes.ImportPatAnimationForm_ProjPathPal);
                 }
                 ImportedSegments = listView2.Items.OfType<ListViewItem>()
                     .Select(i => ProjectGenerater.ImportSegment(_Project, _GSPatFile, (GSPat.Animation)i.Tag))
@@ -254,21 +258,21 @@ namespace GS_PatEditor.Editor
         }
 
         //TODO move to project
-        private void AddPathToProject(string path, string name)
+        private void AddPathToProject(string path, string prefix)
         {
             if (!_Project.Settings.Directories.Any(d =>
                 d.Usage == Pat.ProjectDirectoryUsage.Image &&
                 d.Path == path))
             {
                 int id = 1;
-                while (_Project.Settings.Directories.Any(d => d.Name == name + id))
+                while (_Project.Settings.Directories.Any(d => d.Name == prefix + id))
                 {
                     ++id;
                 }
                 //TODO make it easier to insert something with a name into a list
                 _Project.Settings.Directories.Add(new Pat.ProjectDirectoryDesc()
                 {
-                    Name = name + id,
+                    Name = prefix + id,
                     Usage = Pat.ProjectDirectoryUsage.Image,
                     Path = path,
                 });

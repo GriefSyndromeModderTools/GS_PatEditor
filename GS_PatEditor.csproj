@@ -170,6 +170,21 @@
     <Compile Include="Editor\RecentFileList.cs" />
     <Compile Include="GSPat\GSPatWriter.cs" />
     <Compile Include="GSPat\ImageManager.cs" />
+    <Compile Include="Localization\EditorFormCodeRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorFormCodeRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\EditorFormCodeRes.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorFormCodeRes.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\FormCodeRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormCodeRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Pat\Behavior.cs" />
     <Compile Include="Pat\Behaviors\BasicBehaviors.cs" />
     <Compile Include="Pat\Behaviors\BulletInitBehavior.cs" />
@@ -328,10 +343,16 @@
     <EmbeddedResource Include="Editor\ActionBehaviorEditForm.resx">
       <DependentUpon>ActionBehaviorEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ActionBehaviorEditForm.zh-CN.resx">
+      <DependentUpon>ActionBehaviorEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ActionEditForm.resx">
       <DependentUpon>ActionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\AnimationPropertyFrom.resx">
+      <DependentUpon>AnimationPropertyFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\AnimationPropertyFrom.zh-CN.resx">
       <DependentUpon>AnimationPropertyFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\CreateImageDirectoryForm.resx">
@@ -340,10 +361,22 @@
     <EmbeddedResource Include="Editor\CreateProjectForm.resx">
       <DependentUpon>CreateProjectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\CreateProjectForm.zh-CN.resx">
+      <DependentUpon>CreateProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\DamageEditForm.resx">
       <DependentUpon>DamageEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\DamageEditForm.zh-CN.resx">
+      <DependentUpon>DamageEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\EditorForm.en-US.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\EditorForm.zh-CN.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\EffectListEditForm.resx">
@@ -358,7 +391,13 @@
     <EmbeddedResource Include="Editor\FrameEditForm.resx">
       <DependentUpon>FrameEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\FrameEditForm.zh-CN.resx">
+      <DependentUpon>FrameEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\FrameReferenceEditForm.resx">
+      <DependentUpon>FrameReferenceEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\FrameReferenceEditForm.zh-CN.resx">
       <DependentUpon>FrameReferenceEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ImageSelectForm.resx">
@@ -373,6 +412,14 @@
     <EmbeddedResource Include="Editor\ProjectDirectoryEditForm.resx">
       <DependentUpon>ProjectDirectoryEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EditorFormCodeRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditorFormCodeRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\FormCodeRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormCodeRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -382,6 +429,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Localization\EditorFormCodeRes.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditorFormCodeRes.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
