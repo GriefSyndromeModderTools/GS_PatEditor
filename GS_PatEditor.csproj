@@ -170,6 +170,11 @@
     <Compile Include="Editor\RecentFileList.cs" />
     <Compile Include="GSPat\GSPatWriter.cs" />
     <Compile Include="GSPat\ImageManager.cs" />
+    <Compile Include="Localization\EditableTreeViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditableTreeViewRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Localization\EditorFormCodeRes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -406,11 +411,24 @@
     <EmbeddedResource Include="Editor\Exporters\Player\PlayerExporterOptionsForm.resx">
       <DependentUpon>PlayerExporterOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ImageSelectForm.zh-CN.resx">
+      <DependentUpon>ImageSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ImportPatAnimationForm.resx">
+      <DependentUpon>ImportPatAnimationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ImportPatAnimationForm.zh-CN.resx">
       <DependentUpon>ImportPatAnimationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ProjectDirectoryEditForm.resx">
       <DependentUpon>ProjectDirectoryEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ProjectDirectoryEditForm.zh-CN.resx">
+      <DependentUpon>ProjectDirectoryEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EditableTreeViewRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditableTreeViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\EditorFormCodeRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -420,6 +438,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FormCodeRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\FormCodeRes.zh-CN.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

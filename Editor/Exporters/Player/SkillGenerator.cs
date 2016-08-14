@@ -29,11 +29,31 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             private static string EscapeFunctionName(string name)
             {
-                return new string(name
-                    .Replace("_", "__")
-                    .Replace(" ", "_s")
-                    .Where(c => char.IsLetter(c) || char.IsNumber(c) || c == '_')
-                    .ToArray()) + "_" + ((uint)name.GetHashCode()).ToString();
+                StringBuilder sb = new StringBuilder();
+                foreach (var c in name)
+                {
+                    if (c == '_')
+                    {
+                        sb.Append("__");
+                    }
+                    else if (c == ' ')
+                    {
+                        sb.Append("_s_");
+                    }
+                    else if (c >= 'A' && c <= 'Z' ||
+                        c >= 'a' && c <= 'z' ||
+                        c >= '0' && c <= '9')
+                    {
+                        sb.Append(c);
+                    }
+                    else
+                    {
+                        sb.Append("_c");
+                        sb.Append(((int)c).ToString("X4"));
+                        sb.Append("_");
+                    }
+                }
+                return sb.ToString();
             }
 
             public string GenerateActionAsActorInit(string name)

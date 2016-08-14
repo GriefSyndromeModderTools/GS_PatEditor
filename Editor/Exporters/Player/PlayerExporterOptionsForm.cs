@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GS_PatEditor.Localization;
 
 namespace GS_PatEditor.Editor.Exporters.Player
 {
@@ -28,25 +29,25 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             treeView1.Nodes.Add(new TreeNode
             {
-                Text = "Export Options",
+                Text = PlayerExporterRes.Item_ExportOptions,
                 Tag = exporter,
             });
 
             treeView1.Nodes.Add(new TreeNode
             {
-                Text = "System Animations",
+                Text = PlayerExporterRes.Item_SystemAnimations,
                 Tag = exporter.Animations,
             });
 
             treeView1.Nodes.Add(new TreeNode
             {
-                Text = "Player Information",
+                Text = PlayerExporterRes.Item_PlayerInformation,
                 Tag = exporter.PlayerInformation,
             });
 
             var skills = new TreeNode
             {
-                Text = "Skills",
+                Text = PlayerExporterRes.Item_Skills,
             };
             treeView1.Nodes.Add(skills);
             skills.Nodes.AddEditableList(env, exporter.Skills);
