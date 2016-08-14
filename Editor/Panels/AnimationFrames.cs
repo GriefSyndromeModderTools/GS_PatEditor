@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Localization;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -575,7 +576,9 @@ namespace GS_PatEditor.Editor.Panels
                 }
                 if (segmentIndex == 0)
                 {
-                    MessageBox.Show("The first frame must be key frame.", "AnimationEditor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(EditorComponentRes.Frames_FirstMustKey,
+                        EditorFormCodeRes.MsgBoxTitle,
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -861,7 +864,7 @@ namespace GS_PatEditor.Editor.Panels
 
         public void Delete()
         {
-            if (MessageBox.Show("Remove this frame?", "AnimationEditor",
+            if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemove, EditorFormCodeRes.MsgBoxTitle,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
             {
                 return;

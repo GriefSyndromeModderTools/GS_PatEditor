@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Localization;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -156,7 +157,8 @@ namespace GS_PatEditor.Editor.Panels
                 {
                     addedCategories.Add(c);
                     var items = unsortedItems.Where(i => i.Object.Category == c);
-                    var ci = new AnimationListItem(c, "" + items.Count() + " animation(s)", c);
+                    var ci = new AnimationListItem(c, 
+                        String.Format(EditorComponentRes.Animations_CategoryDescFormat, items.Count()), c);
                     _Items.Add(ci);
                     if (lastCollapsed.Contains(ci.CategoryName))
                     {
@@ -171,7 +173,8 @@ namespace GS_PatEditor.Editor.Panels
             {
                 var items = unsortedItems
                     .Where(i => i.Object.Category == null || i.Object.Category.Length == 0);
-                var ci = new AnimationListItem("uncategoried", "" + items.Count() + " animation(s)", "");
+                var ci = new AnimationListItem(EditorComponentRes.Animations_CategoryUncategoried,
+                    String.Format(EditorComponentRes.Animations_CategoryDescFormat, items.Count()), String.Empty);
                 _Items.Add(ci);
                 if (lastCollapsed.Contains(ci.CategoryName))
                 {
@@ -209,8 +212,8 @@ namespace GS_PatEditor.Editor.Panels
                 _Parent.Project.ImageList.GetImage(action.ImageID) :
                 null;
             var frameCount = action.Segments.Sum(s => s.Frames.Count);
-            var desc = action.Segments.Count.ToString() + " segment(s), " +
-                frameCount.ToString() + " frame(s).";
+            var desc = String.Format(EditorComponentRes.Animations_AnimationDescFormat,
+                action.Segments.Count, frameCount);
             return new AnimationListItem(img, action.ActionID, desc, index, action);
         }
 
@@ -260,10 +263,11 @@ namespace GS_PatEditor.Editor.Panels
         public void AddNew()
         {
             //find an available name
+            var prefix = EditorComponentRes.Animations_NewAnimationPrefix;
             int id = 1;
             {
                 var list = _Parent.Project.Actions;
-                while (list.Any(a => a.ActionID == "New Animation " + id.ToString()))
+                while (list.Any(a => a.ActionID == prefix + id.ToString()))
                 {
                     ++id;
                 }
@@ -271,7 +275,7 @@ namespace GS_PatEditor.Editor.Panels
 
             var action = new Pat.Action()
             {
-                ActionID = "New Animation " + id.ToString(),
+                ActionID = prefix + id.ToString(),
             };
 
             _Parent.Project.Actions.Add(action);

@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Render;
+﻿using GS_PatEditor.Localization;
+using GS_PatEditor.Render;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +77,7 @@ namespace GS_PatEditor.Editor.Panels
         private void PlayerError()
         {
             _Parent.PreviewMode = FramePreviewMode.Pause;
-            MessageBox.Show("Error in playing.", "PatEditor",
+            MessageBox.Show(EditorComponentRes.Preview_ErrorPlay, EditorFormCodeRes.MsgBoxTitle,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

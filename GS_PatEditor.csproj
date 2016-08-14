@@ -175,6 +175,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditableTreeViewRes.resx</DependentUpon>
     </Compile>
+    <Compile Include="Localization\EditorComponentRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorComponentRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Localization\EditorFormCodeRes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +194,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FormCodeRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\PlayerExporterRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerExporterRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Pat\Behavior.cs" />
     <Compile Include="Pat\Behaviors\BasicBehaviors.cs" />
@@ -387,6 +397,9 @@
     <EmbeddedResource Include="Editor\EffectListEditForm.resx">
       <DependentUpon>EffectListEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Exporters\Player\PlayerExporterOptionsForm.zh-CN.resx">
+      <DependentUpon>PlayerExporterOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +443,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EditableTreeViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EditorComponentRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditorComponentRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\EditorFormCodeRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EditorFormCodeRes.Designer.cs</LastGenOutput>
@@ -439,6 +456,11 @@
       <LastGenOutput>FormCodeRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\FormCodeRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\PlayerExporterRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlayerExporterRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\PlayerExporterRes.zh-CN.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

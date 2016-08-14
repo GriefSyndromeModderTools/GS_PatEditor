@@ -70,7 +70,7 @@ namespace GS_PatEditor.Editor.Panels
         private Brush _Brush = Brushes.Black;
         private Brush _BrushDesc = Brushes.Gray;
         private Brush _BrushBackground2 = new SolidBrush(Color.FromArgb(230, 230, 230));
-        private static Font _Font = new Font("Times New Roman", FrameGridSize / 5);
+        private static Font _Font = new Font(SystemFonts.DialogFont.FontFamily, FrameGridSize / 5);
 
         public void Render(Graphics g, float w)
         {
