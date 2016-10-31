@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlignAllFramesConfirm" xml:space="preserve">
+    <value>确认对齐分段上所有帧的位置？</value>
+  </data>
   <data name="AutoExportFinished" xml:space="preserve">
     <value>成功导出到上次指定的位置</value>
   </data>

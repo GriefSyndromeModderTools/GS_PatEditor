@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlignAllFramesConfirm" xml:space="preserve">
+    <value>Align all frames in this segment?</value>
+  </data>
   <data name="AutoExportFinished" xml:space="preserve">
     <value>Successfully exported to last location.</value>
   </data>

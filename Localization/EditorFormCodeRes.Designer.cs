@@ -61,6 +61,15 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 Align all frames in this segment? 的本地化字符串。
+        /// </summary>
+        internal static string AlignAllFramesConfirm {
+            get {
+                return ResourceManager.GetString("AlignAllFramesConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Successfully exported to last location. 的本地化字符串。
         /// </summary>
         internal static string AutoExportFinished {

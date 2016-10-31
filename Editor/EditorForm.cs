@@ -996,5 +996,20 @@ namespace GS_PatEditor.Editor
                 s.Enabled = dialog.ScriptEnabled;
             }
         }
+
+        private void alignAllFramesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(EditorFormCodeRes.AlignAllFramesConfirm, EditorFormCodeRes.MsgBoxTitle,
+                MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                var seg = _Editor.CurrentSegment;
+                var frame = _Editor.CurrentFrame;
+                foreach (var f in seg.Frames)
+                {
+                    f.OriginX = frame.OriginX;
+                    f.OriginY = frame.OriginY;
+                }
+            }
+        }
     }
 }
