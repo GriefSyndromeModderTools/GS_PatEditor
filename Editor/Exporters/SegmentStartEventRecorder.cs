@@ -9,11 +9,18 @@ namespace GS_PatEditor.Editor.Exporters
 {
     public class SegmentStartEventRecorder
     {
-        private Dictionary<int, ILineObject> _Generated = new Dictionary<int, ILineObject>();
-
-        public void AddAction(Pat.ActionEffects action, int motionId, GenerationEnvironment env)
+        private struct Entry
         {
-            _Generated.Add(motionId, GenerateList(action.SegmentStartEffects, env));
+            public int Motion;
+            public int ABPostfix;
+            public ILineObject Code;
+        }
+        private List<Entry> _Generated = new List<Entry>();
+
+        public void AddAction(Pat.ActionEffects action, int motionId, GenerationEnvironment env, int abPostfix)
+        {
+            var code = GenerateList(action.SegmentStartEffects, env);
+            _Generated.Add(new Entry { Motion = motionId, ABPostfix = abPostfix, Code = code });
         }
 
         private ILineObject GenerateList(List<Pat.EffectList> list, GenerationEnvironment env)
@@ -33,9 +40,10 @@ namespace GS_PatEditor.Editor.Exporters
             List<ILineObject> ret = new List<ILineObject>();
             foreach (var entry in _Generated)
             {
-                var motion = entry.Key;
+                var cond = "this.motion - this.u.CA == " + entry.Motion.ToString() +
+                    " && this.u.variables.SYS_ABPostfix == " + entry.ABPostfix.ToString();
                 ret.Add(new ControlBlock(ControlBlockType.If,
-                    "this.motion - this.u.CA == " + motion.ToString(), new ILineObject[] { entry.Value }).Statement());
+                    cond, new ILineObject[] { entry.Code }).Statement());
             }
             return new SimpleBlock(ret).Statement();
         }

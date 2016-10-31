@@ -14,7 +14,20 @@ namespace GS_PatEditor.Pat.Effects
 {
     public static class SetMotionEffectHelper
     {
-        public static ILineObject Generate(GenerationEnvironment env, ILineObject effect)
+        public static ILineObject Generate(GenerationEnvironment env, ILineObject effect, int postfix)
+        {
+            var func = env.GetSegmentStartEventHandlerFunctionName();
+            if (func == null || func.Length == 0)
+            {
+                return effect;
+            }
+            return new SimpleBlock(new ILineObject[] {
+                effect,
+                ActorVariableHelper.GenerateSet("SYS_ABPostfix", new ConstNumberExpr(postfix)),
+                new SimpleLineObject("this.u.uu.uuu." + func + ".call(this);"),
+            }).Statement();
+        }
+        public static ILineObject GenerateNoPostfix(GenerationEnvironment env, ILineObject effect)
         {
             var func = env.GetSegmentStartEventHandlerFunctionName();
             if (func == null || func.Length == 0)
@@ -42,7 +55,7 @@ namespace GS_PatEditor.Pat.Effects
                 ThisExpr.Instance.MakeIndex("motion"),
                 new BiOpExpr(ThisExpr.Instance.MakeIndex("keyTake"), new ConstNumberExpr(1), BiOpExpr.Op.Add)
                 ).Statement();
-            return SetMotionEffectHelper.Generate(env, ret);
+            return SetMotionEffectHelper.GenerateNoPostfix(env, ret);
         }
     }
 
@@ -105,15 +118,24 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
-            var funcName = env.GenerateActionAsActorInit(ActionName, e => {
-                foreach (var b in AdditionalBehaviors)
+            string funcName;
+            if (AdditionalBehaviors == null || AdditionalBehaviors.Count == 0)
+            {
+                funcName = env.GenerateActionAsActorInit(ActionName);
+            }
+            else
+            {
+                funcName = env.GenerateActionAsActorInit(ActionName, e =>
                 {
-                    if (b.Enabled)
+                    foreach (var b in AdditionalBehaviors)
                     {
-                        b.MakeEffects(e);
+                        if (b.Enabled)
+                        {
+                            b.MakeEffects(e);
+                        }
                     }
-                }
-            });
+                });
+            }
             var dir = ThisExpr.Instance.MakeIndex("direction");
 
             if (Direction == CreateBulletDirection.Opposite)
@@ -180,12 +202,13 @@ namespace GS_PatEditor.Pat.Effects
         public override ILineObject Generate(GenerationEnvironment env)
         {
             var id = env.GetActionID(Animation);
+            var postfix = env.GetCurrentABPostfix();
             var ret = ThisExpr.Instance.MakeIndex("SetMotion").Call(
                 new BiOpExpr(new ConstNumberExpr(id),
                     ThisExpr.Instance.MakeIndex("u").MakeIndex("CA"),
                     BiOpExpr.Op.Add),
                 new ConstNumberExpr(Segment)).Statement();
-            return SetMotionEffectHelper.Generate(env, ret);
+            return SetMotionEffectHelper.Generate(env, ret, postfix);
         }
 
         [XmlIgnore]
@@ -207,7 +230,7 @@ namespace GS_PatEditor.Pat.Effects
         public override ILineObject Generate(GenerationEnvironment env)
         {
             var ret = new SimpleLineObject("this.SetMotion(this.motion, " + Segment + ");");
-            return SetMotionEffectHelper.Generate(env, ret);
+            return SetMotionEffectHelper.GenerateNoPostfix(env, ret);
         }
     }
 
@@ -232,7 +255,7 @@ namespace GS_PatEditor.Pat.Effects
             var segment = new BiOpExpr(ThisExpr.Instance.MakeIndex("rand").Call(),
                 new ConstNumberExpr(SegmentCount), BiOpExpr.Op.Mod);
             var ret = ThisExpr.Instance.MakeIndex("SetMotion").Call(new ConstNumberExpr(id), segment).Statement();
-            return SetMotionEffectHelper.Generate(env, ret);
+            return SetMotionEffectHelper.GenerateNoPostfix(env, ret);
         }
 
         [XmlIgnore]

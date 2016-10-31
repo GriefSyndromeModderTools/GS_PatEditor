@@ -11,6 +11,7 @@ namespace GS_PatEditor.Editor.Exporters
     public interface GenerationEnvironment
     {
         int GetActionID(string name); //null or "" -> current action
+        int GetCurrentABPostfix();
         string GenerateActionAsActorInit(string name, Action<ActionEffects> customBehaviros = null);
         string GetCurrentSkillKeyName(); //"b1"
         string GetSegmentStartEventHandlerFunctionName(); //"SegmentStartEventHandler" or null (not generated)

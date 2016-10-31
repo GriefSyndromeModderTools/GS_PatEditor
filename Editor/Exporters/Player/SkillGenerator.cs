@@ -16,6 +16,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             public string CurrentActionName;
             public CodeGenerator Output;
             public string CurrentSkillKeyName;
+            public int CurrentABPostfix;
 
             private Dictionary<string, string> _GeneratedActorInit = new Dictionary<string, string>();
             private HashSet<string> _GeneratedActorInitWithAB = new HashSet<string>();
@@ -66,23 +67,16 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     return ret;
                 }
 
-                var action = Exporter.GetAction(name);
-
-                var lastActionName = CurrentActionName;
-                CurrentActionName = name;
-                List<ILineObject> funcContent = new List<ILineObject>();
-                funcContent.AddRange(GenerateNormalSkillFunction(Exporter, this, name, true, customBehaviros));
-                CurrentActionName = lastActionName;
-
                 ret = "InitAction_" + EscapeFunctionName(name);
+                int abPostfix = 0;
                 if (customBehaviros != null)
                 {
-                    int postfix = 1;
+                    abPostfix = 1;
                     string ret2;
                     do
                     {
-                        ret2 = ret + postfix;
-                        postfix += 1;
+                        ret2 = ret + abPostfix;
+                        abPostfix += 1;
                     } while (_GeneratedActorInitWithAB.Contains(ret2));
                     ret = ret2;
                     _GeneratedActorInitWithAB.Add(ret);
@@ -92,7 +86,18 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     _GeneratedActorInit.Add(name, ret);
                 }
 
-                var func = new FunctionBlock(ret, new string[] { "t" }, funcContent);
+                var action = Exporter.GetAction(name);
+
+                var lastActionName = CurrentActionName;
+                var lastPostfix = CurrentABPostfix;
+                CurrentActionName = name;
+                CurrentABPostfix = abPostfix;
+                List<ILineObject> funcContent = new List<ILineObject>();
+                funcContent.AddRange(GenerateNormalSkillFunction(Exporter, this, name, true, customBehaviros, abPostfix));
+                CurrentActionName = lastActionName;
+                CurrentABPostfix = lastPostfix;
+
+                var func = new FunctionBlock(ret, new string[] { "t" }, funcContent); 
 
                 Output.WriteStatement(func.Statement());
 
@@ -107,6 +112,11 @@ namespace GS_PatEditor.Editor.Exporters.Player
             public string GetSegmentStartEventHandlerFunctionName()
             {
                 return "SegmentStartEventHandler";
+            }
+
+            public int GetCurrentABPostfix()
+            {
+                return CurrentABPostfix;
             }
         }
 
@@ -149,7 +159,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     env.CurrentSkillKeyName = cskill.Key.GetKeyName();
                     env.CurrentActionName = cskill.ActionID;
 
-                    var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null);
+                    var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null, 0);
                     functionContent = new ILineObject[] {
                         new ControlBlock(ControlBlockType.If, "!(\"uu\" in this.u)", new ILineObject[] {
                             new SimpleLineObject("this.u.uu <- { uuu = this.u.weakref() };"),
@@ -322,7 +332,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
         #region Skill
 
         private static IEnumerable<ILineObject> GenerateNormalSkillFunction(PlayerExporter exporter,
-            SkillGeneratorEnv env, string id, bool stateLabelAsUpdate, Action<ActionEffects> customBehaviros)
+            SkillGeneratorEnv env, string id, bool stateLabelAsUpdate, Action<ActionEffects> customBehaviros, int abPostfix)
         {
             List<ILineObject> ret = new List<ILineObject>();
 
@@ -343,7 +353,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             //TODO should think of a new way to allow SSER to know what action it is, besides this.motion
             //probably a system var that is set each time motion is changed
-            exporter.SSERecorder.AddAction(ae, env.GetActionID(id), env);
+            exporter.SSERecorder.AddAction(ae, env.GetActionID(id), env, abPostfix);
 
             ret.AddRange(ae.InitEffects.Select(e => e.Generate(env)));
 
