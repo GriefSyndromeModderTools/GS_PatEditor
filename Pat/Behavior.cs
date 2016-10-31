@@ -1,8 +1,11 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Editable;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace GS_PatEditor.Pat
 {
@@ -75,7 +78,13 @@ namespace GS_PatEditor.Pat
         public Behavior()
         {
             _NextID = GetNextID();
+            Enabled = true;
         }
+
+        [XmlAttribute]
+        [DefaultValue(true)]
+        [LocalizedDescriptionAttribute("Behavior_Enabled")]
+        public bool Enabled { get; set; }
 
         private static int _NextID = 1;
         private static object _Lock = new object();
@@ -102,5 +111,55 @@ namespace GS_PatEditor.Pat
         }
 
         public abstract void MakeEffects(ActionEffects effects);
+    }
+
+    [Serializable]
+    public class BehaviorList : IEditableList<Behavior>, IEnumerable<Behavior>
+    {
+        [XmlElement(ElementName = "Behavior")]
+        public List<Behavior> Behaviors = new List<Behavior>();
+
+        public IEnumerator<Behavior> GetEnumerator()
+        {
+            return Behaviors.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return Behaviors.GetEnumerator();
+        }
+
+        public void Add(Behavior filter)
+        {
+            Behaviors.Add(filter);
+        }
+
+        public void AddRange(IEnumerable<Behavior> filters)
+        {
+            Behaviors.AddRange(filters);
+        }
+
+        public void Remove(Behavior val)
+        {
+            Behaviors.Remove(val);
+        }
+
+        public int FindIndex(Behavior val)
+        {
+            return Behaviors.FindIndex(i => i == val);
+        }
+
+        public void Insert(int index, Behavior val)
+        {
+            Behaviors.Insert(index, val);
+        }
+
+        public int Count
+        {
+            get
+            {
+                return Behaviors.Count;
+            }
+        }
     }
 }

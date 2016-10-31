@@ -97,6 +97,15 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 Set this cancel level to all segments in this animation? 的本地化字符串。
+        /// </summary>
+        internal static string Frame_SetCancelLevelForAll {
+            get {
+                return ResourceManager.GetString("Frame_SetCancelLevelForAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Remove this frame? 的本地化字符串。
         /// </summary>
         internal static string Frames_ConfirmRemove {

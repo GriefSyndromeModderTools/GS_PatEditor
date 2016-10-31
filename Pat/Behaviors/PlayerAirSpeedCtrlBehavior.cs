@@ -27,19 +27,40 @@ namespace GS_PatEditor.Pat.Behaviors
         public float Value { get; set; }
 
         [XmlElement]
+        [DefaultValue(15.0f)]
+        [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryGravity_Max")]
+        public float Max { get; set; }
+
+        [XmlElement]
         [LocalizedDescriptionAttribute("PlayerAirSpeedCtrlBehaviorEntryGravity_Segments")]
         public SegmentSelector Segments { get; set; }
 
         public PlayerAirSpeedCtrlBehaviorEntryGravity()
         {
             Value = 1.0f;
+            Max = 15.0f;
             Segments = new SegmentSelector { Index = "*" };
         }
 
         public override void MakeEffects(ActionEffects effects)
         {
-            SegmentSelectorHelper.MakeEffectsAsUpdate(effects, Segments,
-                new GravityEffect { Value = Value });
+            var g = new SimpleListEffect();
+            g.EffectList.Add(new GravityEffect { Value = Value });
+            g.EffectList.Add(new FilteredEffect
+            {
+                Filter = new ValueCompareFilter
+                {
+                    Left = new ActorMemberValue { Type = ActorMemberType.vy },
+                    Right = new ConstValue { Value = Max },
+                    Operator = CompareOperator.Greater,
+                },
+                Effect = new SetActorMemberEffect
+                {
+                    Type = ActorMemberType.vy,
+                    Value = new ConstValue { Value = Max },
+                },
+            });
+            SegmentSelectorHelper.MakeEffectsAsUpdate(effects, Segments, g);
         }
     }
 

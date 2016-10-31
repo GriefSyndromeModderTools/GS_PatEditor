@@ -32,6 +32,10 @@ namespace GS_PatEditor.Pat.Behaviors
         [EditorChildNode("CreateBulletBehavior_Position")]
         public PointProvider Position;
 
+        [XmlArray(ElementName = "AdditionalBehavior")]
+        [EditorChildNode("CreateBulletBehavior_AdditionalBehaviors", false)]
+        public BehaviorList AdditionalBehaviors = new BehaviorList();
+
         public override void MakeEffects(ActionEffects effects)
         {
             var effect = new CreateBulletEffect
@@ -39,6 +43,7 @@ namespace GS_PatEditor.Pat.Behaviors
                 ActionName = Bullet,
                 Direction = Direction,
                 Position = Position,
+                AdditionalBehaviors = AdditionalBehaviors,
             };
             Time.MakeEffects(effects, effect);
         }

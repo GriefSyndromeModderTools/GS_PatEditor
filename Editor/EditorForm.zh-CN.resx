@@ -184,6 +184,15 @@
   <data name="toolStripButtonImport.Text" xml:space="preserve">
     <value>导入</value>
   </data>
+  <data name="createExporterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="editExporterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="removeExporterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
   <data name="toolStripButtonExporter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -195,12 +204,36 @@
   <data name="toolStripButtonExporter.Text" xml:space="preserve">
     <value>导出选项</value>
   </data>
+  <data name="exportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="exportToolStripMenuItem.Text" xml:space="preserve">
+    <value>导出...</value>
+  </data>
+  <data name="exportToLastLocationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="exportToLastLocationToolStripMenuItem.Text" xml:space="preserve">
+    <value>导出到上次的位置</value>
+  </data>
+  <data name="toolStripSeparator16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 6</value>
+  </data>
+  <data name="postExportActionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="postExportActionToolStripMenuItem.Text" xml:space="preserve">
+    <value>导出后脚本...</value>
+  </data>
   <data name="toolStripButtonExport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVDhPYxiS4D8UkwVgmskygGTNyBqQMVEAWTE6TRRA
         1oSMiQbYNJJsADpNsgHomGhAkmJ0MEQ1UwAYGADn5CjYT8xqSQAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="toolStripButtonExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 22</value>
   </data>
   <data name="toolStripButtonExport.Text" xml:space="preserve">
     <value>导出</value>
@@ -571,6 +604,24 @@
   </data>
   <data name="editDamageToolStripMenuItem.Text" xml:space="preserve">
     <value>编辑伤害...</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items" xml:space="preserve">
+    <value>自由取消</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items1" xml:space="preserve">
+    <value>轻攻击</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items2" xml:space="preserve">
+    <value>中级攻击</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items3" xml:space="preserve">
+    <value>重攻击</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items4" xml:space="preserve">
+    <value>魔法攻击</value>
+  </data>
+  <data name="toolStripComboBoxCancelLevel.Items5" xml:space="preserve">
+    <value>无法取消</value>
   </data>
   <data name="jumpCancellableStripMenuItem.Text" xml:space="preserve">
     <value>设为跳跃取消点</value>

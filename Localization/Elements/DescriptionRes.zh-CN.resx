@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Behavior_Enabled" xml:space="preserve">
+    <value>指定该Behavior是否启用。如果为False，那么在播放和导出时会被忽略。</value>
+  </data>
   <data name="BulletInitBehavior_IgnoreCollisionTransform" xml:space="preserve">
     <value>如果为False，则在每次缩放和旋转后会自动重新计算子弹的判定区（默认）。</value>
   </data>
@@ -309,6 +312,9 @@
   <data name="PlayerSystemAnimationBehavior_PlayerSystemAnimationBehaviorType" xml:space="preserve">
     <value>系统动画的类型。</value>
   </data>
+  <data name="PlaySoundEffectBehavior_Index" xml:space="preserve">
+    <value>指定音效编号。音效编号用于在工程资源目录中检索音效文件。检索的文件名为：四位数音效编号+.cv3。例如音效编号为10，则检索0010.cv3。</value>
+  </data>
   <data name="TimeEndSegment_Segment" xml:space="preserve">
     <value>指定分段编号（0起始）。在这个分段结束时触发。</value>
   </data>
@@ -316,7 +322,7 @@
     <value>重复触发的时间间隔。</value>
   </data>
   <data name="TimeRepeat_Segment" xml:space="preserve">
-    <value>指定分段编号（0起始）。在这个分段期间，每隔一段时间触发一次。</value>
+    <value>指定分段编号（0起始）。在这个分段期间，每隔一段时间触发一次。若指定为-1则不检查分段，即在任意分段期间每隔一段时间触发一次。</value>
   </data>
   <data name="TimeStartSegment_Segment" xml:space="preserve">
     <value>指定分段编号（0起始）。在这个分段开始时触发。</value>

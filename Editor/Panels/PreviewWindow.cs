@@ -132,6 +132,15 @@ namespace GS_PatEditor.Editor.Panels
             {
                 Render.RenderAll();
             }
+            bool flag = false;
+            if (flag)
+            {
+                foreach (var frame in this._Parent.CurrentAction.Segments[0].Frames)
+                {
+                    frame.OriginX = 90;
+                    frame.OriginY = 128;
+                }
+            }
         }
 
         public void Dispose()

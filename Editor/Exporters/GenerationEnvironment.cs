@@ -1,4 +1,5 @@
 ﻿using GS_PatEditor.Editor.Exporters.CodeFormat;
+using GS_PatEditor.Pat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace GS_PatEditor.Editor.Exporters
     public interface GenerationEnvironment
     {
         int GetActionID(string name); //null or "" -> current action
-        string GenerateActionAsActorInit(string name);
+        string GenerateActionAsActorInit(string name, Action<ActionEffects> customBehaviros = null);
         string GetCurrentSkillKeyName(); //"b1"
         string GetSegmentStartEventHandlerFunctionName(); //"SegmentStartEventHandler" or null (not generated)
     }

@@ -19,7 +19,14 @@ namespace GS_PatEditor
         {
             try
             {
-                //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                {
+                    var path = Path.GetFileNameWithoutExtension(typeof(Program).Assembly.CodeBase);
+                    if (path.Contains("en"))
+                    {
+                        System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                    }
+                }
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 

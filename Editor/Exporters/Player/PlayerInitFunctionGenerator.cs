@@ -11,13 +11,14 @@ namespace GS_PatEditor.Editor.Exporters.Player
     {
         public static void Generate(PlayerExporter exporter, Pat.Project proj, CodeGenerator writer)
         {
+            var stringtype = String.IsNullOrEmpty(exporter.PlayerStringType) ? exporter.PlayerName : exporter.PlayerStringType;
             var func = new FunctionBlock(
                 "Init_" + exporter.PlayerName,
                 new[] { "t" },
                 new ILineObject[] {
-                    new SimpleLineObject("this.type = 0;"),
-                    new SimpleLineObject("this.fontType = 0;"),
-                    new SimpleLineObject("this.PlayerInit(\"homura\", t.playerID);"),
+                    new SimpleLineObject("this.type = " + exporter.PlayerIntType + ";"),
+                    new SimpleLineObject("this.fontType = " + exporter.PlayerFontType + ";"),
+                    new SimpleLineObject("this.PlayerInit(\"" + stringtype + "\", t.playerID);"),
                     new SimpleLineObject("this.CompileFile(\"data/actor/" + exporter.ScriptFileName + ".nut\", this.u);"),
                     new SimpleLineObject("this.u.CA = " + exporter.BaseIndex + ";"),
                     new SimpleLineObject("this.u.regainCycle = " + exporter.PlayerInformation.RegainCycle+ ";"),
@@ -27,7 +28,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     new SimpleLineObject("this.SetMotion(this.u.CA + 0, 0);"),
                     new SimpleLineObject("this.SetUpdateFunction(this.u.Update_Normal);"),
                     new SimpleLineObject("this.fallLabel = this.u.BeginFall;"),
-                    new SimpleLineObject("this.u.dexLV = 5;"),
+                    new SimpleLineObject("this.u.dexLV = " + exporter.PlayerInformation.RushCount + ";"),
                     new SimpleLineObject("this.world2d.CreateActor(this.x, this.y, this.direction, this.Player_Shadow, this.DefaultShotTable());"),
                 });
             writer.WriteStatement(new BlockStatement(func));

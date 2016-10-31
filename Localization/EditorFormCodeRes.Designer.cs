@@ -61,6 +61,15 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 Successfully exported to last location. 的本地化字符串。
+        /// </summary>
+        internal static string AutoExportFinished {
+            get {
+                return ResourceManager.GetString("AutoExportFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Create a new key frame? 的本地化字符串。
         /// </summary>
         internal static string CreateKeyFrameConfirm {

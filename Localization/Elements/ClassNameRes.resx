@@ -207,6 +207,9 @@
   <data name="PlayerSystemAnimationBehavior" xml:space="preserve">
     <value>Player_SystemAnimationInit</value>
   </data>
+  <data name="PlaySoundEffectBehavior" xml:space="preserve">
+    <value>PlaySoundEffect</value>
+  </data>
   <data name="TimeEndSegment" xml:space="preserve">
     <value>EndOfSegment</value>
   </data>

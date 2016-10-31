@@ -47,7 +47,6 @@
             this.playerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editExporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeExporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonNewAnimation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRemoveAnimation = new System.Windows.Forms.ToolStripButton();
@@ -131,6 +130,11 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogSave = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButtonExport = new System.Windows.Forms.ToolStripDropDownButton();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToLastLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.postExportActionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panelAnimations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animations)).BeginInit();
@@ -286,13 +290,6 @@
             resources.ApplyResources(this.removeExporterToolStripMenuItem, "removeExporterToolStripMenuItem");
             this.removeExporterToolStripMenuItem.Name = "removeExporterToolStripMenuItem";
             this.removeExporterToolStripMenuItem.Click += new System.EventHandler(this.removeExporterToolStripMenuItem_Click);
-            // 
-            // toolStripButtonExport
-            // 
-            resources.ApplyResources(this.toolStripButtonExport, "toolStripButtonExport");
-            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExport.Name = "toolStripButtonExport";
-            this.toolStripButtonExport.Click += new System.EventHandler(this.toolStripButtonExport_Click);
             // 
             // toolStripSeparator7
             // 
@@ -848,6 +845,40 @@
             // 
             resources.ApplyResources(this.saveFileDialogSave, "saveFileDialogSave");
             // 
+            // toolStripButtonExport
+            // 
+            resources.ApplyResources(this.toolStripButtonExport, "toolStripButtonExport");
+            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
+            this.exportToLastLocationToolStripMenuItem,
+            this.toolStripSeparator16,
+            this.postExportActionToolStripMenuItem});
+            this.toolStripButtonExport.Name = "toolStripButtonExport";
+            // 
+            // exportToolStripMenuItem
+            // 
+            resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.toolStripButtonExport_Click);
+            // 
+            // exportToLastLocationToolStripMenuItem
+            // 
+            resources.ApplyResources(this.exportToLastLocationToolStripMenuItem, "exportToLastLocationToolStripMenuItem");
+            this.exportToLastLocationToolStripMenuItem.Name = "exportToLastLocationToolStripMenuItem";
+            this.exportToLastLocationToolStripMenuItem.Click += new System.EventHandler(this.exportToLastLocationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator16
+            // 
+            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            // 
+            // postExportActionToolStripMenuItem
+            // 
+            resources.ApplyResources(this.postExportActionToolStripMenuItem, "postExportActionToolStripMenuItem");
+            this.postExportActionToolStripMenuItem.Name = "postExportActionToolStripMenuItem";
+            this.postExportActionToolStripMenuItem.Click += new System.EventHandler(this.postExportActionToolStripMenuItem_Click);
+            // 
             // EditorForm
             // 
             resources.ApplyResources(this, "$this");
@@ -927,7 +958,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveAs;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton toolStripButtonNewAnimation;
         private System.Windows.Forms.ToolStripButton toolStripButtonRemoveAnimation;
@@ -976,5 +1006,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripMenuItem addReferenceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editReferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripButtonExport;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToLastLocationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem postExportActionToolStripMenuItem;
     }
 }

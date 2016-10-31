@@ -25,6 +25,8 @@ namespace GS_PatEditor.Editor
 
                     frm._Editor = editor;
 
+                    editor.SoundEffects = new ProjectSoundEffectCache(editor, frm.Handle);
+
                     editor.AnimationFramesUI.Init(frm.animationFrames);
                     editor.PreviewWindowUI.Init(frm.previewWindow);
                     editor.AnimationListUI.Init(frm.animations);
@@ -567,8 +569,11 @@ namespace GS_PatEditor.Editor
             _Editor.AnimationFramesUI.InsertNewFrameBefore();
         }
 
+        private bool _FrameMenuOpeningFlag = false;
         private void toolStripSplitButtonKeyFrame_DropDownOpening(object sender, EventArgs e)
         {
+            _FrameMenuOpeningFlag = true;
+
             _ClipboardFrame.UpdateEnable();
 
             //update cancellable selected
@@ -584,6 +589,8 @@ namespace GS_PatEditor.Editor
 
             jumpCancellableStripMenuItem.Checked = _Editor.AnimationFramesUI.JumpCancellable;
             skillCancellableToolStripMenuItem.Checked = _Editor.AnimationFramesUI.SkillCancellable;
+
+            _FrameMenuOpeningFlag = false;
         }
 
         private void editDamageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -687,13 +694,17 @@ namespace GS_PatEditor.Editor
                 }
                 if (saveFileDialogExport.ShowDialog() == DialogResult.OK)
                 {
-                    var file = saveFileDialogExport.FileName;
-                    _Editor.Project.LastExportDirectory = Path.GetDirectoryName(file);
-
                     var proj = _Editor.Project;
+
+                    var file = saveFileDialogExport.FileName;
+                    proj.LastExportDirectory = Path.GetDirectoryName(file);
+                    proj.LastExportFileName = Path.GetFileName(file);
+
                     proj.Exporter.InitExporter(proj, file);
                     proj.Exporter.Export(proj);
                     proj.Exporter.FinishExporter();
+
+                    proj.PostExportScript.Execute();
 
                     saveFileDialogExport.FileName = String.Empty;
                 }
@@ -922,7 +933,10 @@ namespace GS_PatEditor.Editor
 
         private void toolStripComboBoxCancelLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _Editor.AnimationFramesUI.CancelLevel = toolStripComboBoxCancelLevel.SelectedIndex;
+            if (!_FrameMenuOpeningFlag)
+            {
+                _Editor.AnimationFramesUI.CancelLevel = toolStripComboBoxCancelLevel.SelectedIndex;
+            }
         }
 
         private void EditorForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -943,6 +957,43 @@ namespace GS_PatEditor.Editor
                 default:
                     e.Cancel = true;
                     break;
+            }
+        }
+
+        private void exportToLastLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!_Editor.Project.IsEmptyProject && _Editor.Project.Exporter != null)
+            {
+                if (_Editor.Project.LastExportDirectory != null &&
+                    Directory.Exists(_Editor.Project.LastExportDirectory) &&
+                    !String.IsNullOrEmpty(_Editor.Project.LastExportFileName))
+                {
+                    var proj = _Editor.Project;
+
+                    var file = Path.Combine(proj.LastExportDirectory, proj.LastExportFileName);
+
+                    proj.Exporter.InitExporter(proj, file);
+                    proj.Exporter.Export(proj);
+                    proj.Exporter.FinishExporter();
+
+                    proj.PostExportScript.Execute(delegate()
+                    {
+                        MessageBox.Show(EditorFormCodeRes.AutoExportFinished, EditorFormCodeRes.MsgBoxTitle);
+                    });
+                }
+            }
+        }
+
+        private void postExportActionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dialog = new GS_PatEditor.Editor.Exporters.PostExportScriptForm();
+            var s = _Editor.Project.PostExportScript;
+            dialog.BatFile = s.BatFile;
+            dialog.ScriptEnabled = s.Enabled;
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                s.BatFile = dialog.BatFile;
+                s.Enabled = dialog.ScriptEnabled;
             }
         }
     }

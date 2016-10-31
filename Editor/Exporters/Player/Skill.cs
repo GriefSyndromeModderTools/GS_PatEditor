@@ -57,7 +57,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             {
                 case SkillKey.KeyA: return "b0";
                 case SkillKey.KeyB: return "b1";
-                case SkillKey.KeyC: return "b2";
+                case SkillKey.KeyC: return "b3";
                 default: return "b0";
             }
         }

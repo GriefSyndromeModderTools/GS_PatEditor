@@ -350,5 +350,7 @@ namespace GS_PatEditor.Editor
         }
 
         #endregion
+
+        public ProjectSoundEffectCache SoundEffects;
     }
 }

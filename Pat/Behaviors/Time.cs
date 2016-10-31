@@ -58,24 +58,35 @@ namespace GS_PatEditor.Pat.Behaviors
     [LocalizedClassDisplayName(typeof(TimeRepeat))]
     public class TimeRepeat : Time
     {
-        [XmlAttribute]
+        [XmlElement]
         [LocalizedDescriptionAttribute("TimeRepeat_Segment")]
         public int Segment { get; set; }
-        [XmlAttribute]
+        [XmlElement]
         [LocalizedDescriptionAttribute("TimeRepeat_Interval")]
         public int Interval { get; set; }
 
         public override void MakeEffects(ActionEffects dest, Effect effect)
         {
             var interval = new ConstValue { Value = Interval };
-            dest.UpdateEffects.Add(new FilteredEffect()
+            if (Segment == -1)
             {
-                Filter = new SimpleListFilter(
-                    new Effects.AnimationSegmentFilter { Segment = Segment },
-                    new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = 0 } }
-                ),
-                Effect = effect,
-            });
+                dest.UpdateEffects.Add(new FilteredEffect()
+                {
+                    Filter = new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = 0 } },
+                    Effect = effect,
+                });
+            }
+            else
+            {
+                dest.UpdateEffects.Add(new FilteredEffect()
+                {
+                    Filter = new SimpleListFilter(
+                        new Effects.AnimationSegmentFilter { Segment = Segment },
+                        new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = 0 } }
+                    ),
+                    Effect = effect,
+                });
+            }
         }
     }
 }

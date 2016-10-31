@@ -121,9 +121,6 @@
   <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -138,14 +135,17 @@
         yNIMAiBBsjWDAMwAQnh4AQYGALVMNMwNAbbHAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="jumpCancellableStripMenuItem.Text" xml:space="preserve">
-    <value>Jump cancellable</value>
+  <data name="&gt;&gt;toolStripSplitEdit.Name" xml:space="preserve">
+    <value>toolStripSplitEdit</value>
+  </data>
+  <data name="attackToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Attack</value>
   </data>
   <data name="pastePhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
   </data>
-  <data name="deleteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+  <data name="postExportActionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Post export script...</value>
   </data>
   <data name="&gt;&gt;toolStripButtonNewAnimation.Name" xml:space="preserve">
     <value>toolStripButtonNewAnimation</value>
@@ -165,11 +165,11 @@
   <data name="toolStripComboBoxCancelLevel.Items1" xml:space="preserve">
     <value>Light</value>
   </data>
-  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="jumpCancellableStripMenuItem.Text" xml:space="preserve">
+    <value>Jump cancellable</value>
   </data>
-  <data name="&gt;&gt;newAttackToolStripMenuItem.Name" xml:space="preserve">
-    <value>newAttackToolStripMenuItem</value>
+  <data name="createExporterToolStripMenuItem.Text" xml:space="preserve">
+    <value>Create</value>
   </data>
   <data name="&gt;&gt;toolStripButtonToolPoint.Name" xml:space="preserve">
     <value>toolStripButtonToolPoint</value>
@@ -219,14 +219,17 @@
   <data name="cutAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
   </data>
-  <data name="attackToolStripMenuItem2.Text" xml:space="preserve">
-    <value>Attack</value>
+  <data name="&gt;&gt;toolStripButtonPlay.Name" xml:space="preserve">
+    <value>toolStripButtonPlay</value>
+  </data>
+  <data name="toolStripSeparator16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 6</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panelAnimationFramesScroll.Size" type="System.Drawing.Size, System.Drawing">
     <value>859, 100</value>
-  </data>
-  <data name="jumpCancellableStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panelFramePreviewScroll.TabIndex" type="System.Int32, mscorlib">
@@ -235,14 +238,17 @@
   <data name="toolStripButtonPlay.Text" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="toolStripButtonToolMove.Text" xml:space="preserve">
+    <value>Move</value>
+  </data>
   <data name="toolStripCollapseAll.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonAnimationProperty.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="openFileDialog1.Filter" xml:space="preserve">
-    <value>GS PAT file or Editor PatProject file|*.pat;*.patproj</value>
+  <data name="&gt;&gt;toolStripButtonNew.Name" xml:space="preserve">
+    <value>toolStripButtonNew</value>
   </data>
   <data name="toolStripButtonSaveAs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -266,9 +272,6 @@
   <data name="axisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
   </data>
-  <data name="toolStripMenuItemCopyFrame.Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -284,8 +287,8 @@
   <data name="&gt;&gt;panelAnimations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripMenuItemPasteFrame.Text" xml:space="preserve">
-    <value>Paste</value>
+  <data name="&gt;&gt;animationFrames.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripSplitBoxVisible.Text" xml:space="preserve">
     <value>Visible</value>
@@ -296,17 +299,20 @@
   <data name="toolStripButtonDirectories.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="copyAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
   <data name="toolStripSplitBoxVisible.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 22</value>
   </data>
   <data name="&gt;&gt;panelFramePreviewScroll.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editExporterToolStripMenuItem.Name" xml:space="preserve">
-    <value>editExporterToolStripMenuItem</value>
+  <data name="exportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Export...</value>
   </data>
-  <data name="toolStripComboBoxCancelLevel.Items5" xml:space="preserve">
-    <value>Highest</value>
+  <data name="toolStripButtonToolAttack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
   </data>
   <data name="&gt;&gt;removeExporterToolStripMenuItem.Name" xml:space="preserve">
     <value>removeExporterToolStripMenuItem</value>
@@ -317,6 +323,9 @@
         wwAADsMBx2+oZAAAADtJREFUOE9jGC5g0YvvWDEhufn3f4NpuAAygInhkxtuBmDDhOTgBtAJUMU2og0B
         KcSHyQYDpxkHYGAAAOV1fsPMmRLHAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="&gt;&gt;editExporterToolStripMenuItem.Name" xml:space="preserve">
+    <value>editExporterToolStripMenuItem</value>
   </data>
   <data name="panelAnimationEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -329,9 +338,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>AnimationEditor</value>
-  </data>
-  <data name="&gt;&gt;animationFrames.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panelAnimations.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -357,8 +363,8 @@
   <data name="&gt;&gt;editExporterToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="scale200ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
+  <data name="&gt;&gt;toolStripMenuItemPasteFrame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator14.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -378,9 +384,6 @@
   <data name="toolStripButtonSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="toolStripButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
-  </data>
   <data name="toolStripButtonRemoveAnimation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -391,11 +394,14 @@
   <data name="&gt;&gt;toolStripSplitButtonKeyFrame.Name" xml:space="preserve">
     <value>toolStripSplitButtonKeyFrame</value>
   </data>
+  <data name="panelFramePreviewScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="toolStripButtonToolCursor.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonPlay.Name" xml:space="preserve">
-    <value>toolStripButtonPlay</value>
+  <data name="&gt;&gt;scale300ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cutAttackToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -403,17 +409,23 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>859, 397</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemPasteFrame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="panelAnimationEdit.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="newHitToolStripMenuItem.Text" xml:space="preserve">
     <value>New</value>
+  </data>
+  <data name="&gt;&gt;exportToLastLocationToolStripMenuItem.Name" xml:space="preserve">
+    <value>exportToLastLocationToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
     <value>toolStripMenuItem4</value>
   </data>
   <data name="animationFrames.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
   </data>
   <data name="&gt;&gt;toolStripButtonToolCursor.Name" xml:space="preserve">
     <value>toolStripButtonToolCursor</value>
@@ -427,11 +439,11 @@
   <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="skillCancellableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Skill cancellable</value>
+  <data name="exportToLastLocationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
   </data>
-  <data name="&gt;&gt;scale300ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;newAttackToolStripMenuItem.Name" xml:space="preserve">
+    <value>newAttackToolStripMenuItem</value>
   </data>
   <data name="toolStripButtonRemoveAnimation.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -440,9 +452,6 @@
     <value>23, 22</value>
   </data>
   <data name="toolStripButtonImport.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator15.Name" xml:space="preserve">
@@ -487,8 +496,11 @@
   <data name="&gt;&gt;deleteAttackToolStripMenuItem.Name" xml:space="preserve">
     <value>deleteAttackToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
+  <data name="&gt;&gt;toolStripSeparator16.Name" xml:space="preserve">
+    <value>toolStripSeparator16</value>
+  </data>
+  <data name="exportToLastLocationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Export to last location</value>
   </data>
   <data name="&gt;&gt;cutPhysicalToolStripMenuItem.Name" xml:space="preserve">
     <value>cutPhysicalToolStripMenuItem</value>
@@ -496,14 +508,17 @@
   <data name="pasteHitToolStripMenuItem.Text" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripComboBoxCancelLevel.Items2" xml:space="preserve">
+    <value>Medium</value>
   </data>
   <data name="&gt;&gt;skillCancellableToolStripMenuItem.Name" xml:space="preserve">
     <value>skillCancellableToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonNew.Name" xml:space="preserve">
-    <value>toolStripButtonNew</value>
+  <data name="exportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="toolStripButtonSaveAs.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="&gt;&gt;playerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -526,14 +541,17 @@
   <data name="toolStripButtonToolPhysics.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
+  <data name="&gt;&gt;toolStripButtonAnimationProperty.Name" xml:space="preserve">
+    <value>toolStripButtonAnimationProperty</value>
+  </data>
   <data name="skillCancellableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 22</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;physicalToolStripMenuItem1.Name" xml:space="preserve">
-    <value>physicalToolStripMenuItem1</value>
+  <data name="jumpCancellableStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
   </data>
   <data name="&gt;&gt;attackToolStripMenuItem.Name" xml:space="preserve">
     <value>attackToolStripMenuItem</value>
@@ -547,8 +565,8 @@
   <data name="borderToolStripMenuItem.Text" xml:space="preserve">
     <value>Border</value>
   </data>
-  <data name="toolStripMenuItemCutFrame.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+  <data name="scale200ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
   </data>
   <data name="hitToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -562,6 +580,9 @@
   <data name="deletePhysicalToolStripMenuItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>GS PAT file or Editor PatProject file|*.pat;*.patproj</value>
+  </data>
   <data name="panelAnimationEdit.Size" type="System.Drawing.Size, System.Drawing">
     <value>859, 372</value>
   </data>
@@ -573,8 +594,8 @@
         2WG3KdpMRwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripButtonDirectories.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+  <data name="&gt;&gt;panelFramePreviewScroll.Parent" xml:space="preserve">
+    <value>panelAnimationEdit</value>
   </data>
   <data name="scale200ToolStripMenuItem.Text" xml:space="preserve">
     <value>200%</value>
@@ -641,8 +662,8 @@
   <data name="&gt;&gt;copyHitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 6</value>
+  <data name="&gt;&gt;animations.Name" xml:space="preserve">
+    <value>animations</value>
   </data>
   <data name="toolStripButtonToolPhysics.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -706,8 +727,8 @@
   <data name="toolStripComboBoxCancelLevel.Items3" xml:space="preserve">
     <value>Heavy</value>
   </data>
-  <data name="&gt;&gt;copyAttackToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;postExportActionToolStripMenuItem.Name" xml:space="preserve">
+    <value>postExportActionToolStripMenuItem</value>
   </data>
   <data name="toolStripButtonSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -736,11 +757,14 @@
   <data name="cutPhysicalToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="panelAnimationEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
+  <data name="copyHitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Copy</value>
   </data>
   <data name="toolStripMenuItemDeleteFrame.Text" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;hitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -786,15 +810,14 @@
   <data name="toolStripComboBoxCancelLevel.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 25</value>
   </data>
+  <data name="toolStripMenuItemPasteFrame.Text" xml:space="preserve">
+    <value>Paste</value>
+  </data>
   <data name="&gt;&gt;toolStripButtonSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripButtonToolPoint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAADZJREFUOE9jGAWDDbyVUfkPZYIBOp8oANOEphnERse4ARab0TXDMCagyAXoNmNx
-        ySigPmBgAABaBCN9VhSdCAAAAABJRU5ErkJggg==
-</value>
+  <data name="&gt;&gt;toolStripExpandAll.Name" xml:space="preserve">
+    <value>toolStripExpandAll</value>
   </data>
   <data name="panelAnimationFramesScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -811,11 +834,14 @@
   <data name="toolStripButtonDirectories.Text" xml:space="preserve">
     <value>Directories</value>
   </data>
+  <data name="cutAttackToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cut</value>
+  </data>
   <data name="toolStripExpandAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="toolStripButtonToolMove.Text" xml:space="preserve">
-    <value>Move</value>
+  <data name="toolStripMenuItemCutFrame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
   </data>
   <data name="&gt;&gt;toolStripButtonRemoveAnimation.Name" xml:space="preserve">
     <value>toolStripButtonRemoveAnimation</value>
@@ -859,6 +885,12 @@
   <data name="&gt;&gt;toolStripButtonSave.Name" xml:space="preserve">
     <value>toolStripButtonSave</value>
   </data>
+  <data name="toolStripButtonRemoveAnimation.Text" xml:space="preserve">
+    <value>Remove animation</value>
+  </data>
+  <data name="playerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Player</value>
+  </data>
   <data name="attackToolStripMenuItem.Text" xml:space="preserve">
     <value>Attack</value>
   </data>
@@ -889,6 +921,9 @@
   </data>
   <data name="panelFramePreviewScroll.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 100</value>
+  </data>
+  <data name="panelAnimationEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
   </data>
   <data name="&gt;&gt;playerToolStripMenuItem.Name" xml:space="preserve">
     <value>playerToolStripMenuItem</value>
@@ -1021,6 +1056,9 @@
   <data name="axisToolStripMenuItem.Text" xml:space="preserve">
     <value>Axis</value>
   </data>
+  <data name="&gt;&gt;animationFrames.Name" xml:space="preserve">
+    <value>animationFrames</value>
+  </data>
   <data name="&gt;&gt;scale300ToolStripMenuItem.Name" xml:space="preserve">
     <value>scale300ToolStripMenuItem</value>
   </data>
@@ -1033,8 +1071,11 @@
   <data name="toolStripButtonToolPoint.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="toolStripSplitButtonKeyFrame.Text" xml:space="preserve">
-    <value>Frame</value>
+  <data name="pasteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
+  <data name="&gt;&gt;postExportActionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonEditAnimation.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -1050,12 +1091,6 @@
   </data>
   <data name="&gt;&gt;previewWindow.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="toolStripSeparator4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="toolStripButtonToolAttack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripSplitEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1091,6 +1126,9 @@
   <data name="&gt;&gt;toolStripButtonExporter.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="skillCancellableToolStripMenuItem.Text" xml:space="preserve">
+    <value>Skill cancellable</value>
+  </data>
   <data name="loopToolStripMenuItem.Text" xml:space="preserve">
     <value>Loop</value>
   </data>
@@ -1108,9 +1146,6 @@
   </data>
   <data name="toolStripButtonPlay.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
-  </data>
-  <data name="toolStripButtonEditAnimation.Text" xml:space="preserve">
-    <value>Edit animation</value>
   </data>
   <data name="deleteHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
@@ -1170,8 +1205,11 @@
   <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 6</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAnimationProperty.Name" xml:space="preserve">
-    <value>toolStripButtonAnimationProperty</value>
+  <data name="&gt;&gt;copyAttackToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scale300ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>600, 400</value>
@@ -1179,8 +1217,8 @@
   <data name="toolStripButtonEditAction.Text" xml:space="preserve">
     <value>Action</value>
   </data>
-  <data name="toolStripMenuItemSelectImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+  <data name="toolStripButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 22</value>
   </data>
   <data name="pastePhysicalToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1188,8 +1226,14 @@
   <data name="animationFrames.Size" type="System.Drawing.Size, System.Drawing">
     <value>356, 100</value>
   </data>
+  <data name="toolStripMenuItemEditFrame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
   <data name="&gt;&gt;attackToolStripMenuItem2.Name" xml:space="preserve">
     <value>attackToolStripMenuItem2</value>
+  </data>
+  <data name="toolStripMenuItemSelectImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
   </data>
   <data name="cutPhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
@@ -1200,11 +1244,11 @@
   <data name="&gt;&gt;previewWindow.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="panelAnimationEdit.Visible" type="System.Boolean, mscorlib">
+  <data name="toolStripSeparator4.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="toolStripMenuItemEditFrame.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+  <data name="&gt;&gt;toolStripButtonOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;newAttackToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1218,13 +1262,13 @@
   <data name="toolStripButtonToolCursor.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="newHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+  <data name="&gt;&gt;toolStripButtonEditAnimation.Name" xml:space="preserve">
+    <value>toolStripButtonEditAnimation</value>
   </data>
   <data name="&gt;&gt;animationFrames.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="copyAttackToolStripMenuItem.Text" xml:space="preserve">
+  <data name="toolStripMenuItemCopyFrame.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="toolStripButtonImport.Size" type="System.Drawing.Size, System.Drawing">
@@ -1237,7 +1281,7 @@
     <value>Edit frame...</value>
   </data>
   <data name="&gt;&gt;toolStripButtonExport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="deletePhysicalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
@@ -1251,23 +1295,23 @@
   <data name="attackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
   </data>
+  <data name="hitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
   <data name="toolStripButtonNew.Text" xml:space="preserve">
     <value>New</value>
-  </data>
-  <data name="&gt;&gt;animations.Name" xml:space="preserve">
-    <value>animations</value>
-  </data>
-  <data name="toolStripButtonExporter.Text" xml:space="preserve">
-    <value>Exporter</value>
   </data>
   <data name="toolStripButtonSaveAs.Text" xml:space="preserve">
     <value>SaveAs</value>
   </data>
-  <data name="&gt;&gt;addReferenceToolStripMenuItem.Name" xml:space="preserve">
-    <value>addReferenceToolStripMenuItem</value>
+  <data name="borderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditorForm</value>
+  </data>
+  <data name="&gt;&gt;exportToolStripMenuItem.Name" xml:space="preserve">
+    <value>exportToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
     <value>toolStripSeparator9</value>
@@ -1278,11 +1322,8 @@
   <data name="newAttackToolStripMenuItem.Text" xml:space="preserve">
     <value>New</value>
   </data>
-  <data name="createExporterToolStripMenuItem.Text" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonEditAnimation.Name" xml:space="preserve">
-    <value>toolStripButtonEditAnimation</value>
+  <data name="postExportActionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
   </data>
   <data name="toolStripButtonToolHit.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -1317,8 +1358,8 @@
   <data name="&gt;&gt;deletePhysicalToolStripMenuItem.Name" xml:space="preserve">
     <value>deletePhysicalToolStripMenuItem</value>
   </data>
-  <data name="deletePhysicalToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;toolStripMenuItemDeleteFrame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="animations.Size" type="System.Drawing.Size, System.Drawing">
     <value>859, 50</value>
@@ -1338,9 +1379,6 @@
   <data name="toolStripButtonAnimationProperty.Text" xml:space="preserve">
     <value>Edit properties</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripButtonImport.Name" xml:space="preserve">
     <value>toolStripButtonImport</value>
   </data>
@@ -1356,32 +1394,30 @@
   <data name="hitToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripButtonToolPoint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAADZJREFUOE9jGAWDDbyVUfkPZYIBOp8oANOEphnERse4ARab0TXDMCagyAXoNmNx
+        ySigPmBgAABaBCN9VhSdCAAAAABJRU5ErkJggg==
+</value>
   </data>
   <data name="animationFrames.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="toolStripComboBoxCancelLevel.Items2" xml:space="preserve">
-    <value>Medium</value>
+  <data name="&gt;&gt;toolStripButtonDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="hitToolStripMenuItem1.Text" xml:space="preserve">
     <value>Hit</value>
   </data>
   <data name="toolStripButtonExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>32, 22</value>
   </data>
   <data name="&gt;&gt;toolStripButtonEditAnimation.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonEditAction.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 22</value>
-  </data>
-  <data name="toolStripButtonSaveAs.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1392,8 +1428,8 @@
   <data name="&gt;&gt;timer1.Name" xml:space="preserve">
     <value>timer1</value>
   </data>
-  <data name="&gt;&gt;toolStripSplitEdit.Name" xml:space="preserve">
-    <value>toolStripSplitEdit</value>
+  <data name="&gt;&gt;addReferenceToolStripMenuItem.Name" xml:space="preserve">
+    <value>addReferenceToolStripMenuItem</value>
   </data>
   <data name="toolStripButtonToolHit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1402,11 +1438,11 @@
         gClOpAEgPjqGAJBibBgqjQ5wiRMNKDIAppksQ9A1UewVIGBgAAAZQVBhpUcd4AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="copyHitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Copy</value>
+  <data name="newHitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
   </data>
-  <data name="scale300ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 6</value>
   </data>
   <data name="&gt;&gt;panelAnimationEdit.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1493,14 +1529,14 @@
   <data name="addReferenceToolStripMenuItem.Text" xml:space="preserve">
     <value>Add Reference</value>
   </data>
-  <data name="&gt;&gt;toolStripExpandAll.Name" xml:space="preserve">
-    <value>toolStripExpandAll</value>
+  <data name="&gt;&gt;toolStripButtonSaveAs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyFrameToolStripMenuItem.Name" xml:space="preserve">
     <value>keyFrameToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;panelAnimationFramesScroll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="&gt;&gt;createExporterToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1532,6 +1568,9 @@
   <data name="toolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
+  <data name="toolStripSplitButtonKeyFrame.Text" xml:space="preserve">
+    <value>Frame</value>
+  </data>
   <data name="toolStripSplitBoxVisible.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -1559,8 +1598,8 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="hitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+  <data name="&gt;&gt;exportToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pasteHitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1570,6 +1609,9 @@
   </data>
   <data name="toolStripButtonNewAnimation.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;panelAnimationFramesScroll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="attackToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
@@ -1611,14 +1653,11 @@
   <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
     <value>toolStrip1</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonSaveAs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 6</value>
   </data>
-  <data name="pasteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;toolStripButtonAnimationProperty.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1644,6 +1683,9 @@
   <data name="&gt;&gt;saveFileDialogSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="deletePhysicalToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripExpandAll.Text" xml:space="preserve">
     <value>ExpandAll</value>
   </data>
@@ -1662,8 +1704,11 @@
   <data name="toolStripButtonExporter.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 22</value>
   </data>
-  <data name="&gt;&gt;animationFrames.Name" xml:space="preserve">
-    <value>animationFrames</value>
+  <data name="toolStripButtonDirectories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;exportToLastLocationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator15.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1671,7 +1716,7 @@
   <data name="&gt;&gt;physicalToolStripMenuItem.Name" xml:space="preserve">
     <value>physicalToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemDeleteFrame.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonExporter.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1680,8 +1725,11 @@
   <data name="pastePhysicalToolStripMenuItem.Text" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="cutAttackToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cut</value>
+  <data name="&gt;&gt;physicalToolStripMenuItem1.Name" xml:space="preserve">
+    <value>physicalToolStripMenuItem1</value>
+  </data>
+  <data name="toolStripButtonEditAnimation.Text" xml:space="preserve">
+    <value>Edit animation</value>
   </data>
   <data name="previewWindow.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1689,8 +1737,8 @@
   <data name="&gt;&gt;toolStripButtonToolPoint.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripButtonRemoveAnimation.Text" xml:space="preserve">
-    <value>Remove animation</value>
+  <data name="toolStripButtonExporter.Text" xml:space="preserve">
+    <value>Exporter</value>
   </data>
   <data name="&gt;&gt;editDamageToolStripMenuItem.Name" xml:space="preserve">
     <value>editDamageToolStripMenuItem</value>
@@ -1725,14 +1773,14 @@
   <data name="&gt;&gt;resetScaleToolStripMenuItem.Name" xml:space="preserve">
     <value>resetScaleToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="toolStripButtonToolCursor.Text" xml:space="preserve">
     <value>Arrow</value>
   </data>
   <data name="panelAnimations.Size" type="System.Drawing.Size, System.Drawing">
     <value>859, 372</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;keyFrameToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1764,8 +1812,8 @@
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="playerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Player</value>
+  <data name="deleteAttackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
   </data>
   <data name="&gt;&gt;hitToolStripMenuItem.Name" xml:space="preserve">
     <value>hitToolStripMenuItem</value>
@@ -1782,8 +1830,8 @@
   <data name="deleteAttackToolStripMenuItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="&gt;&gt;panelFramePreviewScroll.Parent" xml:space="preserve">
-    <value>panelAnimationEdit</value>
+  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemDeleteFrame.Name" xml:space="preserve">
     <value>toolStripMenuItemDeleteFrame</value>
@@ -1807,8 +1855,8 @@
   <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="panelFramePreviewScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="toolStripComboBoxCancelLevel.Items5" xml:space="preserve">
+    <value>Highest</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
@@ -1830,9 +1878,6 @@
   </data>
   <data name="toolStripSeparator15.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 6</value>
-  </data>
-  <data name="borderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

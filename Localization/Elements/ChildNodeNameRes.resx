@@ -144,4 +144,7 @@
   <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time" xml:space="preserve">
     <value>Time</value>
   </data>
+  <data name="PlaySoundEffectBehavior_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
 </root>

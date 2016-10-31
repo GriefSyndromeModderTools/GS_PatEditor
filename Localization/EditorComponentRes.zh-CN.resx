@@ -135,6 +135,9 @@
   <data name="Frames_FirstMustKey" xml:space="preserve">
     <value>第一帧必须为关键帧</value>
   </data>
+  <data name="Frame_SetCancelLevelForAll" xml:space="preserve">
+    <value>是否将所选的取消等级应用在该动画中的所有分段上？</value>
+  </data>
   <data name="Preview_ErrorPlay" xml:space="preserve">
     <value>播放错误</value>
   </data>

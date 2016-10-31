@@ -207,6 +207,9 @@
   <data name="PlayerSystemAnimationBehavior" xml:space="preserve">
     <value>玩家_系统动画初始化</value>
   </data>
+  <data name="PlaySoundEffectBehavior" xml:space="preserve">
+    <value>播放音效</value>
+  </data>
   <data name="TimeEndSegment" xml:space="preserve">
     <value>分段结束时</value>
   </data>

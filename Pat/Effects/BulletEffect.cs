@@ -225,7 +225,7 @@ namespace GS_PatEditor.Pat.Effects
             actor.Variables["SYS_follow_rely"] = new Simulation.ActorVariable
             {
                 Type = Simulation.ActorVariableType.Float,
-                Value = actor.X - actor.Owner.Y,
+                Value = actor.Y - actor.Owner.Y,
             };
             actor.Variables["SYS_follow_dir_p"] = new Simulation.ActorVariable
             {
@@ -316,7 +316,7 @@ namespace GS_PatEditor.Pat.Effects
                 actor.X = owner.X +
                     (actor.Owner.InversedDirection ? -1.0f : 1.0f) * (float)actor.Variables["SYS_follow_dir_p"].Value * 
                     (float)actor.Variables["SYS_follow_relx"].Value;
-                actor.Y = owner.Y + (float)actor.Variables["SYS_follow_relx"].Value;
+                actor.Y = owner.Y + (float)actor.Variables["SYS_follow_rely"].Value;
 
                 actor.InversedDirection = actor.Owner.InversedDirection;
                 if ((float)actor.Variables["SYS_follow_dir_p"].Value != 

@@ -331,6 +331,15 @@ namespace GS_PatEditor.Localization.Elements {
         }
         
         /// <summary>
+        ///   查找类似 PlaySoundEffect 的本地化字符串。
+        /// </summary>
+        internal static string PlaySoundEffectBehavior {
+            get {
+                return ResourceManager.GetString("PlaySoundEffectBehavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 EndOfSegment 的本地化字符串。
         /// </summary>
         internal static string TimeEndSegment {

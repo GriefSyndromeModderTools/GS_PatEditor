@@ -42,10 +42,11 @@ namespace GS_PatEditor.Editor.Panels
         {
             private Image _Image;
             private PointF _Position;
-            private string _Index;
+            private string _Index1;
+            private string _Index2;
             private Brush _TextBrush = new SolidBrush(Color.Black);
 
-            public ImageGrid(Bitmap image, int? index)
+            public ImageGrid(Bitmap image, int index1, int? index2)
             {
                 if (image != null)
                 {
@@ -62,24 +63,33 @@ namespace GS_PatEditor.Editor.Panels
                     }
                 }
 
-                _Index = index.HasValue ? index.ToString() : null;
+                _Index1 = index1.ToString();
+                _Index2 = index2.HasValue ? index2.ToString() : "";
             }
+
             protected void DrawImage(Graphics g)
             {
                 if (_Image != null)
                 {
                     g.DrawImage(_Image, _Position);
                 }
-                if (_Index != null)
+                if (_Index1 != null)
                 {
-                    g.DrawString(_Index, SystemFonts.DefaultFont, _TextBrush, new RectangleF(0, 0, FrameGridSize / 2, FrameGridSize / 2));
+                    g.DrawString(_Index1, SystemFonts.DefaultFont, _TextBrush,
+                        new RectangleF(0, 0, FrameGridSize / 2, FrameGridSize / 2));
+                }
+                if (_Index2 != null)
+                {
+                    g.DrawString(_Index2, SystemFonts.DefaultFont, _TextBrush,
+                        new RectangleF(FrameGridSize / 2, 0, FrameGridSize / 2, FrameGridSize / 2),
+                        new StringFormat() { Alignment = StringAlignment.Far });
                 }
             }
         }
         class KeyFrameGrid : ImageGrid
         {
             private Pen pen = new Pen(Color.Black);
-            private Brush brush = new SolidBrush(Color.FromArgb(200, 200, 200));
+            private Brush brush = new SolidBrush(Color.FromArgb(215, 215, 215));
             private Brush brushSelected = new SolidBrush(Color.FromArgb(120, 120, 120));
             private Brush brushKey = new SolidBrush(Color.FromArgb(100, 140, 255));
             private Brush brushDamage = new SolidBrush(Color.FromArgb(222, 36, 18));
@@ -90,7 +100,7 @@ namespace GS_PatEditor.Editor.Panels
             public readonly Pat.Frame FrameObject;
 
             public KeyFrameGrid(Bitmap bitmap, int index, int segIndex, int frameIndex, KeyFrameFlags flags, Pat.Frame frameObj)
-                : base(bitmap, index)
+                : base(bitmap, index, frameIndex == 0 ? segIndex : (int?)null)
             {
                 Segment = segIndex;
                 Frame = frameIndex;
@@ -137,11 +147,11 @@ namespace GS_PatEditor.Editor.Panels
         class NormalFrameGrid : ImageGrid
         {
             private Pen pen = new Pen(Color.Black);
-            private Brush brush = new SolidBrush(Color.FromArgb(215, 215, 215));
+            private Brush brush = new SolidBrush(Color.FromArgb(230, 230, 230));
             public readonly KeyFrameGrid KeyFrame;
 
             public NormalFrameGrid(KeyFrameGrid key, Bitmap bitmap, int index)
-                : base(bitmap, index)
+                : base(bitmap, index, null)
             {
                 KeyFrame = key;
             }
@@ -974,7 +984,21 @@ namespace GS_PatEditor.Editor.Panels
                 {
                     return;
                 }
-                action.Segments[seg].CancelLevel = (Pat.CancelLevel)value + 1;
+                if (action.Segments.Count > 1 &&
+                    MessageBox.Show(EditorComponentRes.Frame_SetCancelLevelForAll,
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var c = (Pat.CancelLevel)value + 1;
+                    foreach (var s in action.Segments)
+                    {
+                        s.CancelLevel = c;
+                    }
+                }
+                else
+                {
+                    action.Segments[seg].CancelLevel = (Pat.CancelLevel)value + 1;
+                }
             }
         }
 

@@ -69,21 +69,35 @@ namespace GS_PatEditor.Pat.Effects
         [XmlElement]
         public CreateBulletDirection Direction { get; set; }
 
+        [XmlArray(ElementName = "AdditionalBehavior")]
+        [EditorChildNode(null)]
+        public BehaviorList AdditionalBehaviors = new BehaviorList();
+
         public override void Run(Simulation.Actor actor)
         {
-            var bullet = new Simulation.BulletActor(actor.World,
-                actor.Animations.SetDefault(ActionName), null, actor.Actions);
-            var point = Position.GetPointForActor(actor);
-
-            bullet.Owner = actor;
-            bullet.X = point.X;
-            bullet.Y = point.Y;
-            bullet.InversedDirection = Direction == CreateBulletDirection.Same ?
-                actor.InversedDirection : !actor.InversedDirection;
-
             var action = actor.Actions.GetActionByID(ActionName);
             if (action != null)
             {
+                if (AdditionalBehaviors.Count != 0)
+                {
+                    //make a new action
+                    var newAction = new Action();
+                    newAction.Behaviors = action.Behaviors.Concat(AdditionalBehaviors).ToList();
+                    newAction.Segments = action.Segments;
+                    action = newAction;
+                }
+
+                var bullet = new Simulation.BulletActor(actor.World,
+                    actor.Animations.SetDefault(action), null, actor.Actions,
+                    actor.SoundEffects);
+                var point = Position.GetPointForActor(actor);
+
+                bullet.Owner = actor;
+                bullet.X = point.X;
+                bullet.Y = point.Y;
+                bullet.InversedDirection = Direction == CreateBulletDirection.Same ?
+                    actor.InversedDirection : !actor.InversedDirection;
+
                 Simulation.ActionSetup.SetupActorForAction(bullet, action, true);
                 actor.World.Add(bullet);
             }
@@ -91,7 +105,15 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
-            var funcName = env.GenerateActionAsActorInit(ActionName);
+            var funcName = env.GenerateActionAsActorInit(ActionName, e => {
+                foreach (var b in AdditionalBehaviors)
+                {
+                    if (b.Enabled)
+                    {
+                        b.MakeEffects(e);
+                    }
+                }
+            });
             var dir = ThisExpr.Instance.MakeIndex("direction");
 
             if (Direction == CreateBulletDirection.Opposite)
@@ -453,7 +475,7 @@ namespace GS_PatEditor.Pat.Effects
 
         public override void Run(Simulation.Actor actor)
         {
-            //not supported
+            actor.Priority = Value;
         }
 
         public override ILineObject Generate(GenerationEnvironment env)

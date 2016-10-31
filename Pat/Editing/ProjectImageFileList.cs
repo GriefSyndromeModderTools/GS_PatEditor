@@ -305,6 +305,7 @@ namespace GS_PatEditor.Pat.Editing
             }
             result.Sort();
             _Project.Settings.Palettes = result;
+            SelectedPalette = 0;
         }
     }
 }

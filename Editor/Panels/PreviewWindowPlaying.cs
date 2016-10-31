@@ -19,18 +19,17 @@ namespace GS_PatEditor.Editor.Panels
         private class PatProjectAnimationProvider : Simulation.AnimationProvider
         {
             public Pat.Project Project;
-            public string DefaultAnimation;
+            public Pat.Action DefaultAnimation;
 
             public Pat.Action GetActionByID(string id)
             {
-                return Project.Actions
-                    .Where(a => a.ActionID == (id == null ? DefaultAnimation : id))
-                    .FirstOrDefault();
+                return id == null ? DefaultAnimation : Project.Actions
+                    .Where(a => a.ActionID == (id)).FirstOrDefault();
             }
 
-            public Simulation.AnimationProvider SetDefault(string id)
+            public Simulation.AnimationProvider SetDefault(Pat.Action action)
             {
-                return new PatProjectAnimationProvider { Project = Project, DefaultAnimation = id };
+                return new PatProjectAnimationProvider { Project = Project, DefaultAnimation = action };
             }
         }
 
@@ -55,9 +54,10 @@ namespace GS_PatEditor.Editor.Panels
             var action = parent.CurrentAction;
 
             var actor = new Simulation.PlayerActor(_World,
-                new PatProjectAnimationProvider { Project = parent.Project, DefaultAnimation = action.ActionID },
+                new PatProjectAnimationProvider { Project = parent.Project, DefaultAnimation = action },
                 new Simulation.SystemAnimationProvider(_Parent.Project),
-                new PatProjectActionProvider { Project = parent.Project });
+                new PatProjectActionProvider { Project = parent.Project },
+                _Parent.SoundEffects);
 
             Simulation.ActionSetup.SetupActorForAction(actor, action, true);
 

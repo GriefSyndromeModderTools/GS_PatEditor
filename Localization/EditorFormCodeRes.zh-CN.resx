@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AutoExportFinished" xml:space="preserve">
+    <value>成功导出到上次指定的位置</value>
+  </data>
   <data name="CreateKeyFrameConfirm" xml:space="preserve">
     <value>创建新的关键帧？</value>
   </data>

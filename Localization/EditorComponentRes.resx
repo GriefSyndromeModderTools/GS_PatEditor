@@ -135,6 +135,9 @@
   <data name="Frames_FirstMustKey" xml:space="preserve">
     <value>The first frame must be key frame.</value>
   </data>
+  <data name="Frame_SetCancelLevelForAll" xml:space="preserve">
+    <value>Set this cancel level to all segments in this animation?</value>
+  </data>
   <data name="Preview_ErrorPlay" xml:space="preserve">
     <value>Error in playing.</value>
   </data>

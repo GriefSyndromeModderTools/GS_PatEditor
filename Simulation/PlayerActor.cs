@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace GS_PatEditor.Simulation
     class PlayerActor : Actor
     {
         public PlayerActor(World world, AnimationProvider animations, SystemAnimationProvider sysanimations,
-            ActionProvider actions)
-            : base(world, animations, sysanimations, actions)
+            ActionProvider actions, ProjectSoundEffectCache se)
+            : base(world, animations, sysanimations, actions, se)
         {
             ImmuneGravity = false;
             DefaultGravity = 1.0f;

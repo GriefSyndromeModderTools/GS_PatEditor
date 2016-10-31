@@ -76,6 +76,15 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public string ScriptFileName { get; set; }
 
         [XmlElement]
+        public string PlayerStringType { get; set; }
+
+        [XmlElement]
+        public int PlayerIntType { get; set; }
+
+        [XmlElement]
+        public int PlayerFontType { get; set; }
+
+        [XmlElement]
         public PlayerExporterAnimations Animations = new PlayerExporterAnimations();
 
         [XmlElement]
@@ -130,6 +139,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             ExportAction(Animations.JumpUp, 3);
             ExportAction(Animations.JumpFront, 4);
             ExportAction(Animations.Fall, 8);
+            ExportAction(Animations.FallAttack, 9);
             ExportAction(Animations.Damage, 10);
             ExportReviveLightAction(17);
             ExportAction(Animations.Dead, 18);

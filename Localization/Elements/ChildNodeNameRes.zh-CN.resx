@@ -144,4 +144,10 @@
   <data name="PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time" xml:space="preserve">
     <value>时间</value>
   </data>
+  <data name="PlaySoundEffectBehavior_Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="CreateBulletBehavior_AdditionalBehaviors" xml:space="preserve">
+    <value>附加行为</value>
+  </data>
 </root>

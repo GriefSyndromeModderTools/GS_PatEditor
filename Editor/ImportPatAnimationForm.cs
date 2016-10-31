@@ -110,7 +110,7 @@ namespace GS_PatEditor.Editor
 
         private void AddFollowerAnimation(GSPat.Animation a, int id, int s)
         {
-            var text = String.Format(FormCodeRes.ImportPatAnimationForm_ListFormat, id, s);
+            var text = String.Format(FormCodeRes.ImportPatAnimationForm_ListFormatFollower, id, s);
             var item = new ListViewItem(text);
             item.Tag = a;
             listView1.Items.Add(item);

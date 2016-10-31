@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_PatEditor.Editor.Exporters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,12 @@ namespace GS_PatEditor.Pat
         [XmlElement]
         public string LastExportDirectory;
 
+        [XmlElement]
+        public string LastExportFileName;
+
+        [XmlElement]
+        public PostExportScript PostExportScript;
+
         public void LoadFromProject(Project proj)
         {
             if (Directories == null)
@@ -34,6 +41,9 @@ namespace GS_PatEditor.Pat
                 .Select(d => new ProjectDirectoryPath { Name = d.Name, Path = d.Path }));
 
             LastExportDirectory = proj.LastExportDirectory;
+            LastExportFileName = proj.LastExportFileName;
+
+            PostExportScript = proj.PostExportScript;
         }
     }
 }

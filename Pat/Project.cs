@@ -30,6 +30,9 @@ namespace GS_PatEditor.Pat
         public readonly ProjectImageFileList ImageList;
 
         [XmlIgnore]
+        public PostExportScript PostExportScript;
+
+        [XmlIgnore]
         public string FilePath;
 
         [XmlIgnore]
@@ -38,9 +41,13 @@ namespace GS_PatEditor.Pat
         [XmlIgnore]
         public string LastExportDirectory;
 
+        [XmlIgnore]
+        public string LastExportFileName;
+
         public Project()
         {
             ImageList = new ProjectImageFileList(this);
+            PostExportScript = new PostExportScript();
         }
     }
 }

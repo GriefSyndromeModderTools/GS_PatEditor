@@ -22,17 +22,20 @@ namespace GS_PatEditor.Simulation
             var ae = new Pat.ActionEffects(action);
             foreach (var b in action.Behaviors)
             {
-                b.MakeEffects(ae);
+                if (b.Enabled)
+                {
+                    b.MakeEffects(ae);
+                }
             }
             ae.ProcessPostEffects();
 
+            actor.UpdateLabel = ae.UpdateEffects.RunEffects;
+            actor.StartKeyFrameLabel = ae.SegmentStartEffects.Select(list => (ActorLabel)list.RunEffects).ToArray();
+            actor.EndKeyFrameLabel = ae.SegmentFinishEffects.Select(list => (ActorLabel)list.RunEffects).ToArray();
             if (runInit)
             {
                 ae.InitEffects.RunEffects(actor);
             }
-            actor.UpdateLabel = ae.UpdateEffects.RunEffects;
-            actor.StartKeyFrameLabel = ae.SegmentStartEffects.Select(list => (ActorLabel)list.RunEffects).ToArray();
-            actor.EndKeyFrameLabel = ae.SegmentFinishEffects.Select(list => (ActorLabel)list.RunEffects).ToArray();
         }
     }
 }

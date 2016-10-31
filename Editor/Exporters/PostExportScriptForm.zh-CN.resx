@@ -117,43 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AutoExportFinished" xml:space="preserve">
-    <value>Successfully exported to last location.</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>选择...</value>
   </data>
-  <data name="CreateKeyFrameConfirm" xml:space="preserve">
-    <value>Create a new key frame?</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 12</value>
   </data>
-  <data name="ErrorUnknownProjectFormat" xml:space="preserve">
-    <value>Unknown file format.</value>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 21</value>
   </data>
-  <data name="ExitConfirm" xml:space="preserve">
-    <value>Save the project before exit?</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 12</value>
   </data>
-  <data name="ImportedAnimationPrefix" xml:space="preserve">
-    <value>Imported </value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>批处理文件:</value>
   </data>
-  <data name="MsgBoxTitle" xml:space="preserve">
-    <value>AnimationEditor</value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>取消</value>
   </data>
-  <data name="NewProjectConfirm" xml:space="preserve">
-    <value>Create a new act project?</value>
+  <data name="buttonOK.Text" xml:space="preserve">
+    <value>确定</value>
   </data>
-  <data name="OpenProjectConfirm" xml:space="preserve">
-    <value>Open an act project?</value>
+  <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 46</value>
   </data>
-  <data name="Play" xml:space="preserve">
-    <value>Play</value>
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 16</value>
   </data>
-  <data name="RemoveActionConfirm" xml:space="preserve">
-    <value>Remove the action?</value>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>启用</value>
   </data>
-  <data name="RemoveExporterConfirm" xml:space="preserve">
-    <value>Remove exporter?</value>
-  </data>
-  <data name="RemoveKeyFrameConfirm" xml:space="preserve">
-    <value>Remove this key frame? The damage and cancellable data will be lost.</value>
-  </data>
-  <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>导出后脚本</value>
   </data>
 </root>

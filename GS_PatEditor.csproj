@@ -136,6 +136,13 @@
     <Compile Include="Editor\Exporters\Player\Skill.cs" />
     <Compile Include="Editor\Exporters\Player\SkillGenerator.cs" />
     <Compile Include="Editor\Exporters\Player\SystemActionFunctionGenerator.cs" />
+    <Compile Include="Editor\Exporters\PostExportScript.cs" />
+    <Compile Include="Editor\Exporters\PostExportScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Exporters\PostExportScriptForm.Designer.cs">
+      <DependentUpon>PostExportScriptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\Exporters\SegmentStartEventRecorder.cs" />
     <Compile Include="Editor\ExportForm.cs">
       <SubType>Form</SubType>
@@ -242,7 +249,9 @@
     <Compile Include="Pat\Behaviors\PlayerSkillGroundBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerSkillLoopBreakBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerSystemAnimationBehavior.cs" />
+    <Compile Include="Pat\Behaviors\PlaySoundEffectBehavior.cs" />
     <Compile Include="Pat\Behaviors\Time.cs" />
+    <Compile Include="Editor\ProjectSoundEffectCache.cs" />
     <Compile Include="Pat\Effects\ActorMemberValue.cs" />
     <Compile Include="Pat\Effects\ActorVariableHelper.cs" />
     <Compile Include="Pat\Effects\ActorVariables.cs" />
@@ -260,6 +269,7 @@
     <Compile Include="Pat\Effects\PlayerSystemEffect.cs" />
     <Compile Include="Pat\Effects\PointProvider.cs" />
     <Compile Include="Pat\Effects\ResetHitEffect.cs" />
+    <Compile Include="Pat\Effects\SoundEffect.cs" />
     <Compile Include="Pat\Effects\TimestopEffect.cs" />
     <Compile Include="Pat\SegmentSelector.cs" />
     <Compile Include="Program.cs" />
@@ -381,6 +391,8 @@
     <Compile Include="Simulation\PlayerActor.cs" />
     <Compile Include="Simulation\SystemAnimationProvider.cs" />
     <Compile Include="Simulation\World.cs" />
+    <Compile Include="SoundEffect\Sound.cs" />
+    <Compile Include="SoundEffect\SoundEngine.cs" />
     <EmbeddedResource Include="Editor\ActionBehaviorEditForm.resx">
       <DependentUpon>ActionBehaviorEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -425,6 +437,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\Exporters\Player\PlayerExporterOptionsForm.zh-CN.resx">
       <DependentUpon>PlayerExporterOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Exporters\PostExportScriptForm.resx">
+      <DependentUpon>PostExportScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Exporters\PostExportScriptForm.zh-CN.resx">
+      <DependentUpon>PostExportScriptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>

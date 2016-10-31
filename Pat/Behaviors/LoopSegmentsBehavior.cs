@@ -50,9 +50,13 @@ namespace GS_PatEditor.Pat.Behaviors
             {
                 effects.SegmentFinishEffects.AddEffectToList(JumpFrom, new SetSegmentEffect { Segment = JumpTo.Value });
             }
-            else
+            else if (effects.InitEffects.Any(e => e is PlayerSkillInitEffect))
             {
                 effects.SegmentFinishEffects.AddEffectToList(JumpFrom, new PlayerEndToFreeMoveEffect());
+            }
+            else
+            {
+                effects.SegmentFinishEffects.AddEffectToList(JumpFrom, new ReleaseActorEffect());
             }
         }
     }

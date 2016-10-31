@@ -140,5 +140,14 @@ namespace GS_PatEditor.Localization.Elements {
                 return ResourceManager.GetString("PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Time 的本地化字符串。
+        /// </summary>
+        internal static string PlaySoundEffectBehavior_Time {
+            get {
+                return ResourceManager.GetString("PlaySoundEffectBehavior_Time", resourceCulture);
+            }
+        }
     }
 }

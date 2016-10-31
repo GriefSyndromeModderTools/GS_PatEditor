@@ -112,6 +112,8 @@ namespace GS_PatEditor
             var local = (ProjectLocalInfo)LocalSerializer.Deserialize(file);
 
             proj.LastExportDirectory = local.LastExportDirectory;
+            proj.LastExportFileName = local.LastExportFileName;
+            proj.PostExportScript = local.PostExportScript;
 
             int notFound1 = 0;
             foreach (var dir in local.Directories)

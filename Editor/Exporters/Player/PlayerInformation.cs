@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,25 +17,30 @@ namespace GS_PatEditor.Editor.Exporters.Player
             RegainCycle = 5;
             RegainRate = 2;
             AtkOffset = 0.1f;
+            RushCount = 5;
         }
 
         [XmlElement]
+        [DefaultValue(true)]
         public bool FallAttack { get; set; }
-        public bool ShouldSerializeFallAttack() { return !FallAttack; }
 
         [XmlElement]
+        [DefaultValue(5)]
         public int RegainCycle { get; set; }
-        public bool ShouldSerializeRegainCycle() { return RegainCycle != 5; }
 
         [XmlElement]
+        [DefaultValue(2)]
         public int RegainRate { get; set; }
-        public bool ShouldSerializeRegainRate() { return RegainRate != 2; }
 
         [XmlElement]
         public int MagicUse { get; set; }
 
         [XmlElement]
+        [DefaultValue(0.1f)]
         public float AtkOffset { get; set; }
-        public bool ShouldSerializeAtkOffset() { return AtkOffset != 0.1f; }
+
+        [XmlElement]
+        [DefaultValue(5)]
+        public int RushCount { get; set; }
     }
 }
