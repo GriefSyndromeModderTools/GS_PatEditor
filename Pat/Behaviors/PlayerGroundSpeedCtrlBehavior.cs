@@ -185,6 +185,32 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    [LocalizedClassDisplayName(typeof(PlayerGroundSpeedCtrlBehaviorEntryJump))]
+    public class PlayerGroundSpeedCtrlBehaviorEntryJump : PlayerGroundSpeedCtrlBehaviorEntry
+    {
+        [XmlElement]
+        [EditorChildNode("PlayerGroundSpeedCtrlBehaviorEntryJump_Time")]
+        public Time Time;
+
+        [XmlElement]
+        [LocalizedDescriptionAttribute("PlayerGroundSpeedCtrlBehaviorEntryJump_Value")]
+        public float Value { get; set; }
+
+        public override void MakeEffects(ActionEffects effects)
+        {
+            var effect = new SimpleListEffect();
+            effect.EffectList.Add(new PlayerAirEffect());
+            effect.EffectList.Add(new SetActorMemberEffect
+            {
+                Type = ActorMemberType.vy,
+                Value = new ConstValue { Value = Value },
+            });
+            effect.EffectList.Add(new PlayerSkillSitCancelEffect());
+            Time.MakeEffects(effects, effect);
+        }
+    }
+
+    [Serializable]
     [LocalizedClassDisplayName(typeof(PlayerGroundSpeedCtrlBehavior))]
     public class PlayerGroundSpeedCtrlBehavior : Behavior
     {

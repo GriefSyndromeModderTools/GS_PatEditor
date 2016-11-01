@@ -135,6 +135,15 @@ namespace GS_PatEditor.Localization.Elements {
         /// <summary>
         ///   查找类似 Time 的本地化字符串。
         /// </summary>
+        internal static string PlayerGroundSpeedCtrlBehaviorEntryJump_Time {
+            get {
+                return ResourceManager.GetString("PlayerGroundSpeedCtrlBehaviorEntryJump_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Time 的本地化字符串。
+        /// </summary>
         internal static string PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time {
             get {
                 return ResourceManager.GetString("PlayerGroundSpeedCtrlBehaviorEntryRecoil_Time", resourceCulture);

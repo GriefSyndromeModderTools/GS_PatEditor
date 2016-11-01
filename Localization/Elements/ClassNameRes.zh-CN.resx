@@ -222,4 +222,7 @@
   <data name="TimeStartSegment" xml:space="preserve">
     <value>分段开始时</value>
   </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryJump" xml:space="preserve">
+    <value>起跳</value>
+  </data>
 </root>

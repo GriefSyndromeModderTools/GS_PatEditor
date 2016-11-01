@@ -286,6 +286,15 @@ namespace GS_PatEditor.Localization.Elements {
         }
         
         /// <summary>
+        ///   查找类似 Jump 的本地化字符串。
+        /// </summary>
+        internal static string PlayerGroundSpeedCtrlBehaviorEntryJump {
+            get {
+                return ResourceManager.GetString("PlayerGroundSpeedCtrlBehaviorEntryJump", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Recoil 的本地化字符串。
         /// </summary>
         internal static string PlayerGroundSpeedCtrlBehaviorEntryRecoil {

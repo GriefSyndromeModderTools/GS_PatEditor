@@ -71,4 +71,17 @@ namespace GS_PatEditor.Pat.Effects
         }
     }
 
+    [Serializable]
+    public class PlayerAirEffect : Effect
+    {
+        public override void Run(Simulation.Actor actor)
+        {
+            actor.IsInAir = true;
+        }
+
+        public override ILineObject Generate(GenerationEnvironment env)
+        {
+            return new SimpleLineObject("this.isAir = true;");
+        }
+    }
 }

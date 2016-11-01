@@ -327,4 +327,7 @@
   <data name="TimeStartSegment_Segment" xml:space="preserve">
     <value>指定分段编号（0起始）。在这个分段开始时触发。</value>
   </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryJump_Value" xml:space="preserve">
+    <value>起跳的初始纵向速度。</value>
+  </data>
 </root>

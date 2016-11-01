@@ -222,4 +222,7 @@
   <data name="TimeStartSegment" xml:space="preserve">
     <value>StartOfSegment</value>
   </data>
+  <data name="PlayerGroundSpeedCtrlBehaviorEntryJump" xml:space="preserve">
+    <value>Jump</value>
+  </data>
 </root>

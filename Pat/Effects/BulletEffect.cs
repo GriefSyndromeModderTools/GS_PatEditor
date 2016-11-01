@@ -18,6 +18,7 @@ namespace GS_PatEditor.Pat.Effects
         public override void Run(Simulation.Actor actor)
         {
             _SetMotion.Run(actor);
+            actor.ImmuneGravity = true;
         }
 
         public override ILineObject Generate(GenerationEnvironment env)
