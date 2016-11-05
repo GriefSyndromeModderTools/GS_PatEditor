@@ -865,8 +865,10 @@ namespace GS_PatEditor.Editor.Panels
             throw new NotImplementedException();
         }
 
+        private bool _LastCopyIsSegment;
         public object Copy()
         {
+            _LastCopyIsSegment = false;
             if (_LastSelected == null)
             {
                 return null;
@@ -881,12 +883,13 @@ namespace GS_PatEditor.Editor.Panels
                 {
                     return null;
                 }
+                _LastCopyIsSegment = true;
                 return action.Segments[_LastSelected.Segment];
             }
             return _LastSelected.FrameObject;
         }
 
-        public void Delete()
+        public void Delete(bool isCut)
         {
             if (_LastSelected == null)
             {
@@ -899,9 +902,18 @@ namespace GS_PatEditor.Editor.Panels
                 return;
             }
 
-            if (action.Segments[_LastSelected.Segment].Frames.Count == 1)
+            if (isCut && _LastCopyIsSegment)
             {
-                if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemoveLast,
+                if (_LastSelected.Frame != 0)
+                {
+                    //this should not happer
+                    return;
+                }
+                action.Segments.RemoveAt(_LastSelected.Segment);
+            }
+            else if (action.Segments[_LastSelected.Segment].Frames.Count == 1)
+            {
+                if (!isCut && MessageBox.Show(EditorComponentRes.Frames_ConfirmRemoveLast,
                     EditorFormCodeRes.MsgBoxTitle,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                 {
@@ -911,7 +923,7 @@ namespace GS_PatEditor.Editor.Panels
             }
             else
             {
-                if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemove,
+                if (!isCut && MessageBox.Show(EditorComponentRes.Frames_ConfirmRemove,
                     EditorFormCodeRes.MsgBoxTitle,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                 {

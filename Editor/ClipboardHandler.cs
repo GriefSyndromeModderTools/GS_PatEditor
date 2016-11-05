@@ -17,7 +17,7 @@ namespace GS_PatEditor.Editor
 
         void New();
         object Copy();
-        void Delete();
+        void Delete(bool isCut);
         void Paste(object data);
     }
 
@@ -42,7 +42,7 @@ namespace GS_PatEditor.Editor
             if (data != null)
             {
                 Clipboard.SetData(h.DataID, data);
-                h.Delete();
+                h.Delete(true);
             }
         }
         public static void DoCopy(this ClipboardHandler h)
@@ -59,7 +59,7 @@ namespace GS_PatEditor.Editor
         }
         public static void DoDelete(this ClipboardHandler h)
         {
-            h.Delete();
+            h.Delete(false);
         }
 
         public static void ShortcutEvent(this ClipboardHandler h, ShortcutEventType type)

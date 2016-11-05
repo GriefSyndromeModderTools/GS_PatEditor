@@ -237,7 +237,7 @@ namespace GS_PatEditor.Editor.Panels.Tools.Physical
             return frame != null ? frame.PhysicalBox : null;
         }
 
-        public void Delete()
+        public void Delete(bool isCut)
         {
             FinishMouseEvent();
             var frame = _Editor.CurrentFrame;

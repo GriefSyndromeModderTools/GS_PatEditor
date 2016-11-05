@@ -464,7 +464,7 @@ namespace GS_PatEditor.Editor.Panels.Tools.HitAttack
             return _SelectedMultiple.Select(b => GetBoxListFromFrame(frame)[b.Index]).ToList();
         }
 
-        public void Delete()
+        public void Delete(bool isCut)
         {
             FinishMouseEvent();
             var frame = _Editor.CurrentFrame;
