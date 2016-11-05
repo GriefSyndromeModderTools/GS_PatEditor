@@ -124,6 +124,15 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 Copy the whole segment? 的本地化字符串。
+        /// </summary>
+        internal static string Frames_CopySegment {
+            get {
+                return ResourceManager.GetString("Frames_CopySegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 The first frame must be key frame. 的本地化字符串。
         /// </summary>
         internal static string Frames_FirstMustKey {
@@ -138,6 +147,15 @@ namespace GS_PatEditor.Localization {
         internal static string Frames_PasteLastSegOrThis {
             get {
                 return ResourceManager.GetString("Frames_PasteLastSegOrThis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Please select the key frame to paste a segment. 的本地化字符串。
+        /// </summary>
+        internal static string Frames_PasteSegmentMustFirst {
+            get {
+                return ResourceManager.GetString("Frames_PasteSegmentMustFirst", resourceCulture);
             }
         }
         

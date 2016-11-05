@@ -24,6 +24,7 @@ namespace GS_PatEditor.Pat
         public int Opponent;
     }
 
+    [Serializable]
     public struct HitKnockback
     {
         [XmlElement]

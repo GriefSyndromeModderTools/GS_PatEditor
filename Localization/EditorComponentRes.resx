@@ -147,4 +147,10 @@
   <data name="Frames_PasteLastSegOrThis" xml:space="preserve">
     <value>Paste to the start of this segment (Yes) or to the end of last segment (No)?</value>
   </data>
+  <data name="Frames_CopySegment" xml:space="preserve">
+    <value>Copy the whole segment?</value>
+  </data>
+  <data name="Frames_PasteSegmentMustFirst" xml:space="preserve">
+    <value>Please select the key frame to paste a segment.</value>
+  </data>
 </root>

@@ -147,4 +147,10 @@
   <data name="Frames_PasteLastSegOrThis" xml:space="preserve">
     <value>粘贴到当前分段开始(是)或是前一分段的结束(否)？</value>
   </data>
+  <data name="Frames_CopySegment" xml:space="preserve">
+    <value>复制整个分段？</value>
+  </data>
+  <data name="Frames_PasteSegmentMustFirst" xml:space="preserve">
+    <value>粘贴分段数据请选择一个关键帧。</value>
+  </data>
 </root>

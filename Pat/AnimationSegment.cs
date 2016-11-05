@@ -22,6 +22,10 @@ namespace GS_PatEditor.Pat
     [Serializable]
     public class AnimationSegment
     {
+        //Note on serialization of this class:
+        //XML will serialize cancellable with the property
+        //clipboard will serialize cancellable with field
+
         [XmlElement(ElementName = "Frame")]
         public List<Frame> Frames;
 

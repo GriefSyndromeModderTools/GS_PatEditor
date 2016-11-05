@@ -491,6 +491,7 @@
     <EmbeddedResource Include="Localization\EditableTreeViewRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\EditorComponentRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditorComponentRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\EditorComponentRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\EditorFormCodeRes.resx">

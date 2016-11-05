@@ -856,7 +856,7 @@ namespace GS_PatEditor.Editor.Panels
 
         public bool ClipboardDataAvailable(object data)
         {
-            return data is Pat.Frame;
+            return data is Pat.Frame || data is Pat.AnimationSegment;
         }
 
         public void New()
@@ -867,6 +867,22 @@ namespace GS_PatEditor.Editor.Panels
 
         public object Copy()
         {
+            if (_LastSelected == null)
+            {
+                return null;
+            }
+            if (_LastSelected.Frame == 0 &&
+                MessageBox.Show(EditorComponentRes.Frames_CopySegment,
+                EditorFormCodeRes.MsgBoxTitle,
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var action = _Parent.CurrentAction;
+                if (action == null)
+                {
+                    return null;
+                }
+                return action.Segments[_LastSelected.Segment];
+            }
             return _LastSelected.FrameObject;
         }
 
@@ -909,54 +925,82 @@ namespace GS_PatEditor.Editor.Panels
 
         public void Paste(object data)
         {
-            var fdata = data as Pat.Frame;
-            if (fdata == null)
+            if (data is Pat.AnimationSegment)
             {
-                return;
-            }
+                var fdata = data as Pat.AnimationSegment;
 
-            var action = _Parent.CurrentAction;
-            if (action == null)
-            {
-                return;
-            }
-
-            if (_LastSelected == null)
-            {
-                if (action.Segments.Count == 0)
+                var action = _Parent.CurrentAction;
+                if (action == null)
                 {
-                    action.Segments.Add(new Pat.AnimationSegment()
-                    {
-                        Frames = new List<Pat.Frame>(),
-                    });
+                    return;
                 }
-                action.Segments[action.Segments.Count - 1].Frames.Add(fdata);
+
+                if (_LastSelected == null)
+                {
+                    action.Segments.Add(fdata);
+                }
+                else if (_LastSelected.Frame != 0)
+                {
+                    MessageBox.Show(EditorComponentRes.Frames_PasteSegmentMustFirst,
+                        EditorFormCodeRes.MsgBoxTitle,
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    action.Segments.Insert(_LastSelected.Segment, fdata);
+                }
             }
             else
             {
-                if (_LastSelected.Frame == 0)
+                var fdata = data as Pat.Frame;
+                if (fdata == null)
                 {
-                    if (_LastSelected.Segment == 0)
+                    return;
+                }
+
+                var action = _Parent.CurrentAction;
+                if (action == null)
+                {
+                    return;
+                }
+
+                if (_LastSelected == null)
+                {
+                    if (action.Segments.Count == 0)
                     {
-                        action.Segments[_LastSelected.Segment].Frames.Insert(0, fdata);
+                        action.Segments.Add(new Pat.AnimationSegment()
+                        {
+                            Frames = new List<Pat.Frame>(),
+                        });
                     }
-                    else
+                    action.Segments[action.Segments.Count - 1].Frames.Add(fdata);
+                }
+                else
+                {
+                    if (_LastSelected.Frame == 0)
                     {
-                        if (MessageBox.Show(EditorComponentRes.Frames_PasteLastSegOrThis,
-                            EditorFormCodeRes.MsgBoxTitle,
-                            MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (_LastSelected.Segment == 0)
                         {
                             action.Segments[_LastSelected.Segment].Frames.Insert(0, fdata);
                         }
                         else
                         {
-                            action.Segments[_LastSelected.Segment - 1].Frames.Add(fdata);
+                            if (MessageBox.Show(EditorComponentRes.Frames_PasteLastSegOrThis,
+                                EditorFormCodeRes.MsgBoxTitle,
+                                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                action.Segments[_LastSelected.Segment].Frames.Insert(0, fdata);
+                            }
+                            else
+                            {
+                                action.Segments[_LastSelected.Segment - 1].Frames.Add(fdata);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    action.Segments[_LastSelected.Segment].Frames.Insert(_LastSelected.Frame, fdata);
+                    else
+                    {
+                        action.Segments[_LastSelected.Segment].Frames.Insert(_LastSelected.Frame, fdata);
+                    }
                 }
             }
 
