@@ -112,6 +112,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
         [Browsable(false)]
         public GenerationEnvironment GenEnv { get; private set; }
 
+        [XmlIgnore]
+        [Browsable(false)]
+        public Pat.Project Project { get { return _Project; } }
+
         public override void ShowOptionDialog(Pat.Project proj)
         {
             Environment = new EditableEnvironment(proj);

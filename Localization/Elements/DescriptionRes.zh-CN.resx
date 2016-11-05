@@ -330,4 +330,7 @@
   <data name="PlayerGroundSpeedCtrlBehaviorEntryJump_Value" xml:space="preserve">
     <value>起跳的初始纵向速度。</value>
   </data>
+  <data name="InheritBehavior_Action" xml:space="preserve">
+    <value>继承的动画名称。这个动画中的所有行为将会应用到当前动画中。</value>
+  </data>
 </root>

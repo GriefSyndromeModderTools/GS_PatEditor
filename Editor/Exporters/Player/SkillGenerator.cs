@@ -337,7 +337,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             List<ILineObject> ret = new List<ILineObject>();
 
             var action = exporter.GetAction(id);
-            var ae = new Pat.ActionEffects(action);
+            var ae = new Pat.ActionEffects(exporter.Project, action);
             foreach (var b in action.Behaviors)
             {
                 if (b.Enabled)

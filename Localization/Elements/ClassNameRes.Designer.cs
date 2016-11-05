@@ -214,6 +214,15 @@ namespace GS_PatEditor.Localization.Elements {
         }
         
         /// <summary>
+        ///   查找类似 Inherit 的本地化字符串。
+        /// </summary>
+        internal static string InheritBehavior {
+            get {
+                return ResourceManager.GetString("InheritBehavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 JumpSegment 的本地化字符串。
         /// </summary>
         internal static string JumpSegmentBehavior {

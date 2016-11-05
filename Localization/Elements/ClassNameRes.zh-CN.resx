@@ -225,4 +225,7 @@
   <data name="PlayerGroundSpeedCtrlBehaviorEntryJump" xml:space="preserve">
     <value>起跳</value>
   </data>
+  <data name="InheritBehavior" xml:space="preserve">
+    <value>继承</value>
+  </data>
 </root>

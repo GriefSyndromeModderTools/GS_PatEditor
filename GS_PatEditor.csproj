@@ -242,6 +242,7 @@
     <Compile Include="Pat\Behaviors\EffectFollowParentBehavior.cs" />
     <Compile Include="Pat\Behaviors\EffectSegmentBehavior.cs" />
     <Compile Include="Pat\Behaviors\HoldSkillBehavior.cs" />
+    <Compile Include="Pat\Behaviors\InheritBehavior.cs" />
     <Compile Include="Pat\Behaviors\LoopSegmentsBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerAirSpeedCtrlBehavior.cs" />
     <Compile Include="Pat\Behaviors\PlayerGroundSpeedCtrlBehavior.cs" />

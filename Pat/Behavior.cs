@@ -11,6 +11,8 @@ namespace GS_PatEditor.Pat
 {
     public class ActionEffects
     {
+        private Project _Project;
+        private Simulation.ActionProvider _ActionProvider;
         public int SegmentCount { get; private set; }
 
         public EffectList InitEffects;
@@ -21,18 +23,37 @@ namespace GS_PatEditor.Pat
         public List<EffectList> SegmentStartEffects;
         public List<EffectList> SegmentFinishEffects;
 
-        public ActionEffects(Action action)
+        public Action GetActionByName(string name)
         {
+            if (_Project != null)
+            {
+                return _Project.Actions.FirstOrDefault(a => a.ActionID == name);
+            }
+            if (_ActionProvider != null)
+            {
+                return _ActionProvider.GetActionByID(name);
+            }
+            return null;
+        }
+
+        public ActionEffects(Simulation.ActionProvider provider, Action action)
+        {
+            _ActionProvider = provider;
             SegmentCount = action.Segments.Count;
 
-            //InitEffects = new EffectList { Effects = new List<Effect>(action.InitEffects) };
-            //PostInitEffects = new EffectList { Effects = new List<Effect>() };
-            //UpdateEffects = new EffectList { Effects = new List<Effect>(action.UpdateEffects) };
-            //PostUpdateEffects = new EffectList { Effects = new List<Effect>() };
-            //SegmentStartEffects = action.SegmentStartEffects.Select(x =>
-            //    new EffectList { Effects = new List<Effect>(x) }).ToList();
-            //SegmentFinishEffects = action.SegmentFinishEffects.Select(x =>
-            //    new EffectList { Effects = new List<Effect>(x) }).ToList();
+            InitEffects = new EffectList { Effects = new List<Effect>() };
+            PostInitEffects = new EffectList { Effects = new List<Effect>() };
+            UpdateEffects = new EffectList { Effects = new List<Effect>() };
+            PostUpdateEffects = new EffectList { Effects = new List<Effect>() };
+            SegmentStartEffects = new List<EffectList>();
+            SegmentFinishEffects = new List<EffectList>();
+        }
+
+        public ActionEffects(Project proj, Action action)
+        {
+            _Project = proj;
+            SegmentCount = action.Segments.Count;
+
             InitEffects = new EffectList { Effects = new List<Effect>() };
             PostInitEffects = new EffectList { Effects = new List<Effect>() };
             UpdateEffects = new EffectList { Effects = new List<Effect>() };

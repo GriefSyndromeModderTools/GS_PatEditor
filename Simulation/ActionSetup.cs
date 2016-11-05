@@ -19,7 +19,7 @@ namespace GS_PatEditor.Simulation
         //set labels, run init effects (if specified)
         public static void SetupActorForAction(Actor actor, Pat.Action action, bool runInit)
         {
-            var ae = new Pat.ActionEffects(action);
+            var ae = new Pat.ActionEffects(actor.Actions, action);
             foreach (var b in action.Behaviors)
             {
                 if (b.Enabled)
