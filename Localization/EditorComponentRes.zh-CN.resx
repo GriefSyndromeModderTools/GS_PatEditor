@@ -141,4 +141,10 @@
   <data name="Preview_ErrorPlay" xml:space="preserve">
     <value>播放错误</value>
   </data>
+  <data name="Frames_ConfirmRemoveLast" xml:space="preserve">
+    <value>这是分段中的唯一一帧。确认删除这个分段？</value>
+  </data>
+  <data name="Frames_PasteLastSegOrThis" xml:space="preserve">
+    <value>粘贴到当前分段开始(是)或是前一分段的结束(否)？</value>
+  </data>
 </root>

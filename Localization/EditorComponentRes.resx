@@ -141,4 +141,10 @@
   <data name="Preview_ErrorPlay" xml:space="preserve">
     <value>Error in playing.</value>
   </data>
+  <data name="Frames_ConfirmRemoveLast" xml:space="preserve">
+    <value>This is the only frame in segment. Remove this segment?</value>
+  </data>
+  <data name="Frames_PasteLastSegOrThis" xml:space="preserve">
+    <value>Paste to the start of this segment (Yes) or to the end of last segment (No)?</value>
+  </data>
 </root>

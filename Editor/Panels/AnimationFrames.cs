@@ -841,8 +841,7 @@ namespace GS_PatEditor.Editor.Panels
         {
             get
             {
-                //first frame in segment is not allowed to be modified
-                return _LastSelected != null && _LastSelected.Frame != 0;
+                return _LastSelected != null;
             }
         }
 
@@ -851,8 +850,7 @@ namespace GS_PatEditor.Editor.Panels
             get
             {
                 //can not insert (only paste is supported) at the beginning
-                return _Parent.CurrentAction != null &&
-                    (_LastSelected == null || _LastSelected.Segment != 0 || _LastSelected.Frame != 0);
+                return _Parent.CurrentAction != null;
             }
         }
 
@@ -874,22 +872,37 @@ namespace GS_PatEditor.Editor.Panels
 
         public void Delete()
         {
-            if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemove, EditorFormCodeRes.MsgBoxTitle,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+            if (_LastSelected == null)
             {
                 return;
             }
 
-            if (_LastSelected == null || _LastSelected.Frame == 0)
-            {
-                return;
-            }
             var action = _Parent.CurrentAction;
             if (action == null)
             {
                 return;
             }
-            action.Segments[_LastSelected.Segment].Frames.RemoveAt(_LastSelected.Frame);
+
+            if (action.Segments[_LastSelected.Segment].Frames.Count == 1)
+            {
+                if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemoveLast,
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                {
+                    return;
+                }
+                action.Segments.RemoveAt(_LastSelected.Segment);
+            }
+            else
+            {
+                if (MessageBox.Show(EditorComponentRes.Frames_ConfirmRemove,
+                    EditorFormCodeRes.MsgBoxTitle,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                {
+                    return;
+                }
+                action.Segments[_LastSelected.Segment].Frames.RemoveAt(_LastSelected.Frame);
+            }
 
             RefreshList();
         }
@@ -902,29 +915,49 @@ namespace GS_PatEditor.Editor.Panels
                 return;
             }
 
-            if (_LastSelected == null)
-            {
-                return;
-            }
-
             var action = _Parent.CurrentAction;
             if (action == null)
             {
                 return;
             }
 
-            if (_LastSelected.Frame == 0)
+            if (_LastSelected == null)
             {
-                if (_LastSelected.Segment == 0)
+                if (action.Segments.Count == 0)
                 {
-                    return;
+                    action.Segments.Add(new Pat.AnimationSegment()
+                    {
+                        Frames = new List<Pat.Frame>(),
+                    });
                 }
-                //add to last segment
-                action.Segments[_LastSelected.Segment - 1].Frames.Add(fdata);
+                action.Segments[action.Segments.Count - 1].Frames.Add(fdata);
             }
             else
             {
-                action.Segments[_LastSelected.Segment].Frames.Insert(_LastSelected.Frame, fdata);
+                if (_LastSelected.Frame == 0)
+                {
+                    if (_LastSelected.Segment == 0)
+                    {
+                        action.Segments[_LastSelected.Segment].Frames.Insert(0, fdata);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show(EditorComponentRes.Frames_PasteLastSegOrThis,
+                            EditorFormCodeRes.MsgBoxTitle,
+                            MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            action.Segments[_LastSelected.Segment].Frames.Insert(0, fdata);
+                        }
+                        else
+                        {
+                            action.Segments[_LastSelected.Segment - 1].Frames.Add(fdata);
+                        }
+                    }
+                }
+                else
+                {
+                    action.Segments[_LastSelected.Segment].Frames.Insert(_LastSelected.Frame, fdata);
+                }
             }
 
             RefreshList();

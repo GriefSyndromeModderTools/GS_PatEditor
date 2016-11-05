@@ -115,11 +115,29 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 This is the only frame in segment. Remove this segment? 的本地化字符串。
+        /// </summary>
+        internal static string Frames_ConfirmRemoveLast {
+            get {
+                return ResourceManager.GetString("Frames_ConfirmRemoveLast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 The first frame must be key frame. 的本地化字符串。
         /// </summary>
         internal static string Frames_FirstMustKey {
             get {
                 return ResourceManager.GetString("Frames_FirstMustKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Paste to the start of this segment (Yes) or to the end of last segment (No)? 的本地化字符串。
+        /// </summary>
+        internal static string Frames_PasteLastSegOrThis {
+            get {
+                return ResourceManager.GetString("Frames_PasteLastSegOrThis", resourceCulture);
             }
         }
         
