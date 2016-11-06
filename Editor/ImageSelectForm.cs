@@ -15,6 +15,8 @@ namespace GS_PatEditor.Editor
 {
     public partial class ImageSelectForm : Form
     {
+        private static string _LastSelected;
+
         private Pat.Project _Project;
         private Bitmap _PreviewImage;
         private bool _IsBatch;
@@ -94,11 +96,8 @@ namespace GS_PatEditor.Editor
             get
             {
                 var sel = GetSelectedItem();
-                if (sel == null)
-                {
-                    return null;
-                }
-                return sel.Text;
+                var ret = sel == null ? null : sel.Text;
+                return ret;
             }
             set
             {
@@ -108,6 +107,7 @@ namespace GS_PatEditor.Editor
                 if (item != null)
                 {
                     item.Selected = true;
+                    listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                     item.EnsureVisible();
                 }
             }
@@ -567,6 +567,41 @@ namespace GS_PatEditor.Editor
                 }
             }
             return false;
+        }
+
+        private void ImageSelectForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                _LastSelected = this.SelectedImage;
+            }
+        }
+
+        private void ImageSelectForm_Shown(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                var item = listView1.Items.Cast<ListViewItem>()
+                   .FirstOrDefault(i => i.Text == _LastSelected);
+                if (item != null)
+                {
+                    listView1.TopItem = item;
+                }
+                else
+                {
+                    listView1.TopItem = listView1.Items[listView1.Items.Count - 1];
+                }
+            }
+            else
+            {
+                listView1.TopItem = listView1.SelectedItems[0];
+            }
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
         }
     }
 }

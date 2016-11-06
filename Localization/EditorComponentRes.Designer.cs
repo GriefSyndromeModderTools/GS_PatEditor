@@ -61,7 +61,7 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
-        ///   查找类似 {0} segment(s), {0} frame(s) 的本地化字符串。
+        ///   查找类似 {0} segment(s), {1} frame(s) 的本地化字符串。
         /// </summary>
         internal static string Animations_AnimationDescFormat {
             get {

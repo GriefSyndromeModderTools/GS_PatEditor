@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Animations_AnimationDescFormat" xml:space="preserve">
-    <value>{0} segment(s), {0} frame(s)</value>
+    <value>{0} segment(s), {1} frame(s)</value>
   </data>
   <data name="Animations_CategoryDescFormat" xml:space="preserve">
     <value>{0} animation(s)</value>
