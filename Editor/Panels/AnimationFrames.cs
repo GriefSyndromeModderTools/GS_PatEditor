@@ -561,6 +561,7 @@ namespace GS_PatEditor.Editor.Panels
                 var newSegment = new Pat.AnimationSegment()
                 {
                     IsLoop = oldSegment.IsLoop,
+                    CancelLevel = oldSegment.CancelLevel,
                     Frames = oldSegment.Frames.Skip(frameIndex).ToList(),
                 };
                 oldSegment.Frames = oldSegment.Frames.Take(frameIndex).ToList();
@@ -699,7 +700,7 @@ namespace GS_PatEditor.Editor.Panels
                 
                 var frame = action.Segments[grid.Segment].Frames[grid.Frame];
 
-                var dialog = new ImageSelectForm(_Parent.Project)
+                var dialog = new ImageSelectForm(_Parent.Project, false)
                 {
                     SelectedImage = frame.ImageID,
                 };
@@ -711,7 +712,7 @@ namespace GS_PatEditor.Editor.Panels
             }
             else
             {
-                var dialog = new ImageSelectForm(_Parent.Project)
+                var dialog = new ImageSelectForm(_Parent.Project, false)
                 {
                     SelectedImage = null,
                 };
@@ -756,7 +757,91 @@ namespace GS_PatEditor.Editor.Panels
                     
                     RefreshList();
                 }
+            }
+        }
+        
+        public void ShowAddImagesForm()
+        {
+            var dialog = new ImageSelectForm(_Parent.Project, true)
+            {
+                SelectedImage = null,
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                var action = _Parent.CurrentAction;
+                if (action == null)
+                {
+                    return;
+                }
 
+                var imageList = dialog.MultipleChoiceImages;
+                if (imageList == null || imageList.Length == 0)
+                {
+                    return;
+                }
+
+                if (action.Segments.Count == 0)
+                {
+                    action.Segments.Add(new Pat.AnimationSegment()
+                    {
+                        Frames = new List<Pat.Frame>(),
+                    });
+                }
+
+                int segmentIndex = action.Segments.Count - 1;
+                int frameIndex = -1;
+
+                var grid = _LastSelected;
+                if (grid != null)
+                {
+                    segmentIndex = grid.Segment;
+                    frameIndex = grid.Frame;
+                }
+                //if the first frame in segment is selected, add to last segment
+                if (frameIndex == 0 && segmentIndex > 0)
+                {
+                    segmentIndex -= 1;
+                    frameIndex = -1;
+                }
+
+                var segment = action.Segments[segmentIndex];
+
+                int duration = 1;
+                if (segment.Frames.Count > 0)
+                {
+                    duration = segment.Frames.Last().Duration;
+                }
+
+                Pat.Frame frame = null;
+                foreach (var image in imageList)
+                {
+                    frame = new Pat.Frame()
+                    {
+                        Duration = duration,
+                        ImageID = image,
+                        AttackBoxes = new List<Pat.Box>(),
+                        HitBoxes = new List<Pat.Box>(),
+                        Points = new List<Pat.FramePoint>(),
+                        ScaleX = 100,
+                        ScaleY = 100,
+                    };
+                    if (frameIndex != -1)
+                    {
+                        action.Segments[segmentIndex].Frames.Insert(frameIndex, frame);
+                    }
+                    else
+                    {
+                        action.Segments[segmentIndex].Frames.Add(frame);
+                    }
+                }
+
+                //ensure after refreshing, the new frame is selected
+                if (frame != null)
+                {
+                    _LastSelected = new KeyFrameGrid(null, 0, 0, 0, 0, frame);
+                }
+
+                RefreshList();
             }
         }
 

@@ -21,13 +21,16 @@ namespace GS_PatEditor.Editor
         private Bitmap _PreviewImage;
         private bool _IsBatch;
 
-        public ImageSelectForm(Pat.Project project)
+        public ImageSelectForm(Pat.Project project, bool multipleChoice)
         {
             InitializeComponent();
 
             _Project = project;
+            _MultipleChoice = multipleChoice;
             RefreshList();
         }
+
+        private readonly bool _MultipleChoice;
 
         private void RefreshList()
         {
@@ -61,6 +64,7 @@ namespace GS_PatEditor.Editor
                     }
                 }
             }
+            listView1.CheckBoxes = _MultipleChoice;
         }
 
         private ListViewItem CreateFile(string file)
@@ -109,6 +113,23 @@ namespace GS_PatEditor.Editor
                     item.Selected = true;
                     listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                     item.EnsureVisible();
+                }
+            }
+        }
+
+        public string[] MultipleChoiceImages
+        {
+            get
+            {
+                return listView1.Items.OfType<ListViewItem>()
+                    .Where(i => i.Checked).Select(i => i.Text).ToArray();
+            }
+            set
+            {
+                foreach (var i in listView1.Items.OfType<ListViewItem>()
+                    .Where(i => value.Contains(i.Text)))
+                {
+                    i.Checked = true;
                 }
             }
         }
@@ -501,8 +522,8 @@ namespace GS_PatEditor.Editor
                 buttonCancel.Enabled = true;
                 button1.Enabled = true;
 
-                RefreshList();
                 listView1.CheckBoxes = false;
+                RefreshList();
             }
         }
 
@@ -587,7 +608,7 @@ namespace GS_PatEditor.Editor
                 {
                     listView1.TopItem = item;
                 }
-                else
+                else if (listView1.Items.Count > 0)
                 {
                     listView1.TopItem = listView1.Items[listView1.Items.Count - 1];
                 }
@@ -600,6 +621,10 @@ namespace GS_PatEditor.Editor
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
+            if (_IsBatch)
+            {
+                return;
+            }
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }

@@ -512,7 +512,11 @@ namespace GS_PatEditor.Editor
 
         private void toolStripButtonCopyAnimation_Click(object sender, EventArgs e)
         {
-            _Editor.AnimationListUI.CopyCurrent();
+            if (MessageBox.Show(EditorFormCodeRes.CopyActionConfirm, EditorFormCodeRes.MsgBoxTitle,
+                MessageBoxButtons.YesNo, MessageBoxIcon.None) == DialogResult.Yes)
+            {
+                _Editor.AnimationListUI.CopyCurrent();
+            }
         }
 
         private void toolStripButtonRemoveAnimation_Click(object sender, EventArgs e)
@@ -569,6 +573,11 @@ namespace GS_PatEditor.Editor
         private void toolStripMenuItemSelectImage_Click(object sender, EventArgs e)
         {
             _Editor.AnimationFramesUI.ShowSelectImageForm();
+        }
+
+        private void toolStripMenuItemAddImages_Click(object sender, EventArgs e)
+        {
+            _Editor.AnimationFramesUI.ShowAddImagesForm();
         }
 
         private void toolStripMenuItemAddFrame_Click(object sender, EventArgs e)

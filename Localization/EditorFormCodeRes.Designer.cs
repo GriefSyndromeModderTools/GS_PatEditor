@@ -79,6 +79,15 @@ namespace GS_PatEditor.Localization {
         }
         
         /// <summary>
+        ///   查找类似 Copy the action? 的本地化字符串。
+        /// </summary>
+        internal static string CopyActionConfirm {
+            get {
+                return ResourceManager.GetString("CopyActionConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Create a new key frame? 的本地化字符串。
         /// </summary>
         internal static string CreateKeyFrameConfirm {

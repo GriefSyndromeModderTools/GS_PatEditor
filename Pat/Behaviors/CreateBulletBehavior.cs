@@ -36,16 +36,16 @@ namespace GS_PatEditor.Pat.Behaviors
         [EditorChildNode("CreateBulletBehavior_AdditionalBehaviors", false)]
         public BehaviorList AdditionalBehaviors = new BehaviorList();
 
+        //trick to avoid infinite recursive
+        private CreateBulletEffect _Effect = new CreateBulletEffect();
+
         public override void MakeEffects(ActionEffects effects)
         {
-            var effect = new CreateBulletEffect
-            {
-                ActionName = Bullet,
-                Direction = Direction,
-                Position = Position,
-                AdditionalBehaviors = AdditionalBehaviors,
-            };
-            Time.MakeEffects(effects, effect);
+            _Effect.ActionName = Bullet;
+            _Effect.Direction = Direction;
+            _Effect.Position = Position;
+            _Effect.AdditionalBehaviors = AdditionalBehaviors;
+            Time.MakeEffects(effects, _Effect);
         }
 
         [XmlIgnore]

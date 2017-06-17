@@ -123,6 +123,9 @@
   <data name="AutoExportFinished" xml:space="preserve">
     <value>Successfully exported to last location.</value>
   </data>
+  <data name="CopyActionConfirm" xml:space="preserve">
+    <value>Copy the action?</value>
+  </data>
   <data name="CreateKeyFrameConfirm" xml:space="preserve">
     <value>Create a new key frame?</value>
   </data>

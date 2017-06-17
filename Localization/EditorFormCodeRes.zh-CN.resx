@@ -123,6 +123,9 @@
   <data name="AutoExportFinished" xml:space="preserve">
     <value>成功导出到上次指定的位置</value>
   </data>
+  <data name="CopyActionConfirm" xml:space="preserve">
+    <value>确认复制该动画？</value>
+  </data>
   <data name="CreateKeyFrameConfirm" xml:space="preserve">
     <value>创建新的关键帧？</value>
   </data>

@@ -118,6 +118,28 @@ namespace GS_PatEditor.Editor.Exporters.Player
             {
                 return CurrentABPostfix;
             }
+
+            private int nextEmptyId = 1;
+            private List<Tuple<string, string>> _AliasList = new List<Tuple<string, string>>();
+
+            public void AddFunctionAlias(string newName, string oldName)
+            {
+                _AliasList.Add(new Tuple<string, string>(newName, oldName));
+            }
+
+            public string CreateNewFunctionName()
+            {
+                return "Alias_" + (nextEmptyId++).ToString();
+            }
+
+            public void GenerateAliasAssignment()
+            {
+                foreach (var a in _AliasList)
+                {
+                    string line = a.Item1 + "<-" + a.Item2 + ";";
+                    Output.WriteStatement(new SimpleLineObject(line));
+                }
+            }
         }
 
         public static ILineObject[] GenerateInputAttackFunction(PlayerExporter exporter)
@@ -180,6 +202,11 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     new SimpleLineObject("if (!(\"lastKeyTake\" in this.u)) this.u.lastKeyTake <- -1;"),
                     new SimpleLineObject("this.u.lastKeyTake = this.keyTake;"),
                 }).Statement());
+        }
+
+        public static void GenerateAliasAssignment(PlayerExporter e)
+        {
+            ((SkillGeneratorEnv)e.GenEnv).GenerateAliasAssignment();
         }
 
         private static ILineObject GenerateNormalSkillUpdateSSEChecker()

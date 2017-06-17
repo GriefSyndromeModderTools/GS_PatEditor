@@ -25,7 +25,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             var obj = context.Instance as IEditableEnvironment;
             if (svc != null && obj != null)
             {
-                using (var dialog = new ImageSelectForm(obj.Environment.Project))
+                using (var dialog = new ImageSelectForm(obj.Environment.Project, false))
                 {
                     dialog.SelectedImage = str;
                     if (svc.ShowDialog(dialog) == DialogResult.OK)

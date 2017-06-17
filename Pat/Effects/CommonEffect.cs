@@ -116,26 +116,48 @@ namespace GS_PatEditor.Pat.Effects
             }
         }
 
+        //trick to avoid infinite recursive
+        private GenerationEnvironment _LastEnv;
+        private string _AliasName;
+
         public override ILineObject Generate(GenerationEnvironment env)
         {
             string funcName;
-            if (AdditionalBehaviors == null || AdditionalBehaviors.Count == 0)
+            if (env == _LastEnv)
             {
-                funcName = env.GenerateActionAsActorInit(ActionName);
+                if (_AliasName == null)
+                {
+                    _AliasName = env.CreateNewFunctionName();
+                }
+                funcName = _AliasName;
             }
             else
             {
-                funcName = env.GenerateActionAsActorInit(ActionName, e =>
+                _LastEnv = env;
+                if (AdditionalBehaviors == null || AdditionalBehaviors.Count == 0)
                 {
-                    foreach (var b in AdditionalBehaviors)
+                    funcName = env.GenerateActionAsActorInit(ActionName);
+                }
+                else
+                {
+                    funcName = env.GenerateActionAsActorInit(ActionName, e =>
                     {
-                        if (b.Enabled)
+                        foreach (var b in AdditionalBehaviors)
                         {
-                            b.MakeEffects(e);
+                            if (b.Enabled)
+                            {
+                                b.MakeEffects(e);
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
+                if (_AliasName != null)
+                {
+                    env.AddFunctionAlias(_AliasName, funcName);
+                }
             }
+
             var dir = ThisExpr.Instance.MakeIndex("direction");
 
             if (Direction == CreateBulletDirection.Opposite)

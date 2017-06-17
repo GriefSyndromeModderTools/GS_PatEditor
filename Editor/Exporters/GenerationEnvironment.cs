@@ -15,5 +15,7 @@ namespace GS_PatEditor.Editor.Exporters
         string GenerateActionAsActorInit(string name, Action<ActionEffects> customBehaviros = null);
         string GetCurrentSkillKeyName(); //"b1"
         string GetSegmentStartEventHandlerFunctionName(); //"SegmentStartEventHandler" or null (not generated)
+        void AddFunctionAlias(string newName, string oldName);
+        string CreateNewFunctionName();
     }
 }
