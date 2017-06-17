@@ -137,6 +137,9 @@ namespace GS_PatEditor.Editor.Exporters.Player
         private static FunctionBlock GenerateInputAttack(PlayerExporter exporter, Pat.Project proj)
         {
             return new FunctionBlock("InputAttack", new string[0], new ILineObject[] {
+                new ControlBlock(ControlBlockType.If, "!(\"uu\" in this.u)", new ILineObject[] {
+                    new SimpleLineObject("this.u.uu <- { uuu = this.u.weakref() };"),
+                }).Statement(),
                 new ControlBlock(ControlBlockType.If, "this.input.b0 == 1", new ILineObject[] {
                     new SimpleLineObject("this.u.inputCountA = 10;"),
                 }).Statement(),

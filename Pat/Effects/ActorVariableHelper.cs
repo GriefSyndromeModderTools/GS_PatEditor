@@ -30,7 +30,7 @@ namespace GS_PatEditor.Pat.Effects
 
         public static Expression GenerateGet(string name)
         {
-            return ThisExpr.Instance.MakeIndex("u").MakeIndex("SYS_GetActorVariableHelper")
+            return ThisExpr.Instance.MakeIndex("u").MakeIndex("uu").MakeIndex("uuu").MakeIndex("SYS_GetActorVariableHelper")
                 .MakeIndex("call").Call(ThisExpr.Instance, new ConstStringExpr(name));
         }
 
@@ -47,7 +47,7 @@ namespace GS_PatEditor.Pat.Effects
 
         public static Expression GenerateGet(Expression actor, string name)
         {
-            return ThisExpr.Instance.MakeIndex("u").MakeIndex("SYS_GetActorVariableHelper")
+            return ThisExpr.Instance.MakeIndex("u").MakeIndex("uu").MakeIndex("uuu").MakeIndex("SYS_GetActorVariableHelper")
                 .MakeIndex("call").Call(actor, new ConstStringExpr(name));
         }
     }
