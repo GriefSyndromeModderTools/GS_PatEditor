@@ -56,6 +56,7 @@
             this.toolStripButtonNewAnimation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRemoveAnimation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditAnimation = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCopyAnimation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAnimationProperty = new System.Windows.Forms.ToolStripButton();
             this.toolStripExpandAll = new System.Windows.Forms.ToolStripButton();
             this.toolStripCollapseAll = new System.Windows.Forms.ToolStripButton();
@@ -170,6 +171,7 @@
             this.toolStripButtonNewAnimation,
             this.toolStripButtonRemoveAnimation,
             this.toolStripButtonEditAnimation,
+            this.toolStripButtonCopyAnimation,
             this.toolStripButtonAnimationProperty,
             this.toolStripExpandAll,
             this.toolStripCollapseAll,
@@ -352,6 +354,13 @@
             resources.ApplyResources(this.toolStripButtonEditAnimation, "toolStripButtonEditAnimation");
             this.toolStripButtonEditAnimation.Name = "toolStripButtonEditAnimation";
             this.toolStripButtonEditAnimation.Click += new System.EventHandler(this.toolStripButtonEditAnimation_Click);
+            // 
+            // toolStripButtonCopyAnimation
+            // 
+            this.toolStripButtonCopyAnimation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonCopyAnimation, "toolStripButtonCopyAnimation");
+            this.toolStripButtonCopyAnimation.Name = "toolStripButtonCopyAnimation";
+            this.toolStripButtonCopyAnimation.Click += new System.EventHandler(this.toolStripButtonCopyAnimation_Click);
             // 
             // toolStripButtonAnimationProperty
             // 
@@ -1028,5 +1037,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonToolMove;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem alignAllFramesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCopyAnimation;
     }
 }

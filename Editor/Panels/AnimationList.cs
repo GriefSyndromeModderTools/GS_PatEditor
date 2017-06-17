@@ -260,6 +260,58 @@ namespace GS_PatEditor.Editor.Panels
             }
         }
 
+        public void CopyCurrent()
+        {
+            if (_SelectedItem != null)
+            {
+                var oldAction = _SelectedItem.Object;
+                //find an available name
+                var prefix = oldAction.ActionID + " ";
+                int id = 2;
+                {
+                    var list = _Parent.Project.Actions;
+                    while (list.Any(a => a.ActionID == prefix + id.ToString()))
+                    {
+                        ++id;
+                    }
+                }
+
+                var action = new Pat.Action()
+                {
+                    ActionID = prefix + id.ToString(),
+                    Category = oldAction.Category,
+                    ImageID = oldAction.ImageID,
+                };
+
+                //copy the content
+                {
+                    var proj = new Pat.Project();
+                    proj.Actions = new List<Pat.Action>() { oldAction };
+                    var proj2 = ProjectSerializer.CopyProject(proj);
+                    if (proj2 == null || proj2.Actions.Count == 0)
+                    {
+                        return;
+                    }
+                    action.Segments = proj2.Actions[0].Segments;
+                    action.Behaviors = proj2.Actions[0].Behaviors;
+                }
+
+                _Parent.Project.Actions.Add(action);
+
+                if (_SelectedItem != null)
+                {
+                    _SelectedItem.IsSelected = false;
+                    _SelectedItem = null;
+                }
+
+                RefreshList();
+
+                _SelectedItem = _Items.Last();
+                _SelectedItem.IsSelected = true;
+                OnSelectChange();
+            }
+        }
+
         public void AddNew()
         {
             //find an available name

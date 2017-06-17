@@ -161,5 +161,14 @@ namespace GS_PatEditor
             }
             return false;
         }
+        public static Project CopyProject(Project proj)
+        {
+            using (var ms = new MemoryStream())
+            {
+                ProjSerializer.Serialize(ms, proj);
+                ms.Position = 0;
+                return (Project)ProjSerializer.Deserialize(ms);
+            }
+        }
     }
 }

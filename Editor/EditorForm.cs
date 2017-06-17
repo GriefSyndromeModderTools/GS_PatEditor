@@ -108,6 +108,7 @@ namespace GS_PatEditor.Editor
                         frm.toolStripButtonNewAnimation,
                         frm.toolStripButtonRemoveAnimation,
                         frm.toolStripButtonEditAnimation,
+                        frm.toolStripButtonCopyAnimation,
                         frm.toolStripButtonAnimationProperty
                         );
                     frm._GroupToolAnimation = new VisibleGroup(
@@ -332,6 +333,7 @@ namespace GS_PatEditor.Editor
                 var enabled = _Editor.AnimationListUI.HasSelected;
                 toolStripButtonRemoveAnimation.Enabled = enabled;
                 toolStripButtonEditAnimation.Enabled = enabled;
+                toolStripButtonCopyAnimation.Enabled = enabled;
                 toolStripButtonAnimationProperty.Enabled = enabled;
             }
         }
@@ -506,6 +508,11 @@ namespace GS_PatEditor.Editor
         private void toolStripButtonEditAnimation_Click(object sender, EventArgs e)
         {
             _Editor.AnimationListUI.EditCurrent();
+        }
+
+        private void toolStripButtonCopyAnimation_Click(object sender, EventArgs e)
+        {
+            _Editor.AnimationListUI.CopyCurrent();
         }
 
         private void toolStripButtonRemoveAnimation_Click(object sender, EventArgs e)
