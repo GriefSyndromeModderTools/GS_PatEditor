@@ -208,6 +208,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
         {
             var u = ThisExpr.Instance.MakeIndex("u");
             var condition = ExpressionExt.AndAll(
+                FilterCondition(exporter, skill),
                 KeyCondition(skill.Key),
                 CancelLevelCondition(skill.CancelLevel, skill.IsRushSkill),
                 AirCondition(skill.AirState),
@@ -220,6 +221,15 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 u.MakeIndex("InputReset").MakeIndex("call").Call(ThisExpr.Instance).Statement(),
                 u.MakeIndex(name).MakeIndex("call").Call(ThisExpr.Instance).Statement(),
             }).Statement();
+        }
+
+        private static Expression FilterCondition(PlayerExporter exporter, NormalSkill skill)
+        {
+            if (skill.Filter == null)
+            {
+                return new ConstNumberExpr(1);
+            }
+            return skill.Filter.Generate(exporter.GenEnv);
         }
 
         private static Expression RushCondition(PlayerExporter exporter, NormalSkill skill)

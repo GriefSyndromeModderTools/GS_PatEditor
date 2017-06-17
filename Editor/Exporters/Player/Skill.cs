@@ -97,6 +97,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
     [Serializable]
     public class NormalSkill : Skill, IEditableEnvironment, IDataNodeDisplayNameProvider
     {
+        [XmlElement]
+        [EditorChildNode("NormalSkill_Filter")]
+        public Pat.Filter Filter;
+
         [XmlAttribute]
         public SkillKey Key { get; set; }
 

@@ -1,6 +1,5 @@
 ﻿using SharpDX;
 using SharpDX.Direct3D9;
-using SharpDX.Mathematics.Interop;
 using System;
 using System.Collections.Generic;
 using System.IO;

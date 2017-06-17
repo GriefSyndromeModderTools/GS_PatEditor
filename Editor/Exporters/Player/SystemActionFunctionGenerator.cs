@@ -11,6 +11,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
     {
         public static void Generate(PlayerExporter exporter, Pat.Project proj, CodeGenerator output)
         {
+            output.WriteStatement(Pat.Effects.ActorVariableHelper.GenerateSharedFunction().Statement());
             output.WriteStatement(GenerateBeginAirJump(exporter, proj).Statement());
             if (exporter.PlayerInformation.FallAttack)
             {

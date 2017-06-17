@@ -9,6 +9,15 @@ namespace GS_PatEditor.Pat.Effects
 {
     static class ActorVariableHelper
     {
+        public static FunctionBlock GenerateSharedFunction()
+        {
+            return new FunctionBlock("SYS_GetActorVariableHelper", new[] { "name" }, new ILineObject[] {
+                new SimpleLineObject("if (!(\"variables\" in this.u)) this.u.variables <- {};"),
+                new SimpleLineObject("if (!(name in this.u.variables)) this.u.variables[name] <- 0;"),
+                new SimpleLineObject("return this.u.variables[name];"),
+            });
+        }
+
         public static ILineObject GenerateSet(string name, Expression expr)
         {
             var nname = name.Replace("\\", "\\\\").Replace("\"", "\\\\");
@@ -21,7 +30,8 @@ namespace GS_PatEditor.Pat.Effects
 
         public static Expression GenerateGet(string name)
         {
-            return ThisExpr.Instance.MakeIndex("u").MakeIndex("variables").MakeIndex(name);
+            return ThisExpr.Instance.MakeIndex("u").MakeIndex("SYS_GetActorVariableHelper")
+                .MakeIndex("call").Call(ThisExpr.Instance, new ConstStringExpr(name));
         }
 
         public static ILineObject GenerateSet(Expression actor, string name, Expression expr)
@@ -37,7 +47,8 @@ namespace GS_PatEditor.Pat.Effects
 
         public static Expression GenerateGet(Expression actor, string name)
         {
-            return actor.MakeIndex("u").MakeIndex("variables").MakeIndex(name);
+            return ThisExpr.Instance.MakeIndex("u").MakeIndex("SYS_GetActorVariableHelper")
+                .MakeIndex("call").Call(actor, new ConstStringExpr(name));
         }
     }
 }
