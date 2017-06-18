@@ -181,15 +181,23 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     env.CurrentSkillKeyName = cskill.Key.GetKeyName();
                     env.CurrentActionName = cskill.ActionID;
 
-                    var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null, 0);
-                    functionContent = new ILineObject[] {
-                        new ControlBlock(ControlBlockType.If, "!(\"uu\" in this.u)", new ILineObject[] {
-                            new SimpleLineObject("this.u.uu <- { uuu = this.u.weakref() };"),
-                        }).Statement(),
-                    }.Concat(functionContent);
+                    if (cskill.ActionID == null || cskill.ActionID.Length == 0)
+                    {
+                        var func = new FunctionBlock(skillFuncName, new string[0], new ILineObject[0]);
+                        output.WriteStatement(func.Statement());
+                    }
+                    else
+                    {
+                        var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null, 0);
+                        functionContent = new ILineObject[] {
+                            new ControlBlock(ControlBlockType.If, "!(\"uu\" in this.u)", new ILineObject[] {
+                                new SimpleLineObject("this.u.uu <- { uuu = this.u.weakref() };"),
+                            }).Statement(),
+                        }.Concat(functionContent);
 
-                    var func = new FunctionBlock(skillFuncName, new string[0], functionContent);
-                    output.WriteStatement(func.Statement());
+                        var func = new FunctionBlock(skillFuncName, new string[0], functionContent);
+                        output.WriteStatement(func.Statement());
+                    }
                 }
             }
         }
@@ -301,6 +309,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
         private static Expression CancelLevelCondition(Pat.CancelLevel value, bool isRush)
         {
+            if (value == CancelLevel.Free)
+            {
+                return new ConstNumberExpr(1);
+            }
             short val = ExportHelper.ExportCancelLevel(value);
             if (isRush)
             {

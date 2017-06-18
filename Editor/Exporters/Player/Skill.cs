@@ -143,7 +143,8 @@ namespace GS_PatEditor.Editor.Exporters.Player
         [Browsable(false)]
         public override int Priority
         {
-            get { return IsRushSkill ? 100 : 0; }
+            //get { return IsRushSkill ? 100 : 0; }
+            get { return 0; }
         }
 
         [XmlIgnore]

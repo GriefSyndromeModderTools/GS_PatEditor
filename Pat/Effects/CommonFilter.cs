@@ -145,7 +145,22 @@ namespace GS_PatEditor.Pat.Effects
             }
             return new BiOpExpr(Left.Generate(env), Right.Generate(env), opr);
         }
+    }
+    
+    [Serializable]
+    public class CustomCodeFilter : Filter
+    {
+        [XmlAttribute]
+        public string Code { get; set; }
 
+        public override bool Test(Simulation.Actor actor)
+        {
+            return false;
+        }
 
+        public override Expression Generate(GenerationEnvironment env)
+        {
+            return new CustomCodeExpr(Code);
+        }
     }
 }

@@ -12,6 +12,21 @@ namespace GS_PatEditor.Editor.Exporters.CodeFormat
         public abstract void Write(TextWriter writer, int indent);
     }
 
+    public class CustomCodeExpr : Expression
+    {
+        private readonly string _Value;
+
+        public CustomCodeExpr(string val)
+        {
+            _Value = val;
+        }
+
+        public override void Write(TextWriter writer, int indent)
+        {
+            writer.Write(_Value);
+        }
+    }
+
     public class ConstStringExpr : Expression
     {
         private readonly string _Value;
