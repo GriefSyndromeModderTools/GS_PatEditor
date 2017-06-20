@@ -17,5 +17,6 @@ namespace GS_PatEditor.Editor.Exporters
         string GetSegmentStartEventHandlerFunctionName(); //"SegmentStartEventHandler" or null (not generated)
         void AddFunctionAlias(string newName, string oldName);
         string CreateNewFunctionName();
+        string GetSkillFunctionForAction(string name);
     }
 }

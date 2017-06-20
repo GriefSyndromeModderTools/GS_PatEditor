@@ -271,6 +271,7 @@
     <Compile Include="Pat\Effects\PointProvider.cs" />
     <Compile Include="Pat\Effects\ResetHitEffect.cs" />
     <Compile Include="Pat\Effects\SoundEffect.cs" />
+    <Compile Include="Pat\Effects\StartSkillEffect.cs" />
     <Compile Include="Pat\Effects\TimestopEffect.cs" />
     <Compile Include="Pat\SegmentSelector.cs" />
     <Compile Include="Program.cs" />

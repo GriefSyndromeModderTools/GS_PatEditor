@@ -140,6 +140,15 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     Output.WriteStatement(new SimpleLineObject(line));
                 }
             }
+
+            public Dictionary<string, string> _AliasForActionFunc = new Dictionary<string, string>();
+
+            public string GetSkillFunctionForAction(string name)
+            {
+                var ret = CreateNewFunctionName();
+                _AliasForActionFunc.Add(ret, name);
+                return ret;
+            }
         }
 
         public static ILineObject[] GenerateInputAttackFunction(PlayerExporter exporter)
@@ -170,36 +179,63 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public static void GenerateSkills(PlayerExporter exporter, CodeGenerator output)
         {
             SkillGeneratorEnv env = (SkillGeneratorEnv)exporter.GenEnv;
+            Dictionary<string, string> skillActionMap = new Dictionary<string,string>();
 
             for (int i = 0; i < exporter.Skills.Count; ++i)
             {
                 var skill = exporter.Skills[i];
                 var skillFuncName = "skill_" + i.ToString();
+                output.WriteStatement(GenerateActionFunction(exporter, skillFuncName, skill));
                 if (skill is NormalSkill)
                 {
-                    var cskill = (NormalSkill)skill;
-                    env.CurrentSkillKeyName = cskill.Key.GetKeyName();
-                    env.CurrentActionName = cskill.ActionID;
+                    skillActionMap[((NormalSkill)skill).ActionID] = skillFuncName;
+                }
+            }
 
-                    if (cskill.ActionID == null || cskill.ActionID.Length == 0)
+            foreach (var e in env._AliasForActionFunc)
+            {
+                string func;
+                if (!skillActionMap.TryGetValue(e.Value, out func))
+                {
+                    func = "skill_ref_" + e.Key;
+                    var skill = new NormalSkill
                     {
-                        var func = new FunctionBlock(skillFuncName, new string[0], new ILineObject[0]);
-                        output.WriteStatement(func.Statement());
-                    }
-                    else
-                    {
-                        var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null, 0);
-                        functionContent = new ILineObject[] {
+                        ActionID = e.Value,
+                    };
+                    output.WriteStatement(GenerateActionFunction(exporter, func, skill));
+                }
+                env.AddFunctionAlias(e.Key, func);
+            }
+        }
+
+        private static ILineObject GenerateActionFunction(PlayerExporter exporter, string funcName, Skill skill)
+        {
+            SkillGeneratorEnv env = (SkillGeneratorEnv)exporter.GenEnv;
+            if (skill is NormalSkill)
+            {
+                var cskill = (NormalSkill)skill;
+                env.CurrentSkillKeyName = cskill.Key.GetKeyName();
+                env.CurrentActionName = cskill.ActionID;
+
+                if (cskill.ActionID == null || cskill.ActionID.Length == 0)
+                {
+                    var func = new FunctionBlock(funcName, new string[0], new ILineObject[0]);
+                    return func.Statement();
+                }
+                else
+                {
+                    var functionContent = GenerateNormalSkillFunction(exporter, env, cskill.ActionID, false, null, 0);
+                    functionContent = new ILineObject[] {
                             new ControlBlock(ControlBlockType.If, "!(\"uu\" in this.u)", new ILineObject[] {
                                 new SimpleLineObject("this.u.uu <- { uuu = this.u.weakref() };"),
                             }).Statement(),
                         }.Concat(functionContent);
 
-                        var func = new FunctionBlock(skillFuncName, new string[0], functionContent);
-                        output.WriteStatement(func.Statement());
-                    }
+                    var func = new FunctionBlock(funcName, new string[0], functionContent);
+                    return func.Statement();
                 }
             }
+            return new SimpleLineObject("");
         }
 
         public static void GenerateStartMotionFunction(SegmentStartEventRecorder r, CodeGenerator output)
