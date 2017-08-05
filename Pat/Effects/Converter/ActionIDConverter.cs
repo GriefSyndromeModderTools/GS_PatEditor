@@ -24,7 +24,9 @@ namespace GS_PatEditor.Pat.Effects.Converter
                 {
                     return new StandardValuesCollection(env.Project.Actions
                         .Select(a => a.ActionID)
-                        .Where(a => a != null && a.Length != 0).ToArray());
+                        .Where(a => a != null && a.Length != 0)
+                        .OrderBy(a => a)
+                        .ToArray());
                 }
             }
             return new StandardValuesCollection(new string[0]);
@@ -49,6 +51,7 @@ namespace GS_PatEditor.Pat.Effects.Converter
                         new[] { "" }.Concat(env.Project.Actions
                             .Select(a => a.ActionID)
                             .Where(a => a != null && a.Length != 0))
+                        .OrderBy(a => a)
                         .ToArray());
                 }
             }
