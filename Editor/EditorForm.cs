@@ -1005,10 +1005,12 @@ namespace GS_PatEditor.Editor
             var dialog = new GS_PatEditor.Editor.Exporters.PostExportScriptForm();
             var s = _Editor.Project.PostExportScript;
             dialog.BatFile = s.BatFile;
+            dialog.WorkingDirectory = s.Directory;
             dialog.ScriptEnabled = s.Enabled;
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 s.BatFile = dialog.BatFile;
+                s.Directory = dialog.WorkingDirectory;
                 s.Enabled = dialog.ScriptEnabled;
             }
         }

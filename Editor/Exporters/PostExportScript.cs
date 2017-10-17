@@ -30,6 +30,11 @@ namespace GS_PatEditor.Editor.Exporters
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = BatFile;
+                    if (!String.IsNullOrEmpty(Directory) &&
+                        System.IO.Directory.Exists(Directory))
+                    {
+                        p.StartInfo.WorkingDirectory = Directory;
+                    }
                     p.Start();
 
                     p.WaitForExit();

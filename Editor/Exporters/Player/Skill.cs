@@ -47,6 +47,8 @@ namespace GS_PatEditor.Editor.Exporters.Player
         KeyA,
         KeyB,
         KeyC,
+        KeyX,
+        KeyY,
     }
 
     public static class SkillKeyExt
@@ -58,6 +60,8 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 case SkillKey.KeyA: return "b0";
                 case SkillKey.KeyB: return "b1";
                 case SkillKey.KeyC: return "b3";
+                case SkillKey.KeyX: return "x";
+                case SkillKey.KeyY: return "y";
                 default: return "b0";
             }
         }
