@@ -37,17 +37,7 @@ namespace GS_PatEditor
             proj.ImageList.SelectedPalette = 0;
             return proj;
         }
-
-        public static Project Generate()
-        {
-            var patfile = OpenKyoukoPat();
-            if (patfile == null)
-            {
-                return null;
-            }
-
-            return Generate(patfile);
-        }
+        
         public static Project Generate(string patfile)
         {
             GSPatFile gspat;
@@ -133,24 +123,6 @@ namespace GS_PatEditor
                 }
                 //TODO warning
             }
-        }
-        private static string OpenKyoukoPat()
-        {
-            var defaultPath = @"E:\Games\[game]GRIEFSYNDROME\griefsyndrome\gs00\data\actor\kyouko\kyouko.pat";
-            OpenFileDialog dialog = new OpenFileDialog()
-            {
-                Filter = "kyouko.pat|kyouko.pat",
-
-            };
-            if (File.Exists(defaultPath))
-            {
-                dialog.InitialDirectory = Path.GetDirectoryName(defaultPath);
-            }
-            if (dialog.ShowDialog() == DialogResult.Cancel)
-            {
-                return null;
-            }
-            return dialog.FileName;
         }
         private static List<Pat.AnimationSegment> ImportAnimationSegments(Pat.Project proj, GSPat.GSPatFile pat, int index)
         {

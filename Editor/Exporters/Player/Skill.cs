@@ -11,37 +11,6 @@ using System.Xml.Serialization;
 
 namespace GS_PatEditor.Editor.Exporters.Player
 {
-    //[EditorSelector(typeof(Skill))]
-    //class SelectEffect : Skill, IHideFromEditor, IEditableEnvironment
-    //{
-    //    private readonly Action<Skill> _OnNewSkill;
-
-    //    public SelectEffect(Action<Skill> onNewSkill)
-    //    {
-    //        _OnNewSkill = onNewSkill;
-    //    }
-
-    //    [TypeConverter(typeof(GenericEditorSelectorTypeConverter<Skill>))]
-    //    public SelectType Type
-    //    {
-    //        get
-    //        {
-    //            return null;
-    //        }
-    //        set
-    //        {
-    //            if (value == null || value.Value == null)
-    //            {
-    //                return;
-    //            }
-    //            _OnNewSkill(SelectHelper.Create<Skill>(value.Value, Environment));
-    //        }
-    //    }
-
-    //    [Browsable(false)]
-    //    public EditableEnvironment Environment { get; set; }
-    //}
-
     public enum SkillKey
     {
         KeyA,

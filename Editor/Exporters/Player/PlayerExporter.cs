@@ -156,7 +156,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             this.GenEnv = SkillGenerator.CreateEnv(this, playerScript);
             SkillGenerator.GenerateSkills(this, playerScript);
             SkillGenerator.GenerateAliasAssignment(this);
-            this.GenEnv = null;
+            this.GenEnv = null; //TODO handle exception
 
             SkillGenerator.GenerateStartMotionFunction(_SSERecorder, playerScript);
 

@@ -59,7 +59,7 @@ namespace GS_PatEditor.Pat.Effects
         }
     }
 
-    [TypeConverter(typeof(EnumDisplayNameEnumConverterEnumConverter))]
+    [TypeConverter(typeof(EnumDisplayNameEnumConverter))]
     public enum CreateBulletDirection
     {
         [LocalizedEnumDisplayName(typeof(CreateBulletDirection), "Same")]

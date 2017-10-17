@@ -390,7 +390,7 @@ namespace GS_PatEditor.Render
 
         private Vector4 MakePosition(float x, float y, float tx, float ty)
         {
-            var r = _Rotation; //TODO should reverse? (also check import)
+            var r = _Rotation;
             var r0 = _Rotation0;
             var px = x + tx * (float)Math.Cos(r) - ty * (float)Math.Sin(r);
             var py = y + tx * (float)Math.Sin(r) + ty * (float)Math.Cos(r);

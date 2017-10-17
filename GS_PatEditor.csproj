@@ -269,7 +269,6 @@
     <Compile Include="Pat\Effects\PlayerSkillUpdateEffect.cs" />
     <Compile Include="Pat\Effects\PlayerSystemEffect.cs" />
     <Compile Include="Pat\Effects\PointProvider.cs" />
-    <Compile Include="Pat\Effects\ResetHitEffect.cs" />
     <Compile Include="Pat\Effects\SoundEffect.cs" />
     <Compile Include="Pat\Effects\StartSkillEffect.cs" />
     <Compile Include="Pat\Effects\TimestopEffect.cs" />

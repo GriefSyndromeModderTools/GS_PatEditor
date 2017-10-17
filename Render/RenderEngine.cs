@@ -143,7 +143,6 @@ namespace GS_PatEditor.Render
 
             _Sprite.Begin();
 
-            //_Font.DrawText(_Sprite, "Hello World!", 300, 300, new RawColorBGRA(0, 0, 0, 255));
             _Sprite.End();
 
             _Device.EndScene();

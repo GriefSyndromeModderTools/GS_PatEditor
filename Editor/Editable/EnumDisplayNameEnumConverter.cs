@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace GS_PatEditor.Editor.Editable
 {
-    class EnumDisplayNameEnumConverterEnumConverter : EnumConverter
+    class EnumDisplayNameEnumConverter : EnumConverter
     {
         private Type enumType;
 
-        public EnumDisplayNameEnumConverterEnumConverter(Type type)
+        public EnumDisplayNameEnumConverter(Type type)
             : base(type)
         {
             enumType = type;

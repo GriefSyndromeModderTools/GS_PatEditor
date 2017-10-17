@@ -10,7 +10,6 @@ namespace GS_PatEditor.Pat
     [Serializable]
     public class ResourceReference
     {
-        //[XmlAttribute(AttributeName = "ID")]
         [XmlText]
         public string ResourceID;
     }
