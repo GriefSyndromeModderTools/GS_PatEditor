@@ -21,6 +21,9 @@ namespace GS_PatEditor.Editor.Exporters.Player
             private Dictionary<string, string> _GeneratedActorInit = new Dictionary<string, string>();
             private HashSet<string> _GeneratedActorInitWithAB = new HashSet<string>();
 
+            private static int _NextInstanceId = 0;
+            private int _InstanceId = _NextInstanceId++;
+
             public int GetActionID(string name)
             {
                 if (name == null || name.Length == 0)
@@ -129,7 +132,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             public string CreateNewFunctionName()
             {
-                return "Alias_" + (nextEmptyId++).ToString();
+                return "Alias_" + _InstanceId + "_" + (nextEmptyId++).ToString();
             }
 
             public void GenerateAliasAssignment()

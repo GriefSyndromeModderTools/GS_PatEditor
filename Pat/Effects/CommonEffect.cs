@@ -134,6 +134,7 @@ namespace GS_PatEditor.Pat.Effects
             else
             {
                 _LastEnv = env;
+                _AliasName = null;
                 if (AdditionalBehaviors == null || AdditionalBehaviors.Count == 0)
                 {
                     funcName = env.GenerateActionAsActorInit(ActionName);
@@ -151,11 +152,11 @@ namespace GS_PatEditor.Pat.Effects
                         }
                     });
                 }
-
                 if (_AliasName != null)
                 {
                     env.AddFunctionAlias(_AliasName, funcName);
                 }
+                _LastEnv = null;
             }
 
             var dir = ThisExpr.Instance.MakeIndex("direction");

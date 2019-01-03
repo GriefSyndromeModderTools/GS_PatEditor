@@ -283,7 +283,6 @@ namespace GS_PatEditor.Pat.Effects
 
         [XmlAttribute]
         public bool IgnoreRotation { get; set; }
-
         [XmlElement]
         public bool ReleaseIfCheckFailed { get; set; }
 
@@ -318,6 +317,9 @@ namespace GS_PatEditor.Pat.Effects
                     (actor.Owner.InversedDirection ? -1.0f : 1.0f) * (float)actor.Variables["SYS_follow_dir_p"].Value * 
                     (float)actor.Variables["SYS_follow_relx"].Value;
                 actor.Y = owner.Y + (float)actor.Variables["SYS_follow_rely"].Value;
+
+                actor.X += owner.VX;
+                actor.Y += owner.VY;
 
                 actor.InversedDirection = actor.Owner.InversedDirection;
                 if ((float)actor.Variables["SYS_follow_dir_p"].Value != 
@@ -365,6 +367,7 @@ namespace GS_PatEditor.Pat.Effects
             }
             if (cond != null)
             {
+                cond = new BiOpExpr(new CustomCodeExpr("ownerActor != null"), cond, BiOpExpr.Op.And);
                 ret.Add(new ControlBlock(ControlBlockType.If, cond,
                     new ILineObject[] {
                         BulletEffectHelper.GenerateEnd(ReleaseIfCheckFailed, SegmentCheckFailed),
@@ -381,6 +384,9 @@ namespace GS_PatEditor.Pat.Effects
                 ActorVariableHelper.GenerateGet("SYS_follow_rely"), BiOpExpr.Op.Add);
             var dir = new BiOpExpr(dirChanged,
                 ActorVariableHelper.GenerateGet("SYS_follow_dir_s"), BiOpExpr.Op.Multiply);
+            
+            x = new BiOpExpr(x, ownerActor.MakeIndex("vx"), BiOpExpr.Op.Add);
+            y = new BiOpExpr(y, ownerActor.MakeIndex("vy"), BiOpExpr.Op.Add);
 
             var setRotation = ThisExpr.Instance.MakeIndex("rz").Assign(ownerActor.MakeIndex("rz")).Statement();
             ret.AddRange(new ILineObject[] {

@@ -35,15 +35,21 @@ namespace GS_PatEditor.Pat.Effects
             var p = actor.CurrentFrame.Points[Index];
             
             float scaleX = actor.ScaleX, scaleY = actor.ScaleY;
-
-            //TODO IMPORTANT check if point should be scaled
+            
             scaleX *= actor.CurrentFrame.ScaleX / 100.0f;
             scaleY *= actor.CurrentFrame.ScaleY / 100.0f;
+            
+            var x = scaleX * p.X;
+            var y = scaleY * p.Y;
 
+            var rx = x * Math.Cos(actor.Rotation) - y * Math.Sin(actor.Rotation);
+            var ry = y * Math.Cos(actor.Rotation) + x * Math.Sin(actor.Rotation);
+
+            //TODO should use float instead of int
             return new FramePoint
             {
-                X = (int)(actor.X + (AdjustSpeed ? actor.VX : 0) + scaleX * p.X),
-                Y = (int)(actor.Y + (AdjustSpeed ? actor.VY : 0) + scaleY * p.Y),
+                X = (int)(actor.X + rx + (AdjustSpeed ? actor.VX : 0)),
+                Y = (int)(actor.Y + ry + (AdjustSpeed ? actor.VY : 0)),
             };
         }
 
