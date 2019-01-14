@@ -22,6 +22,7 @@ namespace GS_PatEditor.Pat.Effects
             {
 
             }
+            if (!actor.Variables.ContainsKey(Name)) return 0;
             var val = actor.Variables[Name];
             if (val.Type == Simulation.ActorVariableType.Float)
             {
@@ -33,6 +34,32 @@ namespace GS_PatEditor.Pat.Effects
         public override Expression Generate(GenerationEnvironment env)
         {
             return ActorVariableHelper.GenerateGet(Name);
+        }
+    }
+
+    [Serializable]
+    public class ActorParentFloatVariableValue : Value
+    {
+        [XmlAttribute]
+        public string Name { get; set; }
+
+        public override float Get(Simulation.Actor actor)
+        {
+            var parent = actor.Owner;
+            if (!parent.Variables.ContainsKey(Name)) return 0;
+            var val = parent.Variables[Name];
+            if (val.Type == Simulation.ActorVariableType.Float)
+            {
+                return (float)val.Value;
+            }
+            return 0;
+        }
+
+        public override Expression Generate(GenerationEnvironment env)
+        {
+            return ActorVariableHelper.GenerateGet(
+                ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr"),
+                Name);
         }
     }
 

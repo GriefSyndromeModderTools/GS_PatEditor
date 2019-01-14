@@ -53,7 +53,7 @@ namespace GS_PatEditor.SoundEffect
                     var align = br.ReadInt16();
                     if (align != 2)
                     {
-                        throw new IOException("invalid cv3 file");
+                        //throw new IOException("invalid cv3 file");
                     }
                     var bits = br.ReadInt16();
                     if (bytesPerSecond != rate * bits / 8 * channels)
@@ -63,7 +63,7 @@ namespace GS_PatEditor.SoundEffect
                     var zero = br.ReadInt16();
                     if (zero != 0)
                     {
-                        throw new IOException("invalid cv3 file");
+                        //throw new IOException("invalid cv3 file");
                     }
                     var len = br.ReadInt32();
 

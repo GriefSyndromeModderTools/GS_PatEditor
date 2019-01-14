@@ -1022,10 +1022,16 @@ namespace GS_PatEditor.Editor
             {
                 var seg = _Editor.CurrentSegment;
                 var frame = _Editor.CurrentFrame;
+                var imageFrame = _Editor.Project.ImageList.GetImage(frame.ImageID);
+                var x = -frame.OriginX + imageFrame.Width * frame.ScaleX / 200;
+                var y = -frame.OriginY + imageFrame.Height * frame.ScaleY / 100;
                 foreach (var f in seg.Frames)
                 {
-                    f.OriginX = frame.OriginX;
-                    f.OriginY = frame.OriginY;
+                    var image2 = _Editor.Project.ImageList.GetImage(f.ImageID);
+                    var x2 = -f.OriginX + image2.Width * f.ScaleX / 200;
+                    var y2 = -f.OriginY + image2.Height * f.ScaleY / 100;
+                    f.OriginX -= x - x2;
+                    f.OriginY -= y - y2;
                 }
             }
         }

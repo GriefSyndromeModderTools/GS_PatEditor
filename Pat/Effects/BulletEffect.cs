@@ -367,7 +367,7 @@ namespace GS_PatEditor.Pat.Effects
             }
             if (cond != null)
             {
-                cond = new BiOpExpr(new CustomCodeExpr("ownerActor != null"), cond, BiOpExpr.Op.And);
+                cond = new BiOpExpr(new CustomCodeExpr("(!ownerActor)"), cond, BiOpExpr.Op.Or);
                 ret.Add(new ControlBlock(ControlBlockType.If, cond,
                     new ILineObject[] {
                         BulletEffectHelper.GenerateEnd(ReleaseIfCheckFailed, SegmentCheckFailed),
@@ -390,7 +390,7 @@ namespace GS_PatEditor.Pat.Effects
 
             var setRotation = ThisExpr.Instance.MakeIndex("rz").Assign(ownerActor.MakeIndex("rz")).Statement();
             ret.AddRange(new ILineObject[] {
-                new ControlBlock(ControlBlockType.If, "ownerActor != null", new ILineObject[] {
+                new ControlBlock(ControlBlockType.If, "(ownerActor)", new ILineObject[] {
                     ThisExpr.Instance.MakeIndex("x").Assign(x).Statement(),
                     ThisExpr.Instance.MakeIndex("y").Assign(y).Statement(),
                     ThisExpr.Instance.MakeIndex("direction").Assign(dir).Statement(),

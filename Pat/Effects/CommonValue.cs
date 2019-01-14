@@ -3,6 +3,7 @@ using GS_PatEditor.Editor.Exporters;
 using GS_PatEditor.Editor.Exporters.CodeFormat;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,6 +121,54 @@ namespace GS_PatEditor.Pat.Effects
                     new BiOpExpr(ThisExpr.Instance.MakeIndex("rand").Call(), new ConstNumberExpr(level), BiOpExpr.Op.Mod),
                     new ConstNumberExpr(Step), BiOpExpr.Op.Multiply),
                 BiOpExpr.Op.Add);
+        }
+    }
+
+    public enum UnaryFunctionValueType
+    {
+        Sin,
+        Cos,
+    }
+
+    [Serializable]
+    public class UnaryFunctionValue : Value
+    {
+        [XmlElement]
+        [EditorChildNode("UnaryFunctionValue_Operand")]
+        public Value Operand;
+
+        [XmlAttribute]
+        public UnaryFunctionValueType Function { get; set; }
+
+        public UnaryFunctionValue()
+        {
+        }
+
+        public override float Get(Simulation.Actor actor)
+        {
+            var v = Operand.Get(actor);
+            switch (Function)
+            {
+                case UnaryFunctionValueType.Sin:
+                    return (float)Math.Sin(v);
+                case UnaryFunctionValueType.Cos:
+                    return (float)Math.Cos(v);
+                default:
+                    return 0;
+            }
+        }
+
+        public override Expression Generate(GenerationEnvironment env)
+        {
+            var v = Operand.Generate(env);
+            string name;
+            switch (Function)
+            {
+                case UnaryFunctionValueType.Sin: name = "sin"; break;
+                case UnaryFunctionValueType.Cos: name = "cos"; break;
+                default: return new ConstNumberExpr(0);
+            }
+            return ThisExpr.Instance.MakeIndex(name).Call(v);
         }
     }
 }
