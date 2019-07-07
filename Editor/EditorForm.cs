@@ -258,6 +258,7 @@ namespace GS_PatEditor.Editor
                 }
                 _Editor.PreviewWindowUI.Refresh();
                 ++count;
+                System.Threading.Thread.Sleep(8);
             });
         }
 
