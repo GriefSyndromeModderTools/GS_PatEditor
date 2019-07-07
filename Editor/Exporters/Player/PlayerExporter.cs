@@ -160,10 +160,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             SkillGenerator.GenerateStartMotionFunction(_SSERecorder, playerScript);
 
-            ExportAction(Animations.Stand, 100);
-            ExportAction(Animations.Stand, 101);
-            ExportAction(Animations.Stand, 102);
-            ExportAction(Animations.Stand, 103);
+            ExportAction(Animations.Stand, 10000);
+            ExportAction(Animations.Stand, 10001);
+            ExportAction(Animations.Stand, 10002);
+            ExportAction(Animations.Stand, 10003);
         }
 
         private void ExportAction(string name, int id)

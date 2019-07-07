@@ -55,53 +55,61 @@ namespace GS_PatEditor.Pat.Behaviors
             effects.InitEffects.Add(resetVars);
 
             //check
-            var cond1 = new BinaryExpressionValue
+            var cond1 = new ValueCompareFilter
             {
                 Left = new ActorMemberValue { Type = ActorMemberType.sx },
                 Right = new ActorFloatVariableValue { Name = vn_sx },
-                Operator = BinaryOperator.Equal,
+                Operator = CompareOperator.NotEqual,
             };
-            var cond2 = new BinaryExpressionValue
+            var cond2 = new ValueCompareFilter
             {
                 Left = new ActorMemberValue { Type = ActorMemberType.sy },
                 Right = new ActorFloatVariableValue { Name = vn_sy },
-                Operator = BinaryOperator.Equal,
+                Operator = CompareOperator.NotEqual,
             };
-            var cond3 = new BinaryExpressionValue
+            var cond3 = new ValueCompareFilter
             {
                 Left = new ActorMemberValue { Type = ActorMemberType.rz },
                 Right = new ActorFloatVariableValue { Name = vn_rz },
-                Operator = BinaryOperator.Equal,
-            };
-            var cond = new BinaryExpressionValue
-            {
-                Left = cond1,
-                Right = new BinaryExpressionValue
-                {
-                    Left = cond2,
-                    Right = cond3,
-                    Operator = BinaryOperator.Or,
-                },
-                Operator = BinaryOperator.Or,
+                Operator = CompareOperator.NotEqual,
             };
 
             var updateEffect = new SimpleListEffect();
             updateEffect.EffectList.Add(new BulletUpdateCollisionEffect());
             updateEffect.EffectList.Add(resetVars);
 
-            var checkEffect = new FilteredEffect
+            //var checkEffect = new FilteredEffect
+            //{
+            //    Filter = new ValueCompareFilter
+            //    {
+            //        Left = cond,
+            //        Right = new ConstValue { Value = 0 },
+            //        Operator = CompareOperator.NotEqual,
+            //    },
+            //    Effect = updateEffect,
+            //};
+            var checkEffect = new SimpleListEffect();
+            checkEffect.EffectList.Add(new FilteredEffect
             {
-                Filter = new ValueCompareFilter
-                {
-                    Left = cond,
-                    Right = new ConstValue { Value = 0 },
-                    Operator = CompareOperator.NotEqual,
-                },
+                Filter= cond1,
                 Effect = updateEffect,
-            };
+            });
+            checkEffect.EffectList.Add(new FilteredEffect
+            {
+                Filter = cond2,
+                Effect = updateEffect,
+            });
+            checkEffect.EffectList.Add(new FilteredEffect
+            {
+                Filter = cond3,
+                Effect = updateEffect,
+            });
 
-            effects.PostInitEffects.Add(checkEffect);
-            effects.PostUpdateEffects.Effects.Add(checkEffect);
+            if (!IgnoreCollisionTransform)
+            {
+                effects.PostInitEffects.Add(checkEffect);
+                effects.PostUpdateEffects.Effects.Add(checkEffect);
+            }
         }
     }
 }
