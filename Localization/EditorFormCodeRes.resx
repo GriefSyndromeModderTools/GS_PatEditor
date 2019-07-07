@@ -123,6 +123,9 @@
   <data name="AutoExportFinished" xml:space="preserve">
     <value>Successfully exported to last location.</value>
   </data>
+  <data name="CloneHitBoxResult" xml:space="preserve">
+    <value>{0} frames fixed, {1} frames remain empty.</value>
+  </data>
   <data name="CopyActionConfirm" xml:space="preserve">
     <value>Copy the action?</value>
   </data>

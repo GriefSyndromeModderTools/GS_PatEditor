@@ -97,6 +97,12 @@
     <Compile Include="Editor\ActionEditForm.Designer.cs">
       <DependentUpon>ActionEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\CloneHitBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\CloneHitBoxDialog.Designer.cs">
+      <DependentUpon>CloneHitBoxDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\Editable\Editable.cs" />
     <Compile Include="Editor\Editable\EditableNodeGenerator.cs" />
     <Compile Include="Editor\Editable\EditableTreeNode.cs" />
@@ -408,6 +414,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\AnimationPropertyFrom.zh-CN.resx">
       <DependentUpon>AnimationPropertyFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\CloneHitBoxDialog.resx">
+      <DependentUpon>CloneHitBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\CloneHitBoxDialog.zh-CN.resx">
+      <DependentUpon>CloneHitBoxDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\CreateImageDirectoryForm.resx">
       <DependentUpon>CreateImageDirectoryForm.cs</DependentUpon>

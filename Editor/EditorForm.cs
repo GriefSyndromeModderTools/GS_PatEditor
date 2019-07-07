@@ -233,11 +233,14 @@ namespace GS_PatEditor.Editor
 
         private RecentFileList _RecentFileList;
 
+        private string _DefaultFormCaption;
+
         public EditorForm()
         {
             InitializeComponent();
             _RecentFileList = new RecentFileList(toolStripButtonOpen);
             _RecentFileList.OpenFile += OpenFile;
+            _DefaultFormCaption = Text;
         }
 
         private void RunRenderLoop()
@@ -348,6 +351,8 @@ namespace GS_PatEditor.Editor
                     _GroupToolImageList.Visible = false;
                     panelAnimations.Visible = true;
                     panelAnimationEdit.Visible = false;
+
+                    Text = _DefaultFormCaption;
                     break;
                 case 1:
                     _GroupToolAnimationList.Visible = false;
@@ -355,6 +360,9 @@ namespace GS_PatEditor.Editor
                     _GroupToolImageList.Visible = false;
                     panelAnimations.Visible = false;
                     panelAnimationEdit.Visible = true;
+
+                    Text = string.IsNullOrWhiteSpace(_Editor.CurrentAction.ActionID) ? _DefaultFormCaption :
+                        _DefaultFormCaption + " - " + _Editor.CurrentAction.ActionID;
                     break;
             }
 
@@ -952,6 +960,52 @@ namespace GS_PatEditor.Editor
             if (!_FrameMenuOpeningFlag)
             {
                 _Editor.AnimationFramesUI.CancelLevel = toolStripComboBoxCancelLevel.SelectedIndex;
+            }
+        }
+
+        private void CloneHitBoxFromToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!_Editor.Project.IsEmptyProject && _Editor.CurrentUI == EditorUI.Animation)
+            {
+                var dialog = new CloneHitBoxDialog(_Editor.Project.Actions
+                    .Select(a => a.ActionID).OrderBy(n => n).ToArray());
+
+                if (dialog.ShowDialog() == DialogResult.OK && dialog.SelectedAnimationName != null)
+                {
+                    var animation = _Editor.Project.Actions.FirstOrDefault(a => a.ActionID == dialog.SelectedAnimationName);
+                    if (animation == null)
+                    {
+                        return;
+                    }
+                    var srcFrameList = animation.Segments.SelectMany(ss => ss.Frames);
+
+                    int fixedCount = 0, emptyCount = 0;
+
+                    var targetAnimation = _Editor.CurrentAction;
+                    foreach (var frame in targetAnimation.Segments.SelectMany(ss => ss.Frames))
+                    {
+                        if (frame.HitBoxes.Count == 0)
+                        {
+                            emptyCount += 1;
+                            foreach (var srcFrame in srcFrameList)
+                            {
+                                if (srcFrame.ImageID != frame.ImageID || srcFrame.HitBoxes.Count == 0) continue;
+                                if (dialog.MatchLocation && 
+                                    (srcFrame.OriginX != frame.OriginX || srcFrame.OriginY != frame.OriginY))
+                                {
+                                    continue;
+                                }
+                                frame.HitBoxes.AddRange(srcFrame.HitBoxes);
+                                emptyCount -= 1;
+                                fixedCount += 1;
+                                break;
+                            }
+                        }
+                    }
+
+                    MessageBox.Show(string.Format(EditorFormCodeRes.CloneHitBoxResult, fixedCount, emptyCount),
+                        EditorFormCodeRes.MsgBoxTitle);
+                }
             }
         }
 

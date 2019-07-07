@@ -117,52 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AlignAllFramesConfirm" xml:space="preserve">
-    <value>确认对齐分段上所有帧的位置？</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
   </data>
-  <data name="AutoExportFinished" xml:space="preserve">
-    <value>成功导出到上次指定的位置</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>源动画：</value>
   </data>
-  <data name="CloneHitBoxResult" xml:space="preserve">
-    <value>已修复{0}个帧，还有{1}个帧判定框为空。</value>
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 21</value>
   </data>
-  <data name="CopyActionConfirm" xml:space="preserve">
-    <value>确认复制该动画？</value>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>只复制图片位置相同的帧</value>
   </data>
-  <data name="CreateKeyFrameConfirm" xml:space="preserve">
-    <value>创建新的关键帧？</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>确定</value>
   </data>
-  <data name="ErrorUnknownProjectFormat" xml:space="preserve">
-    <value>未知的文件类型</value>
+  <data name="button2.Text" xml:space="preserve">
+    <value>取消</value>
   </data>
-  <data name="ExitConfirm" xml:space="preserve">
-    <value>是否保存工程？</value>
-  </data>
-  <data name="ImportedAnimationPrefix" xml:space="preserve">
-    <value>导入动画</value>
-  </data>
-  <data name="MsgBoxTitle" xml:space="preserve">
-    <value>动画编辑器</value>
-  </data>
-  <data name="NewProjectConfirm" xml:space="preserve">
-    <value>确认创建新的工程？</value>
-  </data>
-  <data name="OpenProjectConfirm" xml:space="preserve">
-    <value>确认打开工程？</value>
-  </data>
-  <data name="Play" xml:space="preserve">
-    <value>播放</value>
-  </data>
-  <data name="RemoveActionConfirm" xml:space="preserve">
-    <value>确认删除该动画？</value>
-  </data>
-  <data name="RemoveExporterConfirm" xml:space="preserve">
-    <value>确认删除导出选项？</value>
-  </data>
-  <data name="RemoveKeyFrameConfirm" xml:space="preserve">
-    <value>确认将关键帧设置为普通帧？将会丢失分段信息。</value>
-  </data>
-  <data name="Stop" xml:space="preserve">
-    <value>停止</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>拷贝判定框</value>
   </data>
 </root>
