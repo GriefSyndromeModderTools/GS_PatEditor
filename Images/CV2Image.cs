@@ -83,7 +83,14 @@ namespace GS_PatEditor.Images
                 _Bitmap.Palette = palette;
             }
             AbstractImage.AdjustRectangle(ref rect, _Bitmap);
-            return _Bitmap.Clone(rect, PixelFormat.Format32bppArgb);
+            try
+            {
+                return _Bitmap.Clone(rect, PixelFormat.Format32bppArgb);
+            }
+            catch
+            {
+                return new Bitmap(1, 1);
+            }
         }
 
         public override int Width

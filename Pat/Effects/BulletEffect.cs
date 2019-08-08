@@ -292,6 +292,9 @@ namespace GS_PatEditor.Pat.Effects
         [XmlAttribute]
         public bool FailIfParentMotionChanged { get; set; }
 
+        [XmlAttribute]
+        public bool OnlyCheckParent { get; set; }
+
         public override void Run(Simulation.Actor actor)
         {
             var owner = actor.Owner;
@@ -313,24 +316,27 @@ namespace GS_PatEditor.Pat.Effects
                     return;
                 }
 
-                actor.X = owner.X +
-                    (actor.Owner.InversedDirection ? -1.0f : 1.0f) * (float)actor.Variables["SYS_follow_dir_p"].Value * 
-                    (float)actor.Variables["SYS_follow_relx"].Value;
-                actor.Y = owner.Y + (float)actor.Variables["SYS_follow_rely"].Value;
-
-                actor.X += owner.VX;
-                actor.Y += owner.VY;
-
-                actor.InversedDirection = actor.Owner.InversedDirection;
-                if ((float)actor.Variables["SYS_follow_dir_p"].Value != 
-                    (float)actor.Variables["SYS_follow_dir_s"].Value)
+                if (!OnlyCheckParent)
                 {
-                    actor.InversedDirection = !actor.InversedDirection;
-                }
+                    actor.X = owner.X +
+                        (actor.Owner.InversedDirection ? -1.0f : 1.0f) * (float)actor.Variables["SYS_follow_dir_p"].Value *
+                        (float)actor.Variables["SYS_follow_relx"].Value;
+                    actor.Y = owner.Y + (float)actor.Variables["SYS_follow_rely"].Value;
 
-                if (!IgnoreRotation)
-                {
-                    actor.Rotation = owner.Rotation;
+                    actor.X += owner.VX;
+                    actor.Y += owner.VY;
+
+                    actor.InversedDirection = actor.Owner.InversedDirection;
+                    if ((float)actor.Variables["SYS_follow_dir_p"].Value !=
+                        (float)actor.Variables["SYS_follow_dir_s"].Value)
+                    {
+                        actor.InversedDirection = !actor.InversedDirection;
+                    }
+
+                    if (!IgnoreRotation)
+                    {
+                        actor.Rotation = owner.Rotation;
+                    }
                 }
             }
             else
@@ -390,7 +396,7 @@ namespace GS_PatEditor.Pat.Effects
 
             var setRotation = ThisExpr.Instance.MakeIndex("rz").Assign(ownerActor.MakeIndex("rz")).Statement();
             ret.AddRange(new ILineObject[] {
-                new ControlBlock(ControlBlockType.If, "(ownerActor)", new ILineObject[] {
+                new ControlBlock(ControlBlockType.If, "(ownerActor)", OnlyCheckParent ? new ILineObject[0] : new ILineObject[] {
                     ThisExpr.Instance.MakeIndex("x").Assign(x).Statement(),
                     ThisExpr.Instance.MakeIndex("y").Assign(y).Statement(),
                     ThisExpr.Instance.MakeIndex("direction").Assign(dir).Statement(),
@@ -398,6 +404,7 @@ namespace GS_PatEditor.Pat.Effects
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
                         ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                        new SimpleLineObject("return true;"),
                 }).Statement(),
             });
 
@@ -423,7 +430,11 @@ namespace GS_PatEditor.Pat.Effects
         {
             if (r)
             {
-                return ThisExpr.Instance.MakeIndex("Release").Call().Statement();
+                return new SimpleBlock(new ILineObject[]
+                {
+                    ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                    new SimpleLineObject("return true;"),
+                }).Statement();
             }
             else if (s.HasValue)
             {

@@ -8,6 +8,37 @@ namespace GS_PatEditor.Editor.Exporters
 {
     static class ExportHelper
     {
+        public static void ReorderAnimation(GSPat.GSPatFile file)
+        {
+            List<int> oldIndex = new List<int>();
+            for (int i = 0; i < file.Animations.Count; ++i)
+            {
+                var a = file.Animations[i];
+                if (a.AnimationID != -2)
+                {
+                    oldIndex.Add(i);
+                }
+            }
+            var r = new Random();
+            var reorder = Enumerable.Range(0, oldIndex.Count)
+                .Select(ii => new { Index = ii, Rand = r.NextDouble() })
+                .OrderBy(gg => gg.Rand)
+                .Select(gg => gg.Index)
+                .Select(ii => oldIndex[ii])
+                .ToArray();
+            //reorder = oldIndex.ToArray();
+            var newList = new List<GSPat.Animation>();
+            foreach (var index in reorder)
+            {
+                int i = index;
+                do
+                {
+                    newList.Add(file.Animations[i]);
+                } while (++i < file.Animations.Count && file.Animations[i].AnimationID == -2);
+            }
+            file.Animations = newList;
+        }
+
         public static void ExportAnimation(GSPat.GSPatFile file, ImageListExporter images,
             Pat.Action action, int id)
         {
@@ -38,6 +69,7 @@ namespace GS_PatEditor.Editor.Exporters
                 file.Animations.Add(eAnimation);
             }
         }
+
         public static short ExportCancelLevel(Pat.CancelLevel value)
         {
             switch (value)

@@ -288,7 +288,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 AirCondition(skill.AirState),
                 XCondition(skill.X),
                 YCondition(skill.Y),
-                MagicCondition(skill.MagicUse),
+                MagicCondition(skill.MagicUse, exporter.UseCustomUseMagic),
                 RushCondition(exporter, skill));
             return new ControlBlock(isFirst ? ControlBlockType.If : ControlBlockType.ElseIf,
                 condition, new ILineObject[] {
@@ -352,6 +352,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
             {
                 return new ConstNumberExpr(1);
             }
+            if (value == CancelLevel.Jump)
+            {
+                return new CustomCodeExpr("(this.cancelLV <= 0 || this.flagState & 2097152)");
+            }
             short val = ExportHelper.ExportCancelLevel(value);
             if (isRush)
             {
@@ -360,11 +364,16 @@ namespace GS_PatEditor.Editor.Exporters.Player
             return ThisExpr.Instance.MakeIndex("C_Check").Call(new ConstNumberExpr(val));
         }
 
-        private static Expression MagicCondition(int value)
+        private static Expression MagicCondition(int value, bool useCustom)
         {
             if (value == 0)
             {
                 return new ConstNumberExpr(1);
+            }
+            if (useCustom)
+            {
+                return ThisExpr.Instance.MakeIndex("u").MakeIndex("UseMagic").MakeIndex("call")
+                    .Call(ThisExpr.Instance, new ConstNumberExpr(value));
             }
             return ThisExpr.Instance.MakeIndex("UseMagic").Call(new ConstNumberExpr(value));
         }

@@ -489,6 +489,79 @@ namespace GS_PatEditor.Pat.Behaviors
     }
 
     [Serializable]
+    public class EffectActorBehaviorEntryIncreaseSize : EffectSegmentBehaviorEntry
+    {
+        [XmlElement]
+        public float? X { get; set; }
+
+        [XmlElement]
+        public float? Y { get; set; }
+
+        public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
+        {
+            SimpleListEffect effect = new SimpleListEffect();
+            if (X.HasValue)
+            {
+                effect.EffectList.Add(new SetActorMemberEffect
+                {
+                    Type = ActorMemberType.sx,
+                    Value = new BinaryExpressionValue
+                    {
+                        Operator = BinaryOperator.Add,
+                        Left = new ActorMemberValue { Type = ActorMemberType.sx },
+                        Right = new ConstValue { Value = X.Value },
+                    },
+                });
+            }
+            if (Y.HasValue)
+            {
+                effect.EffectList.Add(new SetActorMemberEffect
+                {
+                    Type = ActorMemberType.sy,
+                    Value = new BinaryExpressionValue
+                    {
+                        Operator = BinaryOperator.Add,
+                        Left = new ActorMemberValue { Type = ActorMemberType.sy },
+                        Right = new ConstValue { Value = Y.Value },
+                    },
+                });
+            }
+            env.Dest.UpdateEffects.Add(new FilteredEffect
+            {
+                Filter = new AnimationSegmentFilter { Segment = env.Segment },
+                Effect = effect,
+            });
+        }
+    }
+
+    [Serializable]
+    public class EffectActorBehaviorEntryRotate : EffectSegmentBehaviorEntry
+    {
+        [XmlElement]
+        [EditorChildNode(null)]
+        public Value Speed;
+
+        public override void MakeEffects(EffectSegmentBehaviorEntryGenEnv env)
+        {
+            var effect = new SetActorMemberEffect
+            {
+                Type = ActorMemberType.rz,
+                Value = new BinaryExpressionValue
+                {
+                    Operator = BinaryOperator.Add,
+                    Left = new ActorMemberValue { Type = ActorMemberType.rz },
+                    Right = Speed,
+                },
+            };
+            env.Dest.UpdateEffects.Add(new FilteredEffect
+            {
+                Filter = new AnimationSegmentFilter { Segment = env.Segment },
+                Effect = effect,
+            });
+        }
+    }
+
+    [Serializable]
     [LocalizedClassDisplayName(typeof(EffectSegmentBehavior))]
     public class EffectSegmentBehavior : Behavior
     {
@@ -517,7 +590,7 @@ namespace GS_PatEditor.Pat.Behaviors
             }
             if (ReleaseWhenFinish)
             {
-                effect.EffectList.Add(new Effects.ReleaseActorEffect());
+                effect.EffectList.Add(new Effects.ReleaseActorEffect { GenerateReturnStatement = true });
             }
             var env = new EffectSegmentBehaviorEntryGenEnv
             {

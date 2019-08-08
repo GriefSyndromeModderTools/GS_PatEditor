@@ -22,10 +22,15 @@ namespace GS_PatEditor.Pat.Behaviors
         [LocalizedDescriptionAttribute("BulletInitBehavior_IgnoreCollisionTransform")]
         public bool IgnoreCollisionTransform { get; set; }
 
+        [XmlAttribute]
+        [DefaultValue(false)]
+        public bool ImmuneToTimeStop { get; set; }
+
         public override void MakeEffects(ActionEffects effects)
         {
             effects.InitEffects.Add(new BulletInitEffect());
             effects.InitEffects.Add(new InitCountEffect());
+            if (!ImmuneToTimeStop) effects.UpdateEffects.Add(new TimeStopCheckEffect());
             effects.UpdateEffects.Add(new IncreaseCountEffect());
             effects.SegmentFinishEffects.AddEffectToList(effects.SegmentCount - 1,
                 new Effects.ReleaseActorEffect());
@@ -40,17 +45,17 @@ namespace GS_PatEditor.Pat.Behaviors
             resetVars.EffectList.Add(new ActorSetFloatVariableEffect
             {
                 Name = vn_sx,
-                Value = new ActorMemberValue { Type = ActorMemberType.sx },
+                Value = new ConstValue { Value = 1 },
             });
             resetVars.EffectList.Add(new ActorSetFloatVariableEffect
             {
                 Name = vn_sy,
-                Value = new ActorMemberValue { Type = ActorMemberType.sy },
+                Value = new ConstValue { Value = 1 },
             });
             resetVars.EffectList.Add(new ActorSetFloatVariableEffect
             {
                 Name = vn_rz,
-                Value = new ActorMemberValue { Type = ActorMemberType.rz },
+                Value = new ConstValue { Value = 0 },
             });
             effects.InitEffects.Add(resetVars);
 

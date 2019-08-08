@@ -12,6 +12,7 @@ namespace GS_PatEditor.Pat.Effects
         public static FunctionBlock GenerateSharedFunction()
         {
             return new FunctionBlock("SYS_GetActorVariableHelper", new[] { "name" }, new ILineObject[] {
+                new SimpleLineObject("if (this == null) return 0;"),
                 new SimpleLineObject("if (!(\"variables\" in this.u)) this.u.variables <- {};"),
                 new SimpleLineObject("if (!(name in this.u.variables)) this.u.variables[name] <- 0;"),
                 new SimpleLineObject("return this.u.variables[name];"),

@@ -196,6 +196,8 @@ namespace GS_PatEditor.Pat.Effects
     [Serializable]
     public class ReleaseActorEffect : Effect
     {
+        public bool GenerateReturnStatement = false;
+
         public override void Run(Simulation.Actor actor)
         {
             actor.Release();
@@ -203,6 +205,14 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
+            if (GenerateReturnStatement)
+            {
+                return new SimpleBlock(new ILineObject[]
+                {
+                    ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
+                    new SimpleLineObject("return true;"),
+                }).Statement();
+            }
             return ThisExpr.Instance.MakeIndex("Release").Call().Statement();
         }
     }
@@ -527,6 +537,40 @@ namespace GS_PatEditor.Pat.Effects
         public override ILineObject Generate(GenerationEnvironment env)
         {
             return ThisExpr.Instance.MakeIndex("priority").Assign(new ConstNumberExpr(Value)).Statement();
+        }
+    }
+
+    [Serializable]
+    public class RotateBasedOnParentEffect : Effect
+    {
+        [XmlElement]
+        public float Rad { get; set; }
+
+        public override void Run(Simulation.Actor actor)
+        {
+            var dx = actor.X - actor.Owner.X;
+            var dy = actor.Y - actor.Owner.Y;
+            var s = (float)Math.Sin(Rad);
+            var c = (float)Math.Cos(Rad);
+            var nx = dx * c - dy * s;
+            var ny = dx * s + dy * c;
+            actor.X = actor.Owner.X + nx;
+            actor.Y = actor.Owner.Y + ny;
+        }
+
+        public override ILineObject Generate(GenerationEnvironment env)
+        {
+            var px = new LocalVarStatement("rbop_px", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr").MakeIndex("x"));
+            var py = new LocalVarStatement("rbop_py", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr").MakeIndex("y"));
+            return new SimpleBlock(new ILineObject[]
+            {
+                new LocalVarStatement("rbop_px", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr").MakeIndex("x")),
+                new LocalVarStatement("rbop_py", ActorVariableHelper.GenerateGet("SYS_parent").MakeIndex("wr").MakeIndex("y")),
+                new SimpleLineObject("local rbop_dx = this.x - rbop_px;"),
+                new SimpleLineObject("local rbop_dy = this.y - rbop_py;"),
+                new SimpleLineObject($"this.x = rbop_px + rbop_dx * this.cos({Rad}) - rbop_dy * this.sin({Rad});"),
+                new SimpleLineObject($"this.y = rbop_py + rbop_dy * this.cos({Rad}) + rbop_dx * this.sin({Rad});"),
+            }).Statement();
         }
     }
 }

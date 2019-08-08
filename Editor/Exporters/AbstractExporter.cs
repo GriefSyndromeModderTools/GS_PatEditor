@@ -94,6 +94,11 @@ namespace GS_PatEditor.Editor.Exporters
             return ret;
         }
 
+        protected void ExchangeAnimationOrder()
+        {
+            ExportHelper.ReorderAnimation(_OutputData);
+        }
+
         public virtual bool IsImageIDDirectlyUsed(string imageID)
         {
             return false;

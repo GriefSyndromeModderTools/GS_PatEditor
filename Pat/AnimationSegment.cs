@@ -18,6 +18,9 @@ namespace GS_PatEditor.Pat
         Heavy,
         Magic,
         Highest,
+
+        //jump is only for player skill
+        Jump,
     }
     [Serializable]
     public class AnimationSegment

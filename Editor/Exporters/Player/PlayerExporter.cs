@@ -85,6 +85,18 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public int PlayerFontType { get; set; }
 
         [XmlElement]
+        public bool UseCustomUseMagic { get; set; }
+
+        [XmlElement]
+        public bool NoPatTail { get; set; }
+
+        [XmlElement]
+        public int RandomRange { get; set; }
+
+        [XmlElement]
+        public bool ReorderAnimation { get; set; }
+
+        [XmlElement]
         public PlayerExporterAnimations Animations = new PlayerExporterAnimations();
 
         [XmlElement]
@@ -97,6 +109,10 @@ namespace GS_PatEditor.Editor.Exporters.Player
         private Dictionary<string, int> _GeneratedActionID = new Dictionary<string, int>();
         private int _NextFreeActionID;
         private SegmentStartEventRecorder _SSERecorder;
+
+        private List<int> _UnusedRandomID = new List<int>();
+        private int _RandomRangeCurrentStart;
+        private static Random _Rand = new Random();
 
         [XmlIgnore]
         [Browsable(false)]
@@ -132,6 +148,9 @@ namespace GS_PatEditor.Editor.Exporters.Player
             _SSERecorder = new SegmentStartEventRecorder();
 
             _NextFreeActionID = 20;
+            _RandomRangeCurrentStart = 20;
+            _UnusedRandomID.Clear();
+            FillRandomIDList();
 
             //init script
             var actorCommon = base.AddCodeFile("actorCommon.add.cv4");
@@ -160,10 +179,26 @@ namespace GS_PatEditor.Editor.Exporters.Player
 
             SkillGenerator.GenerateStartMotionFunction(_SSERecorder, playerScript);
 
-            ExportAction(Animations.Stand, 10000);
-            ExportAction(Animations.Stand, 10001);
-            ExportAction(Animations.Stand, 10002);
-            ExportAction(Animations.Stand, 10003);
+            if (!NoPatTail)
+            {
+                ExportAction(Animations.Stand, 10000);
+                ExportAction(Animations.Stand, 10001);
+                ExportAction(Animations.Stand, 10002);
+                ExportAction(Animations.Stand, 10003);
+            }
+
+            if (ReorderAnimation)
+            {
+                ExchangeAnimationOrder();
+            }
+        }
+
+        private void FillRandomIDList()
+        {
+            _UnusedRandomID.AddRange(Enumerable.Range(0, RandomRange)
+                .Select(ii => new { Index = ii, Rand = _Rand.NextDouble() })
+                .OrderBy(gg => gg.Rand)
+                .Select(gg => gg.Index));
         }
 
         private void ExportAction(string name, int id)
@@ -278,7 +313,20 @@ namespace GS_PatEditor.Editor.Exporters.Player
             {
                 return ret;
             }
-            ret = _NextFreeActionID++;
+            if (RandomRange == 0)
+            {
+                ret = _NextFreeActionID++;
+            }
+            else
+            {
+                if (_UnusedRandomID.Count == 0)
+                {
+                    _RandomRangeCurrentStart += RandomRange;
+                    FillRandomIDList();
+                }
+                ret = _UnusedRandomID[_UnusedRandomID.Count - 1] + _RandomRangeCurrentStart;
+                _UnusedRandomID.RemoveAt(_UnusedRandomID.Count - 1);
+            }
             ExportAction(name, ret);
             _GeneratedActionID.Add(name, ret);
             return ret;

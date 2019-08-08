@@ -32,6 +32,9 @@ namespace GS_PatEditor.Pat.Behaviors
         [LocalizedDescriptionAttribute("EffectFollowParentBehavior_SegmentCheckFailed")]
         public int? SegmentCheckFailed { get; set; }
 
+        [XmlAttribute]
+        public bool OnlyCheckParent { get; set; }
+
         public override void MakeEffects(ActionEffects effects)
         {
             effects.SegmentStartEffects.AddEffectToList(Segment, new Effects.BulletFollowingOwnerInitEffect
@@ -47,6 +50,7 @@ namespace GS_PatEditor.Pat.Behaviors
                     FailIfParentMotionChanged = FailIfParentMotionChanged,
                     ReleaseIfCheckFailed = ReleaseIfCheckFailed,
                     SegmentCheckFailed = SegmentCheckFailed,
+                    OnlyCheckParent = OnlyCheckParent,
                 },
             });
         }

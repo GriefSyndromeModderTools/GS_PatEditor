@@ -14,10 +14,15 @@ namespace GS_PatEditor.Pat.Behaviors
     [LocalizedClassDisplayName(typeof(EffectInitBehavior))]
     public class EffectInitBehavior : Behavior
     {
+        [XmlAttribute]
+        [DefaultValue(false)]
+        public bool ImmuneToTimeStop { get; set; }
+
         public override void MakeEffects(ActionEffects effects)
         {
             effects.InitEffects.Add(new BulletInitEffect());
             effects.InitEffects.Add(new InitCountEffect());
+            if (!ImmuneToTimeStop) effects.UpdateEffects.Add(new TimeStopCheckEffect());
             effects.UpdateEffects.Add(new IncreaseCountEffect());
             effects.SegmentFinishEffects.AddEffectToList(effects.SegmentCount - 1,
                 new Effects.ReleaseActorEffect());
