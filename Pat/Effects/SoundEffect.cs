@@ -22,7 +22,7 @@ namespace GS_PatEditor.Pat.Effects
 
         public override ILineObject Generate(GenerationEnvironment env)
         {
-            return ThisExpr.Instance.MakeIndex("PlaySE").Call(new ConstNumberExpr(Index)).Statement();
+            return new CustomCodeExpr(env.GetPlaySEFunctionName()).Call(new ConstNumberExpr(Index)).Statement();
         }
     }
 }

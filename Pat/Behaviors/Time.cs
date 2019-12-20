@@ -64,6 +64,8 @@ namespace GS_PatEditor.Pat.Behaviors
         [XmlElement]
         [LocalizedDescriptionAttribute("TimeRepeat_Interval")]
         public int Interval { get; set; }
+        [XmlElement]
+        public int Offset { get; set; }
 
         public override void MakeEffects(ActionEffects dest, Effect effect)
         {
@@ -72,7 +74,7 @@ namespace GS_PatEditor.Pat.Behaviors
             {
                 dest.UpdateEffects.Add(new FilteredEffect()
                 {
-                    Filter = new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = 0 } },
+                    Filter = new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = Offset } },
                     Effect = effect,
                 });
             }
@@ -82,7 +84,7 @@ namespace GS_PatEditor.Pat.Behaviors
                 {
                     Filter = new SimpleListFilter(
                         new Effects.AnimationSegmentFilter { Segment = Segment },
-                        new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = 0 } }
+                        new Effects.AnimationCountModFilter { Divisor = interval, Mod = new ConstValue { Value = Offset } }
                     ),
                     Effect = effect,
                 });

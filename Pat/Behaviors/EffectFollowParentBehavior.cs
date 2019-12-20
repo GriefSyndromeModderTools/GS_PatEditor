@@ -35,6 +35,9 @@ namespace GS_PatEditor.Pat.Behaviors
         [XmlAttribute]
         public bool OnlyCheckParent { get; set; }
 
+        [XmlAttribute]
+        public bool IgnoreRotation { get; set; }
+
         public override void MakeEffects(ActionEffects effects)
         {
             effects.SegmentStartEffects.AddEffectToList(Segment, new Effects.BulletFollowingOwnerInitEffect
@@ -51,6 +54,7 @@ namespace GS_PatEditor.Pat.Behaviors
                     ReleaseIfCheckFailed = ReleaseIfCheckFailed,
                     SegmentCheckFailed = SegmentCheckFailed,
                     OnlyCheckParent = OnlyCheckParent,
+                    IgnoreRotation = IgnoreRotation,
                 },
             });
         }

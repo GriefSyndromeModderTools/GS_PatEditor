@@ -15,7 +15,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
             output.WriteStatement(GenerateBeginAirJump(exporter, proj).Statement());
             if (exporter.PlayerInformation.FallAttack)
             {
-                output.WriteStatement(GenerateBeginAttackFall().Statement());
+                output.WriteStatement(GenerateBeginAttackFall(exporter).Statement());
                 output.WriteStatement(GenerateAttackFall().Statement());
                 output.WriteStatement(GenerateHitAttackFall().Statement());
             }
@@ -49,7 +49,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     new SimpleLineObject("this.isAir = true;"),
                     new SimpleLineObject("this.collisionMask = 8 | 16;"),
                     new SimpleLineObject("this.vy = -15.0;"),
-                    new SimpleLineObject("this.PlaySE(1000);"),
+                    new SimpleLineObject($"{exporter.GetPlaySEName()}(1000);"),
                     new ControlBlock(ControlBlockType.If, "this.input.x * this.input.x >= 0.01", new ILineObject[] {
                         new SimpleLineObject("this.vx = this.input.x >= 0.1 ? 4.0 : -4.0;"),
                         new SimpleLineObject("this.direction = this.input.x >= 0.1 ? 1.0 : -1.0;"),
@@ -86,7 +86,7 @@ namespace GS_PatEditor.Editor.Exporters.Player
                     new SimpleLineObject("this.isAir = true;"),
                     new SimpleLineObject("this.collisionMask = 8 | 16;"),
                     new SimpleLineObject("this.vy = -15.0;"),
-                    new SimpleLineObject("this.PlaySE(1000);"),
+                    new SimpleLineObject($"{exporter.GetPlaySEName()}(1000);"),
 
                     new ControlBlock(ControlBlockType.If, "this.input.x * this.input.x >= 0.01", new ILineObject[] {
                         new SimpleLineObject("this.vx = this.input.x >= 0.1 ? 4.0 : -4.0;"),
@@ -155,11 +155,11 @@ namespace GS_PatEditor.Editor.Exporters.Player
             }.Concat(SkillGenerator.GenerateInputAttackFunction(exporter)));
         }
 
-        private static FunctionBlock GenerateBeginAttackFall()
+        private static FunctionBlock GenerateBeginAttackFall(PlayerExporter exporter)
         {
             return new FunctionBlock("BeginAttackFall", new string[0], new ILineObject[] {
 	            new SimpleLineObject("this.LabelClear();"),
-	            new SimpleLineObject("this.PlaySE(1002);"),
+	            new SimpleLineObject($"{exporter.GetPlaySEName()}(1002);"),
 	            new SimpleLineObject("this.SetMotion(this.u.CA + 9, 0);"),
 	            new SimpleLineObject("this.vx = 0.0;"),
 	            new SimpleLineObject("this.vy = 15.0;"),

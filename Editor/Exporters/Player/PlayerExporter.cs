@@ -88,6 +88,9 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public bool UseCustomUseMagic { get; set; }
 
         [XmlElement]
+        public bool UseCustomPlaySE { get; set; }
+
+        [XmlElement]
         public bool NoPatTail { get; set; }
 
         [XmlElement]
@@ -335,6 +338,11 @@ namespace GS_PatEditor.Editor.Exporters.Player
         public Pat.Action GetAction(string name)
         {
             return _Project.Actions.FirstOrDefault(a => a.ActionID == name);
+        }
+
+        public string GetPlaySEName()
+        {
+            return UseCustomPlaySE ? "this.u.uu.uuu.PlaySE" : "this.PlaySE";
         }
 
         [XmlIgnore]

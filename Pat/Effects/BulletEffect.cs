@@ -196,7 +196,7 @@ namespace GS_PatEditor.Pat.Effects
                     alpha.Assign(new BiOpExpr(alpha, val, BiOpExpr.Op.Minus)).Statement(),
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
-                    BulletEffectHelper.GenerateEnd(Release, SegmentAfterFinish),
+                    BulletEffectHelper.GenerateEnd(env, Release, SegmentAfterFinish),
                 }).Statement(),
             }).Statement();
         }
@@ -341,7 +341,8 @@ namespace GS_PatEditor.Pat.Effects
             }
             else
             {
-                actor.Release();
+                BulletEffectHelper.SimulateEnd(actor, ReleaseIfCheckFailed, SegmentCheckFailed);
+                return;
             }
         }
 
@@ -376,7 +377,7 @@ namespace GS_PatEditor.Pat.Effects
                 cond = new BiOpExpr(new CustomCodeExpr("(!ownerActor)"), cond, BiOpExpr.Op.Or);
                 ret.Add(new ControlBlock(ControlBlockType.If, cond,
                     new ILineObject[] {
-                        BulletEffectHelper.GenerateEnd(ReleaseIfCheckFailed, SegmentCheckFailed),
+                        BulletEffectHelper.GenerateEnd(env, ReleaseIfCheckFailed, SegmentCheckFailed),
                     }).Statement());
             }
 
@@ -403,8 +404,7 @@ namespace GS_PatEditor.Pat.Effects
                     IgnoreRotation ? new SimpleLineObject("") : setRotation,
                 }).Statement(),
                 new ControlBlock(ControlBlockType.Else, new ILineObject[] {
-                        ThisExpr.Instance.MakeIndex("Release").Call().Statement(),
-                        new SimpleLineObject("return true;"),
+                        BulletEffectHelper.GenerateEnd(env, ReleaseIfCheckFailed, SegmentCheckFailed),
                 }).Statement(),
             });
 
@@ -426,7 +426,7 @@ namespace GS_PatEditor.Pat.Effects
             }
         }
 
-        public static ILineObject GenerateEnd(bool r, int? s)
+        public static ILineObject GenerateEnd(GenerationEnvironment env, bool r, int? s)
         {
             if (r)
             {
@@ -438,7 +438,7 @@ namespace GS_PatEditor.Pat.Effects
             }
             else if (s.HasValue)
             {
-                return new SimpleLineObject("this.SetMotion(this.motion, " + s.Value + ");");
+                return SetMotionEffectHelper.GenerateNoPostfix(env, new SimpleLineObject("this.SetMotion(this.motion, " + s.Value + ");"));
             }
             else
             {

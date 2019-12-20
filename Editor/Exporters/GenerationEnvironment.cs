@@ -18,5 +18,6 @@ namespace GS_PatEditor.Editor.Exporters
         void AddFunctionAlias(string newName, string oldName);
         string CreateNewFunctionName();
         string GetSkillFunctionForAction(string name);
+        string GetPlaySEFunctionName();
     }
 }

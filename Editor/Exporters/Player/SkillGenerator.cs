@@ -152,6 +152,11 @@ namespace GS_PatEditor.Editor.Exporters.Player
                 _AliasForActionFunc.Add(ret, name);
                 return ret;
             }
+
+            public string GetPlaySEFunctionName()
+            {
+                return Exporter.GetPlaySEName();
+            }
         }
 
         public static ILineObject[] GenerateInputAttackFunction(PlayerExporter exporter)

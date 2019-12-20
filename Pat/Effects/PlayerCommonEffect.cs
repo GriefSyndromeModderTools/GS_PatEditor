@@ -21,8 +21,6 @@ namespace GS_PatEditor.Pat.Effects
             actor.FallLabel = null;
             actor.EndKeyFrameLabel = new Simulation.ActorLabel[0];
             actor.HitEvent = null;
-
-            actor.Variables.Clear();
         }
 
         public override ILineObject Generate(GenerationEnvironment env)
