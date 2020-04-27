@@ -320,6 +320,22 @@ namespace GS_PatEditor.Render
 
         private void FlushBuffer()
         {
+            WriteInternalData();
+
+            var stream = _Buffer.Lock(0, 0, LockFlags.Discard);
+            stream.Write(_internalData[0]);
+            stream.Write(_internalData[1]);
+            stream.Write(_internalData[2]);
+            stream.Write(_internalData[3]);
+            stream.Dispose();
+
+            _Buffer.Unlock();
+        }
+
+        private Vertex[] _internalData = new Vertex[4];
+
+        private void WriteInternalData()
+        {
             float t_l, t_t, t_r, t_b;
 
             float x = Left, y = Top;
@@ -355,37 +371,58 @@ namespace GS_PatEditor.Render
                 t_b *= sy;
             }
 
-            var stream = _Buffer.Lock(0, 0, LockFlags.Discard);
-
             //apply rotation
 
-            stream.Write(new Vertex
+            _internalData[0] = (new Vertex
             {
                 pos = MakePosition(x, y, t_l, t_t),
                 tex = new Vector4(0.0f, 0.0f, 0.0f, 0.0f),
                 col = Color,
             });
-            stream.Write(new Vertex
+            _internalData[1] = (new Vertex
             {
                 pos = MakePosition(x, y, t_r, t_t),
                 tex = new Vector4(_RepeatX, 0.0f, 0.0f, 0.0f),
                 col = Color,
             });
-            stream.Write(new Vertex
+            _internalData[2] = (new Vertex
             {
                 pos = MakePosition(x, y, t_l, t_b),
                 tex = new Vector4(0.0f, _RepeatY, 0.0f, 0.0f),
                 col = Color,
             });
-            stream.Write(new Vertex
+            _internalData[3] = (new Vertex
             {
                 pos = MakePosition(x, y, t_r, t_b),
                 tex = new Vector4(_RepeatX, _RepeatY, 0.0f, 0.0f),
                 col = Color,
             });
-            stream.Dispose();
+        }
 
-            _Buffer.Unlock();
+        public string GetSpriteBufferAsCommand()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var v in _internalData)
+            {
+                sb.Append("V ");
+                sb.Append(v.pos.X);
+                sb.Append(' ');
+                sb.Append(v.pos.Y);
+                sb.Append(' ');
+                sb.Append(v.col.X);
+                sb.Append(' ');
+                sb.Append(v.col.Y);
+                sb.Append(' ');
+                sb.Append(v.col.Z);
+                sb.Append(' ');
+                sb.Append(v.col.W);
+                sb.Append(' ');
+                sb.Append(v.tex.X);
+                sb.Append(' ');
+                sb.Append(v.tex.Y);
+                sb.AppendLine();
+            }
+            return sb.ToString();
         }
 
         private Vector4 MakePosition(float x, float y, float tx, float ty)

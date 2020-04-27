@@ -2,6 +2,7 @@
 using GS_PatEditor.Render;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,9 @@ namespace GS_PatEditor.Editor.Panels
         private readonly Editor _Parent;
 
         private Sprite _Sprite;
+
+        private static readonly bool _RecordRenderCommand = Environment.GetCommandLineArgs().Contains("-recordrendering");
+        private static StreamWriter _Recorder;
 
         private class PatProjectAnimationProvider : Simulation.AnimationProvider
         {
@@ -81,11 +85,17 @@ namespace GS_PatEditor.Editor.Panels
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private bool _pause = false;
+
         public override void Render()
         {
             try
             {
-                _World.Update();
+                if (!_pause)
+                {
+                    _World.Update();
+                }
+                RecorderFrameBegin();
 
                 var window = _Parent.PreviewWindowUI;
                 foreach (var actor in _World.OrderBy(a => a.Priority))
@@ -98,14 +108,40 @@ namespace GS_PatEditor.Editor.Panels
                         {
                             _Sprite.SetupActor(txt, actor, window.SpriteMoving);
                             _Sprite.Render();
+                            RecorderSprite(frame.ImageID);
                         }
                     }
                 }
+
+                RecorderFrameEnd();
             }
             catch
             {
                 PlayerError();
             }
+        }
+
+        private void RecorderFrameBegin()
+        {
+            if (!_RecordRenderCommand) return;
+            if (_Recorder == null)
+            {
+                _Recorder = File.AppendText("rendering.txt");
+            }
+            _Recorder.WriteLine("F");
+        }
+
+        private void RecorderSprite(string tex)
+        {
+            if (!_RecordRenderCommand) return;
+            _Recorder.WriteLine("S {0}", tex);
+            _Recorder.Write(_Sprite.GetSpriteBufferAsCommand());
+        }
+
+        private void RecorderFrameEnd()
+        {
+            if (!_RecordRenderCommand) return;
+            _Recorder.Flush();
         }
     }
 }
