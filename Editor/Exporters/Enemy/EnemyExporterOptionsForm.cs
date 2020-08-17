@@ -29,28 +29,22 @@ namespace GS_PatEditor.Editor.Exporters.Enemy
 
             treeView1.Nodes.Add(new TreeNode
             {
-                Text = PlayerExporterRes.Item_ExportOptions,
+                Text = EnemyExporterRes.Item_ExportOptions,
                 Tag = exporter,
             });
 
-            //treeView1.Nodes.Add(new TreeNode
-            //{
-            //    Text = PlayerExporterRes.Item_SystemAnimations,
-            //    Tag = exporter.Animations,
-            //});
-            //
-            //treeView1.Nodes.Add(new TreeNode
-            //{
-            //    Text = PlayerExporterRes.Item_PlayerInformation,
-            //    Tag = exporter.PlayerInformation,
-            //});
-
-            //var skills = new TreeNode
-            //{
-            //    Text = PlayerExporterRes.Item_Skills,
-            //};
-            //treeView1.Nodes.Add(skills);
-            //skills.Nodes.AddEditableList(env, exporter.Skills);
+            treeView1.Nodes.Add(new TreeNode
+            {
+                Text = EnemyExporterRes.Item_SystemAnimations,
+                Tag = exporter.Animations,
+            });
+            
+            var skills = new TreeNode
+            {
+                Text = EnemyExporterRes.Item_ActionLists,
+            };
+            treeView1.Nodes.Add(skills);
+            skills.Nodes.AddEditableList(env, exporter.ActionLists);
         }
     }
 }

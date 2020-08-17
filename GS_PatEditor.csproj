@@ -132,6 +132,9 @@
     <Compile Include="Editor\Exporters\CodeFormat\Statement.cs" />
     <Compile Include="Editor\Exporters\CodeFormat\TextWriterExt.cs" />
     <Compile Include="Editor\Exporters\CodeGenerator.cs" />
+    <Compile Include="Editor\Exporters\Enemy\AbstractActionListItem.cs" />
+    <Compile Include="Editor\Exporters\Enemy\ActionList.cs" />
+    <Compile Include="Editor\Exporters\Enemy\ActionListItemList.cs" />
     <Compile Include="Editor\Exporters\Enemy\EnemyExporter.cs" />
     <Compile Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +142,7 @@
     <Compile Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.Designer.cs">
       <DependentUpon>EnemyExporterOptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\Exporters\Enemy\SkillAction.cs" />
     <Compile Include="Editor\Exporters\ExportHelper.cs" />
     <Compile Include="Editor\Exporters\GenerationEnvironment.cs" />
     <Compile Include="Editor\Exporters\ImageListExporter.cs" />
@@ -232,6 +236,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EnumNameRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\EnemyExporterRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnemyExporterRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Localization\FormCodeRes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -544,6 +553,11 @@
       <LastGenOutput>EnumNameRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\Elements\EnumNameRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\EnemyExporterRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnemyExporterRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\EnemyExporterRes.zh-CN.resx" />
     <EmbeddedResource Include="Localization\FormCodeRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FormCodeRes.Designer.cs</LastGenOutput>
