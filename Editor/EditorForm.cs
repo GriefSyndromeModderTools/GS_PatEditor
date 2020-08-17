@@ -1,4 +1,5 @@
-﻿using GS_PatEditor.Editor.Exporters.Player;
+﻿using GS_PatEditor.Editor.Exporters.Enemy;
+using GS_PatEditor.Editor.Exporters.Player;
 using GS_PatEditor.Localization;
 using System;
 using System.Collections.Generic;
@@ -796,6 +797,14 @@ namespace GS_PatEditor.Editor
             if (!_Editor.Project.IsEmptyProject)
             {
                 _Editor.Project.Exporter = new PlayerExporter();
+            }
+        }
+
+        private void enemyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!_Editor.Project.IsEmptyProject)
+            {
+                _Editor.Project.Exporter = new EnemyExporter();
             }
         }
 

@@ -1,0 +1,47 @@
+﻿一次性技能
+	检测flagState
+		设置初始状态，return false
+	否则return true
+持续性技能
+	检测flagState
+		如果不是目标动画
+			设置初始状态
+	统一return true
+
+
+一次性技能改进
+	设置技能id
+	检测flagState
+		设置初始状态
+		return false
+	否则
+		return true
+持续性技能改进
+	检测技能id，若为不同技能
+		清除flag
+	设置技能id
+	检测flagState
+		检测flag，若未设置
+			设置初始状态
+			设置flag
+	return true
+
+
+不管是一次性还是持续性，都可以直接应用time
+
+
+
+行动列表
+	行动列表项
+
+行动列表项：多重选择
+	多重选择项（继承行动列表）
+		属性：权重
+
+行动列表项：条件
+	条件项
+	内容（行动列表）
+
+行动列表项：行动（技能）
+	属性：技能名
+	可选表达式：持续时间

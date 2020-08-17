@@ -132,6 +132,13 @@
     <Compile Include="Editor\Exporters\CodeFormat\Statement.cs" />
     <Compile Include="Editor\Exporters\CodeFormat\TextWriterExt.cs" />
     <Compile Include="Editor\Exporters\CodeGenerator.cs" />
+    <Compile Include="Editor\Exporters\Enemy\EnemyExporter.cs" />
+    <Compile Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.Designer.cs">
+      <DependentUpon>EnemyExporterOptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\Exporters\ExportHelper.cs" />
     <Compile Include="Editor\Exporters\GenerationEnvironment.cs" />
     <Compile Include="Editor\Exporters\ImageListExporter.cs" />
@@ -183,6 +190,7 @@
       <DependentUpon>ProjectDirectoryEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\RecentFileList.cs" />
+    <Compile Include="GSPat\GSPatCompare.cs" />
     <Compile Include="GSPat\GSPatWriter.cs" />
     <Compile Include="GSPat\ImageManager.cs" />
     <Compile Include="Localization\EditableTreeViewRes.Designer.cs">
@@ -448,6 +456,12 @@
     <EmbeddedResource Include="Editor\EffectListEditForm.resx">
       <DependentUpon>EffectListEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.resx">
+      <DependentUpon>EnemyExporterOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Exporters\Enemy\EnemyExporterOptionsForm.zh-CN.resx">
+      <DependentUpon>EnemyExporterOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\Exporters\Player\PlayerExporterOptionsForm.zh-CN.resx">
       <DependentUpon>PlayerExporterOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -590,6 +604,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Editor\Exporters\Enemy\Note.txt" />
     <Content Include="PatEditor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

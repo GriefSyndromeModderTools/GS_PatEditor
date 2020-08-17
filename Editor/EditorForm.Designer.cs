@@ -45,6 +45,7 @@
             this.toolStripButtonExporter = new System.Windows.Forms.ToolStripDropDownButton();
             this.createExporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enemyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editExporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeExporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonExport = new System.Windows.Forms.ToolStripDropDownButton();
@@ -278,7 +279,8 @@
             // createExporterToolStripMenuItem
             // 
             this.createExporterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.playerToolStripMenuItem});
+            this.playerToolStripMenuItem,
+            this.enemyToolStripMenuItem});
             this.createExporterToolStripMenuItem.Name = "createExporterToolStripMenuItem";
             resources.ApplyResources(this.createExporterToolStripMenuItem, "createExporterToolStripMenuItem");
             // 
@@ -287,6 +289,12 @@
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
             resources.ApplyResources(this.playerToolStripMenuItem, "playerToolStripMenuItem");
             this.playerToolStripMenuItem.Click += new System.EventHandler(this.playerToolStripMenuItem_Click);
+            // 
+            // enemyToolStripMenuItem
+            // 
+            this.enemyToolStripMenuItem.Name = "enemyToolStripMenuItem";
+            resources.ApplyResources(this.enemyToolStripMenuItem, "enemyToolStripMenuItem");
+            this.enemyToolStripMenuItem.Click += new System.EventHandler(this.enemyToolStripMenuItem_Click);
             // 
             // editExporterToolStripMenuItem
             // 
@@ -1073,5 +1081,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ToolStripMenuItem cloneHitBoxFromToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enemyToolStripMenuItem;
     }
 }
